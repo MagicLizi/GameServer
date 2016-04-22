@@ -1,0 +1,161 @@
+<div>
+    说明：算番器：<br />
+    1-9: 表示一万到九万； <br />
+    10-13: 表示东南西北；  <br />
+    14-16: 表示中发白；<br />
+    碰牌表示方式: 1;2 表示碰一万和两万。 <br />
+    杠牌表示方式: 1;2 表示杠一万和两万。 <br />
+    顺子表示方式: 2,3,4;3,4,5  表示二三四万组成的顺子和三四五万组成的顺子，以分号分割两组。  <br />
+    多组碰，杠，单牌间以逗号分割。 <br />
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="4">算番器</td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">是否是庄家</td>
+            <td class="data">
+                <input type="radio" name="is_banker" id="is_banker1" <%if(result.is_banker == "1"){%>checked="checked"<%}%> value="1" />
+                是
+                <input type="radio" name="is_banker" id="is_banker2" <%if(result.is_banker == "0"){%>checked="checked"<%}%> value="0" />
+                否
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">是否报听了</td>
+            <td class="data">
+                <input type="radio" name="is_baoTing" id="is_baoTing1" <%if(result.is_baoTing == "1"){%>checked="checked"<%}%> value="1" />
+                是
+                <input type="radio" name="is_baoTing" id="is_baoTing2" <%if(result.is_baoTing == "0"){%>checked="checked"<%}%> value="0" />
+                否
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">当前圈风</td>
+            <td class="data">
+                <input type="radio" name="wind_type" id="radio1" <%if(result.wind_type == "1"){%>checked="checked"<%}%> value="1" />
+                东
+                <input type="radio" name="wind_type" id="radio2" <%if(result.wind_type == "2"){%>checked="checked"<%}%> value="2" />
+                南
+                <input type="radio" name="wind_type" id="radio3" <%if(result.wind_type == "3"){%>checked="checked"<%}%> value="3" />
+                西
+                <input type="radio" name="wind_type" id="radio4" <%if(result.wind_type == "4"){%>checked="checked"<%}%> value="4" />
+                北
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">当前打牌状态</td>
+            <td class="data">
+                <input type="radio" name="state_type" id="radio5" <%if(result.state_type == "1"){%>checked="checked"<%}%> value="1" />
+                处理对方牌
+                <input type="radio" name="state_type" id="radio6" <%if(result.state_type == "3"){%>checked="checked"<%}%> value="3" />
+                处理己方牌
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">报听回合</td>
+            <td class="data">
+                <select name="ting_round" id="ting_round">
+                    <option <%if(result.ting_round == "0"){%>selected="selected"<%}%> value=0>0</option>
+                    <option <%if(result.ting_round == "1"){%>selected="selected"<%}%> value=1>1</option>
+                    <option <%if(result.ting_round == "2"){%>selected="selected"<%}%> value=2>2</option>
+                    <option <%if(result.ting_round == "3"){%>selected="selected"<%}%> value=3>2+</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">出牌回合数</td>
+            <td class="data">
+                <select name="round_count" id="round_count">
+                    <option <%if(result.round_count == "0"){%>selected="selected"<%}%> value=0>0</option>
+                    <option <%if(result.round_count == "1"){%>selected="selected"<%}%> value=1>1</option>
+                    <option <%if(result.round_count == "2"){%>selected="selected"<%}%>value=2>2</option>
+                    <option <%if(result.round_count == "3"){%>selected="selected"<%}%>value=3>3</option>
+                    <option <%if(result.round_count == "4"){%>selected="selected"<%}%>value=4>4</option>
+                    <option <%if(result.round_count == "5"){%>selected="selected"<%}%>value=5>5</option>
+                    <option <%if(result.round_count == "6"){%>selected="selected"<%}%>value=6>6</option>
+                    <option <%if(result.round_count == "7"){%>selected="selected"<%}%>value=7>7</option>
+                    <option <%if(result.round_count == "8"){%>selected="selected"<%}%>value=8>8</option>
+                    <option <%if(result.round_count == "9"){%>selected="selected"<%}%>value=9>9</option>
+                    <option <%if(result.round_count == "10"){%>selected="selected"<%}%>value=10>10+</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">剩余牌数</td>
+            <td class="data">
+                <select name="left_count" id="left_count">
+                    <option <%if(result.left_count == "0"){%>selected="selected"<%}%> value=0>0</option>
+                    <option <%if(result.left_count == "1"){%>selected="selected"<%}%> value=1>1</option>
+                    <option <%if(result.left_count == "2"){%>selected="selected"<%}%> value=2>2</option>
+                    <option <%if(result.left_count == "3"){%>selected="selected"<%}%> value=3>3</option>
+                    <option <%if(result.left_count == "4"){%>selected="selected"<%}%> value=4>4</option>
+                    <option <%if(result.left_count == "5"){%>selected="selected"<%}%> value=5>5</option>
+                    <option <%if(result.left_count == "6"){%>selected="selected"<%}%> value=6>6</option>
+                    <option <%if(result.left_count == "7"){%>selected="selected"<%}%> value=7>7</option>
+                    <option <%if(result.left_count == "8"){%>selected="selected"<%}%> value=8>8</option>
+                    <option <%if(result.left_count == "9"){%>selected="selected"<%}%> value=9>9</option>
+                    <option <%if(result.left_count == "10"){%>selected="selected"<%}%> value=10>10</option>
+                    <option <%if(result.left_count == "11"){%>selected="selected"<%}%> value=11>11</option>
+                    <option <%if(result.left_count == "12"){%>selected="selected"<%}%> value=12>12</option>
+                    <option <%if(result.left_count == "13"){%>selected="selected"<%}%> value=13>13</option>
+                    <option <%if(result.left_count == "14"){%>selected="selected"<%}%> value=14>14</option>
+                    <option <%if(result.left_count == "15"){%>selected="selected"<%}%> value=15>15</option>
+                    <option <%if(result.left_count == "16"){%>selected="selected"<%}%> value=16>16</option>
+                    <option <%if(result.left_count == "17"){%>selected="selected"<%}%> value=17>17</option>
+                    <option <%if(result.left_count == "18"){%>selected="selected"<%}%> value=18>18</option>
+                    <option <%if(result.left_count == "19"){%>selected="selected"<%}%> value=19>19</option>
+                    <option <%if(result.left_count == "20"){%>selected="selected"<%}%> value=20>20</option>
+                    <option <%if(result.left_count == "21"){%>selected="selected"<%}%> value=21>21</option>
+                    <option <%if(result.left_count == "22"){%>selected="selected"<%}%> value=22>22</option>
+                    <option <%if(result.left_count == "23"){%>selected="selected"<%}%> value=23>23</option>
+                    <option <%if(result.left_count == "24"){%>selected="selected"<%}%> value=24>24</option>
+                    <option <%if(result.left_count == "25"){%>selected="selected"<%}%> value=25>25</option>
+                    <option <%if(result.left_count == "26"){%>selected="selected"<%}%> value=26>26</option>
+                    <option <%if(result.left_count == "27"){%>selected="selected"<%}%> value=27>27</option>
+                    <option <%if(result.left_count == "28"){%>selected="selected"<%}%> value=28>28</option>
+                    <option <%if(result.left_count == "29"){%>selected="selected"<%}%> value=29>29</option>
+                    <option <%if(result.left_count == "30"){%>selected="selected"<%}%> value=30>30</option>
+                    <option <%if(result.left_count == "31"){%>selected="selected"<%}%> value=31>31</option>
+                    <option <%if(result.left_count == "32"){%>selected="selected"<%}%> value=32>32</option>
+                    <option <%if(result.left_count == "33"){%>selected="selected"<%}%> value=33>33</option>
+                    <option <%if(result.left_count == "34"){%>selected="selected"<%}%> value=34>34</option>
+                    <option <%if(result.left_count == "35"){%>selected="selected"<%}%> value=35>35</option>
+                    <option <%if(result.left_count == "36"){%>selected="selected"<%}%> value=36>36</option>
+                    <option <%if(result.left_count == "37"){%>selected="selected"<%}%> value=37>37</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="data">最后获得的牌</td>
+            <td class="data"><input type="text" name="last_card" id="last_card" value="<%-result.last_card%>" /></td>
+        </tr>
+        <tr>
+            <td class="data" style="width: 300px">手中的麻将</td>
+            <td class="data"><input type="text" name="hand_cards" style="width: 300px" id="hand_cards" value="<%-result.hand_cards%>" /></td>
+        </tr>
+        <tr>
+            <td class="data">明杠</td>
+            <td class="data"><input type="text" name="ling_gang" style="width: 300px" id="ling_gang" value="<%-result.ling_gang%>" /></td>
+        </tr>
+        <tr>
+            <td class="data">暗杠</td>
+            <td class="data"><input type="text" name="dark_gang" style="width: 300px" id="dark_gang" value="<%-result.dark_gang%>" /></td>
+        </tr>
+        <tr>
+            <td class="data">刻子</td>
+            <td class="data"><input type="text" name="keZi_cards" style="width: 300px" id="keZi_cards" value="<%-result.keZi_cards%>" /></td>
+        </tr>
+        <tr>
+            <td class="data">顺子</td>
+            <td class="data"><input type="text" name="shunZi_cards" style="width: 300px" id="shunZi_cards" value="<%-result.shunZi_cards%>" /></td>
+        </tr>
+    </table>
+    <tr>
+        <td colspan="4" align="center"><input type="submit" name="submit" id="submit" value="提交" /></td>
+    </tr>
+</form>

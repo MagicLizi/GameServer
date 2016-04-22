@@ -1,0 +1,108 @@
+
+<div class="pagetitle">
+    <a href="/Dungeon/edit?id=<%-result[0].Dungeon_Id%>">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+    <table id="StageDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                关卡编号
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Id" id="Stage_Id" value="<%-result[0].Stage_Id%>" />
+                <input type="text" name="Dungeon_Id" id="Dungeon_Id" value="<%-result[0].Dungeon_Id%>" style="visibility: hidden"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡名称
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Name" id="Stage_Name" value="<%-result[0].Stage_Name%>" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                体力消耗
+            </td>
+            <td class="data">
+                <input type="text" name="Stamina_Expend" id="Stamina_Expend" value="<%-result[0].Stamina_Expend%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡描述
+            </td>
+            <td class="data">
+                <textarea name="Stage_Description" id="Stage_Description" value="<%-result[0].Stage_Description%>" wrap="virtual" rows="5"></textarea>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡顺序
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Order" id="Stage_Order" value="<%-result[0].Stage_Order%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡怪物
+            </td>
+            <td class="data">
+                <a href="/Dungeon?editMosters?id=<%-result[0].Stage_Id%>">编辑</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡掉落
+            </td>
+            <td class="data">
+                <input type="text" name="Pool_Id" id="Pool_Id" value="<%-result[0].Pool_Id%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                可攻打次数
+            </td>
+            <td class="data">
+                <input type="text" name="Attack_Times_Limit" id="Attack_Times_Limit" value="<%-result[0].Attack_Times_Limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡图标
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Icon_Url" id="Stage_Icon_Url" value="<%-result[0].Stage_Icon_Url%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                关卡类型
+            </td>
+            <td class="data">
+                <input type="radio" value="1" name="Stage_Type" <%if(result[0].Stage_Type==1){%> checked=true<%}%>>普通
+                <input type="radio" value="2" name="Stage_Type" <%if(result[0].Stage_Type==2){%> checked=true<%}%>>精英
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                关卡回合数限制
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Rounds_Limit" id="Stage_Rounds_Limit" value="<%-result[0].Stage_Roundes_Limit%>" />
+            </td>
+        </tr>
+
+    </table>
+
+</form>

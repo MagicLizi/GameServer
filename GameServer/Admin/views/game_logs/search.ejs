@@ -1,0 +1,192 @@
+<script type="text/javascript">
+    var regions = <%-JSON.stringify(opts.regions)%>;
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+
+        var key_select_index = <%-opts.key_type%>;
+        if(key_select_index==1){
+           bindRegion();
+        }
+    });
+    function goSearch(code){
+        window.location.href = '/game_logs/search?action='+code;
+    }
+    function changeKey(){
+        $("#key_select option").remove();
+        var s_index = $('#key_type').get(0).selectedIndex;
+        if(s_index==1){
+           bindRegion();
+        }
+    }
+    function bindRegion(){
+       $("#key_select").append("<option value=''>------</option>");
+        regions.forEach(function(name){
+           $("#key_select").append("<option value='"+name+"'>"+name+"</option>");
+       });
+    }
+    function changeSelect(){
+        var s_index = $('#key_type').get(0).selectedIndex;
+        $("#key_value").val('');
+        if(s_index>=1){
+           $("#key_value").val($("#key_select").val());
+        }
+    }
+
+    function selectAction(){
+        var l_index = $("#action_list").get(0).selectedIndex
+        var lv = $('#action_list').val();
+        var lt = $('#action_list option:selected').text();
+
+        if(l_index != -1 && parseInt(lv)>0){
+            $("#action_select").append("<option value='"+lv+"'>"+lt+"</option>");
+            $("#action_list option[value='"+lv+"']").remove();
+        }
+
+        var s_index = $("#action_select ").get(0).selectedIndex
+        var sv = $('#action_select').val();
+        var st = $('#action_select option:selected').text();
+
+        if(s_index != -1 && parseInt(sv)>0){
+            $("#action_list").append("<option value='"+sv+"'>"+st+"</option>");
+            $("#action_select option[value='"+sv+"']").remove();
+        }
+
+        var action_id = '';
+        $("#action_select option").each(function(option){
+            action_id += ','+$(this).val();
+
+        });
+        $('#action_id').val(action_id);
+    }
+</script>
+<div class="message">
+    <%-message%>
+</div>
+
+<form id="form1" name="form1" method="get">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="80" height="30">开始时间：</td>
+    <td><input type="text" name="begin_date" id="begin_date" value="<%if(opts.begin_date){%><%-opts.begin_date.format('yyyy-MM-dd hh:mm:ss')%><%}%>" />
+       结束时间：
+      <input type="text" name="end_date" id="end_date" value="<%if(opts.end_date){%><%-opts.end_date.format('yyyy-MM-dd hh:mm:ss')%><%}%>" /></td>
+    </tr>
+  <tr>
+    <td height="30">用户信息：</td>
+    <td><select name="user_type" id="user_type">
+      <option value="1" <%if(opts.user_type==1){%> selected="selected"<%}%>>角色ID</option>
+      <option value="2" <%if(opts.user_type==2){%> selected="selected"<%}%>>帐号</option>
+      <option value="3" <%if(opts.user_type==3){%> selected="selected"<%}%>>昵称</option>
+    </select> <input type="text" name="user_value" id="user_value" value="<%-opts.user_value%>" /></td>
+    </tr>
+  <tr>
+    <td height="30">关键字：</td>
+    <td><select name="key_type" id="key_type" onchange="changeKey();">
+        <option value="-1">------</option>
+        <option value="1" <%if(opts.key_type==1){%> selected="selected"<%}%>>场次名</option>
+        <option value="2" <%if(opts.key_type==2){%> selected="selected"<%}%>>场次ID</option>
+        <option value="3" <%if(opts.key_type==3){%> selected="selected"<%}%>>轮次ID</option>
+        <option value="4" <%if(opts.key_type==4){%> selected="selected"<%}%>>局次ID</option>
+        </select>
+      <input type="text" name="key_value" id="key_value" value="<%-opts.key_value%>"/>
+      <select name="key_select" id="key_select" onchange="changeSelect();">
+</select></td>
+    </tr>
+  <tr>
+    <td height="30">动作列表：</td>
+    <td><select name="action_list" size="6" id="action_list" style="width:120px;">
+            <%
+                codes.forEach(function(code){
+                    var is_have = false;
+                    opts.actions.forEach(function(action_id){
+                        if(action_id==code.code){
+                            is_have = true;
+                        }
+                    });
+                    if(!is_have){
+                        if(code.code==-1){
+                         %>
+                           <option value="<%-code.code%>"><%-code.name%></option>
+                         <%
+                        }else{
+                         %>
+                           <option value="<%-code.code%>"><%-code.code%>(<%-code.name%>)</option>
+                         <%
+                        }
+                    }
+                });
+
+            %>
+        </select>
+        <input type="button" name="right" id="right" value="<< >>" onclick="selectAction();"/>
+        <select name="action_select" size="6" id="action_select" style="width:120px;">
+             <%
+                codes.forEach(function(code){
+                    var is_have = false;
+                    opts.actions.forEach(function(action_id){
+                        if(action_id==code.code){
+                            is_have = true;
+                        }
+                    });
+                    if(is_have){
+                    if(code.code==-1){
+                     %>
+                       <option value="<%-code.code%>"><%-code.name%></option>
+                     <%
+                    }else{
+                     %>
+                       <option value="<%-code.code%>"><%-code.code%>(<%-code.name%>)</option>
+                     <%
+                    }
+                    }
+                });
+
+            %>
+        </select>
+        <input name="action_id" type="hidden" id="action_id" value="<%-opts.action_id%>" />
+    </td>
+    </tr>
+  <tr>
+    <td height="30"><input name="search" type="hidden" id="search" value="1" /></td>
+    <td><input type="submit" name="submit" id="submit" value="提交" /></td>
+    </tr>
+</table>
+</form>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编号</td>
+        <td class="title">日期</td>
+        <td class="title">动作</td>
+        <td class="title">帐号</td>
+        <td class="title">昵称</td>
+        <td class="title">机器人</td>
+        <td class="title">数据信息</td>
+    </tr>
+<%
+    results.forEach(function(item, i){
+%>
+<tr>
+    <td class="data"><%-(opts.page_no+i+1)%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    <td class="data"><%
+     codes.forEach(function(code){
+        if(code.code==item.action_id){
+        %>
+          <%-code.name%>
+        <%}
+     });
+     %>(<%-item.action_id%>)
+    </td>
+    <td class="data"><%-item.account%></td>
+    <td class="data"><%-item.nickname%></td>
+    <td class="data"><%-item.is_robot==1?'是':'否'%></td>
+    <td class="data"><%-reply_item(item)%></td>
+</tr>
+<%
+});
+%>
+</table>
+<div class="message">
+    <%-url%>
+</div>

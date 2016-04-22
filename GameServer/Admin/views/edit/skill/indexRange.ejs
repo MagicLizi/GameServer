@@ -1,0 +1,31 @@
+<div class="pagetitle">
+
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td colspan="4">
+            <%if (Skill_Id){%>
+            <a href="/skill/edit?id=<%-Skill_Id%>">返回技能编辑</a></br><%}%>
+            <a href="/skill/addRange">添加范围</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">范围编号</td>
+        <td class="title">范围名称</td>
+        <td class="title">创建日期</td>
+    </tr>
+    <%
+    results.forEach(function(item){
+    %>
+    <tr>
+        <td class="data"><a href="/skill/editRange?id=<%-item.Range_Id%>"><input type="submit" name="submit" id="submit" value="编辑" /></a></td>
+        <td class="data"><%-item.Range_Id%></td>
+        <td class="data"><%-item.Range_Name%></td>
+        <td class="data"><%-item.Create_Date%></td>
+    </tr>
+    <%
+    });
+    %>
+</table>
+

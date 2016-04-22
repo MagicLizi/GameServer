@@ -1,0 +1,73 @@
+<div class="pagetitle">
+    <a href="/Rewards">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+
+    <input type="submit" name="submit" id="submit" value="提交" />
+
+    <table id="Rewards" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title">
+                排行上限
+            </td>
+            <td class="data">
+                <input type="text" name="Max_Rank" id="Max_Rank" value="<%-results.Rewards.Max_Rank%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                排行下限
+            </td>
+            <td class="data">
+                <input type="text" name="Min_Rank" id="Min_Rank" value="<%-results.Rewards.Min_Rank%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                奖励
+            </td>
+            <td class="data" >
+                <select name="Item_Id" id="Item_Id">
+                    <option value="" ></option>
+                    <%results.Item.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(item.Item_Id == results.Rewards.Item_Id){%>selected = selected<%}%>><%-item.Item_Order%>     <%-item.Item_Name%></option>
+                    <%});%>
+                </select>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                奖励数量
+            </td>
+            <td class="data">
+                <input type="text" name="Item_Amount" id="Item_Amount" value="<%-results.Rewards.Item_Amount%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                奖励类型
+            </td>
+            <td class="data" >
+                <select name="Rewards_Type" id="Rewards_Type">
+                    <option value="1" <%if(results.Rewards==1){%>selected="selected"<%}%> >每日奖励</option>
+                    <option value="2" <%if(results.Rewards==2){%>selected="selected"<%}%>>最高排名奖励</option>
+                </select>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                生效
+            </td>
+            <td class="data">
+                <input type="radio" name="Enable" id="Enable" value="1" <%if(results.Rewards.Enable == 1){%>checked="true"<%}%>/>是
+                <input type="radio" name="Enable" id="Enable" value="0" <%if(results.Rewards.Enable != 1){%>checked="true"<%}%>/>否
+            </td>
+        </tr>
+    </table>
+
+</form>

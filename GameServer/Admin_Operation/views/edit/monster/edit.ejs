@@ -1,0 +1,220 @@
+<div class="pagetitle">
+    <a href="/monster">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<td class="data">
+    <input type="submit" name="submit" id="submit" value="提交" />
+</td>
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="4">怪物参数配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            编号
+        </td>
+        <td class="data">
+            <%-result.recharge_id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            名称
+        </td>
+        <td class="data">
+            <input type="text" name="name" id="name" value="<%-result.name%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            类型
+        </td>
+        <td class="data">
+            <select name="type" id="type">
+                <option value="1" <%if(result.type==1){%>selected="selected"<%}%>>近战－物理</option>
+                <option value="2" <%if(result.type==2){%>selected="selected"<%}%>>近战－法系</option>
+                <option value="3" <%if(result.type==3){%>selected="selected"<%}%>>远程－物理</option>
+                <option value="4" <%if(result.type==4){%>selected="selected"<%}%>>远程－法系</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            AI类型
+        </td>
+        <td class="data">
+            <select name="ai_type" id="ai_type">
+                <option value="1"<%if(result.ai_type==1){%>selected="selected"<%}%>>1</option>
+                <option value="2"<%if(result.ai_type==2){%>selected="selected"<%}%>>2</option>
+                <option value="3"<%if(result.ai_type==3){%>selected="selected"<%}%>>3</option>
+                <option value="4"<%if(result.ai_type==4){%>selected="selected"<%}%>>4</option>
+                <option value="5"<%if(result.ai_type==5){%>selected="selected"<%}%>>5</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            速度
+        </td>
+        <td class="data">
+            <input type="text" name="speed" id="speed" value="<%-result.speed%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            行动力
+        </td>
+        <td class="data">
+            <select name="move_power" id="move_power">
+                <option value="1"<%if(result.move_power==1){%>selected="selected"<%}%>>1</option>
+                <option value="2"<%if(result.move_power==2){%>selected="selected"<%}%>>2</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击范围
+        </td>
+        <td class="data">
+            <input type="text" name="attack_range" id="attack_range" value="<%-result.attack_range%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            主动技能ID
+        </td>
+        <td class="data">
+            <select name="initiative_skill_id" id="initiative_skill_id">
+                <option value="1"<%if(result.initiative_skill_id==1){%>selected="selected"<%}%>>1</option>
+                <option value="2"<%if(result.initiative_skill_id==2){%>selected="selected"<%}%>>2</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            被动技能ID
+        </td>
+        <td class="data">
+            <select name="passive_skill_id" id="passive_skill_id">
+                <option value="1"<%if(result.passive_skill_id==1){%>selected="selected"<%}%>>1</option>
+                <option value="2"<%if(result.passive_skill_id==2){%>selected="selected"<%}%>>2</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            描述
+        </td>
+        <td class="data">
+            <textarea name="description" id="description" cols="45" rows="5"><%-result.description%></textarea>
+        </td>
+    </tr>
+<tr>
+    <td class="title">
+        生命值
+    </td>
+    <td class="data">
+        <input type="text" name="life" id="life" value="<%-result.life%>" />
+    </td>
+</tr>
+    <tr>
+        <td class="title">
+            行动力
+        </td>
+        <td class="data">
+            <input type="text" name="move_addition" id="move_addition" value="<%-result.move_addition%>" />
+        </td>
+    </tr>
+<tr>
+    <td class="title">
+        攻击力
+    </td>
+    <td class="data">
+        <input type="text" name="attack" id="attack" value="<%-result.attack%>" />
+    </td>
+</tr>
+    <tr>
+        <td class="title">
+            法术强度
+        </td>
+        <td class="data">
+            <input type="text" name="spell" id="spell" value="<%-result.spell%>" />
+        </td>
+<tr>
+    <td class="title">
+        护甲
+    </td>
+    <td class="data">
+        <input type="text" name="armor" id="armor" value="<%-result.armor%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        魔抗
+    </td>
+    <td class="data">
+        <input type="text" name="magic_resistance" id="magic_resistance" value="<%-result.magic_resistance%>" />
+    </td>
+</tr>
+
+<tr>
+    <td class="title">
+        物理暴击等级
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_lvl" id="attack_crit_lvl" value="<%-result.attack_crit_lvl%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        物理暴击伤害加成等级
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_damage_addition_lvl" id="attack_crit_damage_addition_lvl" value="<%-result.attack_crit_damage_addition_lvl%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        闪避等级
+    </td>
+    <td class="data">
+        <input type="text" name="avoid_lvl" id="avoid_lvl" value="<%-result.avoid_lvl%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        命中等级
+    </td>
+    <td class="data">
+        <input type="text" name="hit_lvl" id="hit_lvl" value="<%-result.hit_lvl%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        吸血等级
+    </td>
+    <td class="data">
+        <input type="text" name="suck_blood_lvl" id="suck_blood_lvl" value="<%-result.suck_blood_lvl%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        主动技能释放频率
+    </td>
+    <td class="data">
+        <input type="text" name="initiative_skill_use_rate" id="initiative_skill_use_rate" value="<%-result.initiative_skill_use_rate%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        被动技能释放频率
+    </td>
+    <td class="data">
+        <input type="text" name="passive_skill_use_rate" id="passive_skill_use_rate" value="<%-result.passive_skill_use_rate%>" />
+    </td>
+</tr>
+</table>
+</form>

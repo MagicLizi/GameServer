@@ -1,0 +1,84 @@
+<div class="pagetitle">
+    <a href="/Activity">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="Activity" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                活动奖励编号
+            </td>
+            <td class="data">
+                <input type="text" name="Activity_Id" id="Activity_Id" value="<%-results.Activity_Id%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                活动类型
+            </td>
+            <td class="data">
+                <select name="Activity_Type" id="Activity_Type">
+                    <option value="" ></option>
+                    <option value="1" <%if(results.Activity_Type == 1){%>selected="selected" <%}%>>每日签到（单月）</option>
+                    <option value="2" <%if(results.Activity_Type == 2){%>selected="selected" <%}%>>每日签到（双月）</option>
+                    <option value="3" <%if(results.Activity_Type == 3){%>selected="selected" <%}%>>七日登陆</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                奖励道具
+            </td>
+            <td class="data">
+                <select name = "Reward_Item_Id" id = "Reward_Item_Id">
+                    <option value=""></option>
+                    <%results.items.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(item.Item_Id==results.Reward_Item_Id){%>selected="selected" <%}%>>(<%-item.Item_Order%>)<%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                道具数量
+            </td>
+            <td class="data" >
+                <input type="text" name="Reward_Item_Amount" id="Reward_Item_Amount" value="<%-results.Reward_Item_Amount%>" />
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                奖励序号
+            </td>
+            <td class="data">
+                <input type="text" name="Reward_Order" id="Reward_Order" value="<%-results.Reward_Order%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                是否有效
+            </td>
+            <td class="data">
+                <input type="radio" name="Enable" id="Enable" value="1" <%if(results.Enable == 1){%>checked="true" <%}%>>有效</input>
+                <input type="radio" name="Enable" id="Enable" value="0" <%if(results.Enable == 0){%>checked="true" <%}%>>无效</input>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                翻倍VIP等级
+            </td>
+            <td class="data">
+                <input type="text" name="Double_VIP_Lvl" id="Double_VIP_Lvl" value="<%-results.Double_VIP_Lvl%>" />
+            </td>
+        </tr>
+    </table>
+</form>

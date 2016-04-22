@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>英雄</title>
+    <link rel="stylesheet" href="/css/common.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery-ui/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" href="/css/timepicker.css" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.4.1.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body style="background-color:#FFFFFF; padding:10px;">
+<div class="pagetitle">
+    <a href="/skill">返回列表</a>
+</div>
+<div class="message">
+
+</div>
+<form id="form1" name="form1" method="post">
+
+<input type="submit" name="submit" id="submit" value="提交" />
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+<tr class="title">
+    <td colspan="2">英雄技能配置</td>
+</tr>
+<tr>
+    <td class="title">
+        编号
+    </td>
+    <td class="data">
+        26
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        名称
+    </td>
+    <td class="data">
+        <input type="text" name="Skill_Name" id="Skill_Name" value="死神镰刀" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        识别名
+    </td>
+    <td class="data">
+        <input type="text" name="Skill_Tag" id="Skill_Tag" value="死神镰刀（死灵法师）" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        类型
+    </td>
+    <td class="data">
+        <input type="radio" value="1" name="Skill_Type" id="Skill_Type"checked="true">主动技能
+        <input type="radio" value="2" name="Skill_Type" id="Skill_Type">被动技能
+        <input type="radio" value="3" name="Skill_Type" id="Skill_Type">特性技能
+    </td>
+</tr>
+
+<tr>
+    <td class="title">
+        是否需要指向目标
+    </td>
+    <td class="data">
+        <input type="radio" value="1" name="Need_Target" id="Need_Target" checked="true">需要
+        <input type="radio" value="0" name="Need_Target" id="Need_Target" >不需要
+
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        技能范围
+    </td>
+    <td class="data">
+        使用范围: <select name="Skill_Use_Range" id="Skill_Use_Range">
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;10\&quot;}]}&quot;"
+                >自身</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:6,\&quot;y\&quot;:9},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:8,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:8,\&quot;y\&quot;:11}]}&quot;"
+                >H1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:5,\&quot;y\&quot;:8},{\&quot;x\&quot;:6,\&quot;y\&quot;:8},{\&quot;x\&quot;:7,\&quot;y\&quot;:8},{\&quot;x\&quot;:8,\&quot;y\&quot;:8},{\&quot;x\&quot;:9,\&quot;y\&quot;:8},{\&quot;x\&quot;:5,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:9},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:8,\&quot;y\&quot;:9},{\&quot;x\&quot;:9,\&quot;y\&quot;:9},{\&quot;x\&quot;:5,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:9,\&quot;y\&quot;:10},{\&quot;x\&quot;:5,\&quot;y\&quot;:11},{\&quot;x\&quot;:6,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:8,\&quot;y\&quot;:11},{\&quot;x\&quot;:9,\&quot;y\&quot;:11},{\&quot;x\&quot;:5,\&quot;y\&quot;:12},{\&quot;x\&quot;:6,\&quot;y\&quot;:12},{\&quot;x\&quot;:7,\&quot;y\&quot;:12},{\&quot;x\&quot;:8,\&quot;y\&quot;:12},{\&quot;x\&quot;:9,\&quot;y\&quot;:12}]}&quot;"
+                >H2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:7,\&quot;y\&quot;:11}]}&quot;"
+                >S1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:7,\&quot;y\&quot;:8},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:5,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:9,\&quot;y\&quot;:10},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:12}]}&quot;"
+                >S2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;}]}&quot;"
+                >S3</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;7\&quot;}]}&quot;"
+                >H3</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;}]}&quot;"
+                >M1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;}]}&quot;"
+
+                selected="selected">M2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[]}&quot;"
+                >自身1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;10\&quot;}]}&quot;"
+                >1*1</option>
+
+    </select>
+        效果范围: <select name="Skill_Effect_Range" id="Skill_Effect_Range">
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;10\&quot;}]}&quot;"
+                >自身</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:6,\&quot;y\&quot;:9},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:8,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:8,\&quot;y\&quot;:11}]}&quot;"
+                >H1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:5,\&quot;y\&quot;:8},{\&quot;x\&quot;:6,\&quot;y\&quot;:8},{\&quot;x\&quot;:7,\&quot;y\&quot;:8},{\&quot;x\&quot;:8,\&quot;y\&quot;:8},{\&quot;x\&quot;:9,\&quot;y\&quot;:8},{\&quot;x\&quot;:5,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:9},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:8,\&quot;y\&quot;:9},{\&quot;x\&quot;:9,\&quot;y\&quot;:9},{\&quot;x\&quot;:5,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:9,\&quot;y\&quot;:10},{\&quot;x\&quot;:5,\&quot;y\&quot;:11},{\&quot;x\&quot;:6,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:8,\&quot;y\&quot;:11},{\&quot;x\&quot;:9,\&quot;y\&quot;:11},{\&quot;x\&quot;:5,\&quot;y\&quot;:12},{\&quot;x\&quot;:6,\&quot;y\&quot;:12},{\&quot;x\&quot;:7,\&quot;y\&quot;:12},{\&quot;x\&quot;:8,\&quot;y\&quot;:12},{\&quot;x\&quot;:9,\&quot;y\&quot;:12}]}&quot;"
+                >H2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:7,\&quot;y\&quot;:11}]}&quot;"
+                >S1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:7,\&quot;y\&quot;:8},{\&quot;x\&quot;:7,\&quot;y\&quot;:9},{\&quot;x\&quot;:5,\&quot;y\&quot;:10},{\&quot;x\&quot;:6,\&quot;y\&quot;:10},{\&quot;x\&quot;:8,\&quot;y\&quot;:10},{\&quot;x\&quot;:9,\&quot;y\&quot;:10},{\&quot;x\&quot;:7,\&quot;y\&quot;:11},{\&quot;x\&quot;:7,\&quot;y\&quot;:12}]}&quot;"
+                >S2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;}]}&quot;"
+                >S3</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;13\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;7\&quot;}]}&quot;"
+                >H3</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;}]}&quot;"
+                >M1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;4\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;10\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;10\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;9\&quot;},{\&quot;x\&quot;:\&quot;5\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;9\&quot;,\&quot;y\&quot;:\&quot;11\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;8\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;7\&quot;},{\&quot;x\&quot;:\&quot;6\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;8\&quot;,\&quot;y\&quot;:\&quot;12\&quot;},{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;13\&quot;}]}&quot;"
+
+                selected="selected">M2</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[]}&quot;"
+                >自身1</option>
+
+        <option value="&quot;{\&quot;Range\&quot;:[{\&quot;x\&quot;:\&quot;7\&quot;,\&quot;y\&quot;:\&quot;10\&quot;}]}&quot;"
+                >1*1</option>
+
+    </select>
+        <a href="/skill/indexRange?id=26">编辑范围</a>
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        能量消耗
+    </td>
+    <td class="data">
+        <input type="text" name="Energy_Expends" id="Energy_Expends" value="200" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        目标数量
+    </td>
+    <td class="data">
+        <input type="text" name="Target_Num" id="Target_Num" value="1" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        技能对象类型
+    </td>
+    <td class="data">
+        <select name="Skill_Target_Type" id="Skill_Target_Type">
+            <option value="" ></option>
+            <option value="1" >友方</option>
+            <option value="2" >敌方</option>
+            <option value="3" >双方</option>
+        </select>
+    </td>
+
+<tr>
+    <td class="title">
+        描述
+    </td>
+    <td class="data">
+        <textarea name="Skill_Description" id="Skill_Description" value="" wrap="virtual" rows="5">指向一个特定范围内的敌人，对其造成的伤害取决于目标当前缺失的生命值（即最大生命值-当前生命值）的X%+法术强度*Y，具有打断吟唱法术的效果；最多可能造成Z点伤害；</textarea>
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        持续回合数
+    </td>
+    <td class="data">
+        <input type="text" name="Duration_Rounds" id="Duration_Rounds" value="0" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        技能图标
+    </td>
+    <td class="data">
+        <input type="text" name="Skill_Icon_Url" id="Skill_Icon_Url" value="" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        技能粒子
+    </td>
+    <td class="data">
+        <input type="text" name="Skill_Particle_Url" id="Skill_Particle_Url" value="" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        技能效果
+    </td>
+    <td class="data">
+
+        <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="effectList" name="effectList">
+            <tr>
+                <td colspan="2">
+                    <input type="text" name="Skill_Effects" id="Skill_Effects" value="{&quot;Skill_Effect_Arr&quot;:[{&quot;id&quot;:&quot;physical_Damage&quot;,&quot;name&quot;:&quot;造成物理伤害&quot;,&quot;description&quot;:&quot;造成物理伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害参数y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;伤害参数z&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;伤害参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;伤害参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;伤害参数z成长值uz&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;s&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;magic_Damage&quot;,&quot;name&quot;:&quot;造成法术伤害&quot;,&quot;description&quot;:&quot;造成法术伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害参数y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;伤害参数z&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;伤害参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;伤害参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;伤害参数z成长值uz&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;s&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;charge_property&quot;,&quot;name&quot;:&quot;增减属性效果&quot;,&quot;description&quot;:&quot;增减单位硬数值属性效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;增减数值参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;增减数值参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;增减益属性类型（枚举）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Reaper&#39;s Scythe&quot;,&quot;name&quot;:&quot;死神镰刀效果&quot;,&quot;description&quot;:&quot;根据目标损失血量，造成不同的伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;法伤收益率y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;最大伤害值z&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;伤害参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;伤害参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;伤害参数z成长值uz&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;s&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Heal_HP&quot;,&quot;name&quot;:&quot;治疗效果&quot;,&quot;description&quot;:&quot;治疗效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;治疗参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;治疗参数y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;治疗参数z&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;治疗参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;治疗参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;治疗参数z成长值uz&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;s&quot;,&quot;name&quot;:&quot;作用时间点&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;t&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;physical_Damage_Deduction&quot;,&quot;name&quot;:&quot;物理伤害减益效果&quot;,&quot;description&quot;:&quot;减免受到的物理伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害减免参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害减免参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;magic_Damage_Deduction&quot;,&quot;name&quot;:&quot;法术伤害减益效果&quot;,&quot;description&quot;:&quot;减免受到的法术伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害减免参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害减免参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;physical_Damage_Increase&quot;,&quot;name&quot;:&quot;物理伤害加深效果&quot;,&quot;description&quot;:&quot;增加最终造成的物理伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害增加参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害增加参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;magic_Damage_Increase&quot;,&quot;name&quot;:&quot;法术伤害加深效果&quot;,&quot;description&quot;:&quot;减免受到的法术伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害增加参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害增加参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Absorb_Shield&quot;,&quot;name&quot;:&quot;吸收护盾效果&quot;,&quot;description&quot;:&quot;通过增加护盾吸收一切伤害的效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;护盾值参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;护盾值参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Move_Effect&quot;,&quot;name&quot;:&quot;位移效果&quot;,&quot;description&quot;:&quot;将战斗单位从某一个位置强制移动到另一个位置的效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;位移值参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;位移值增加参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Be_Harm_to_Health&quot;,&quot;name&quot;:&quot;被伤害回血效果&quot;,&quot;description&quot;:&quot;造成伤害时按一定比例回复生命&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;低生命自动触发参数x(生命低于百分之x时自动触发)&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害转化比参数y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;伤害转化比参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;每场战斗触发次数参数z&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;每场战斗触发次数参数z成长值uz&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Harm_to_health&quot;,&quot;name&quot;:&quot;伤害回血效果&quot;,&quot;description&quot;:&quot;造成伤害时按一定比例回复生命&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害回血转化比参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害转化比参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Silence_Effect&quot;,&quot;name&quot;:&quot;沉默效果&quot;,&quot;description&quot;:&quot;受到沉默的单位在效果时间内无法释放技能&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Skill_FightBack&quot;,&quot;name&quot;:&quot;技能反击效果&quot;,&quot;description&quot;:&quot;受到技能伤害时对技能来源者进行反击&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;PhysicalDamage_FightBack&quot;,&quot;name&quot;:&quot;物理反击效果&quot;,&quot;description&quot;:&quot;受到物理伤害时对物理来源者进行反击&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Sneer_Effect&quot;,&quot;name&quot;:&quot;嘲讽效果&quot;,&quot;description&quot;:&quot;强制单位攻击自己&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;PhysicalDamage_Immune&quot;,&quot;name&quot;:&quot;无视物免效果&quot;,&quot;description&quot;:&quot;物理攻击时无视对方任何物理免疫效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;MagicDamage_Immune&quot;,&quot;name&quot;:&quot;无视魔免效果&quot;,&quot;description&quot;:&quot;免疫单位受到的一切魔法伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Remove_Energy&quot;,&quot;name&quot;:&quot;消除能量效果&quot;,&quot;description&quot;:&quot;消除目标单位一定数值的当前能量&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;消除能量参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;消除能量参数成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Dizzy_Effect&quot;,&quot;name&quot;:&quot;眩晕效果&quot;,&quot;description&quot;:&quot;眩晕目标单位&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Beat_Back&quot;,&quot;name&quot;:&quot;击退效果&quot;,&quot;description&quot;:&quot;击退目标单位&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;击退格数参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;击退格数参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;作用时间点&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Extra_Skill&quot;,&quot;name&quot;:&quot;多重施法效果&quot;,&quot;description&quot;:&quot;有概率释放同一法术多次的效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;多释放1次概率x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;多释放1次概率x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;多释放2次概率y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;多释放2次概率x成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;Extra_Attack&quot;,&quot;name&quot;:&quot;多重攻击效果&quot;,&quot;description&quot;:&quot;某次攻击转化为多次攻击&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;转化攻击次数参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;转化攻击次数参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;多重攻击伤害增益参数y&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;多重攻击伤害增益参数y成长值uy&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]},{&quot;id&quot;:&quot;LastKill&quot;,&quot;name&quot;:&quot;斩杀效果&quot;,&quot;description&quot;:&quot;某个百分比生命下直接秒杀单位的效果&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;百分比参数x&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;百分比参数x成长值ux&quot;,&quot;value&quot;:0},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:0}]}]}" style="visibility: visible"/>
+                    <input type="text" name="Skill_Effect" id="Skill_Effect" value="{&quot;Skill_Effect_Arr&quot;:[{&quot;id&quot;:&quot;magic_Damage&quot;,&quot;name&quot;:&quot;造成法术伤害&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;x&quot;,&quot;name&quot;:&quot;伤害参数x&quot;,&quot;value&quot;:&quot;1000&quot;},{&quot;id&quot;:&quot;y&quot;,&quot;name&quot;:&quot;伤害参数y&quot;,&quot;value&quot;:&quot;1000&quot;},{&quot;id&quot;:&quot;z&quot;,&quot;name&quot;:&quot;伤害参数z&quot;,&quot;value&quot;:&quot;10000&quot;},{&quot;id&quot;:&quot;m&quot;,&quot;name&quot;:&quot;伤害参数x成长值ux&quot;,&quot;value&quot;:&quot;30&quot;},{&quot;id&quot;:&quot;n&quot;,&quot;name&quot;:&quot;伤害参数y成长值uy&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;id&quot;:&quot;o&quot;,&quot;name&quot;:&quot;伤害参数z成长值uz&quot;,&quot;value&quot;:&quot;200&quot;},{&quot;id&quot;:&quot;p&quot;,&quot;name&quot;:&quot;时效类型（单次，持续，光环）&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;id&quot;:&quot;q&quot;,&quot;name&quot;:&quot;持续时间参数t&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;id&quot;:&quot;r&quot;,&quot;name&quot;:&quot;持续时间参数t成长值ut&quot;,&quot;value&quot;:&quot;0&quot;},{&quot;id&quot;:&quot;s&quot;,&quot;name&quot;:&quot;作用时间点(生效时间点，刷新时间点，结束时间点)&quot;,&quot;value&quot;:&quot;0&quot;}]}]}"  style="visibility: visible"/>
+
+                    <select name="add_Skill_Effect" id="add_Skill_Effect">
+
+                        <option value="0">造成物理伤害</option>
+
+                        <option value="1">造成法术伤害</option>
+
+                        <option value="2">增减属性效果</option>
+
+                        <option value="3">死神镰刀效果</option>
+
+                        <option value="4">治疗效果</option>
+
+                        <option value="5">物理伤害减益效果</option>
+
+                        <option value="6">法术伤害减益效果</option>
+
+                        <option value="7">物理伤害加深效果</option>
+
+                        <option value="8">法术伤害加深效果</option>
+
+                        <option value="9">吸收护盾效果</option>
+
+                        <option value="10">位移效果</option>
+
+                        <option value="11">被伤害回血效果</option>
+
+                        <option value="12">伤害回血效果</option>
+
+                        <option value="13">沉默效果</option>
+
+                        <option value="14">技能反击效果</option>
+
+                        <option value="15">物理反击效果</option>
+
+                        <option value="16">嘲讽效果</option>
+
+                        <option value="17">无视物免效果</option>
+
+                        <option value="18">无视魔免效果</option>
+
+                        <option value="19">消除能量效果</option>
+
+                        <option value="20">眩晕效果</option>
+
+                        <option value="21">击退效果</option>
+
+                        <option value="22">多重施法效果</option>
+
+                        <option value="23">多重攻击效果</option>
+
+                        <option value="24">斩杀效果</option>
+
+
+                    </select>
+                    <label onclick="btn_addEffect()">添加效果</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label onclick="editEffect('magic_Damage')">造成法术伤害</label>
+                </td>
+                <td>
+                    <label onclick="delEffect('magic_Damage')">删除</label>
+                </td>
+            </tr>
+
+
+        </table>
+        <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="effectEdit" name="effectEdit">
+
+        </table>
+    </td>
+</tr>
+</table>
+</form>
+
+<script>
+    function btn_addEffect(){
+        var selectedEff = document.getElementById("add_Skill_Effect");
+        var selectedvalue = selectedEff.options[selectedEff.selectedIndex].value;
+
+        var effectArr = JSON.parse(document.getElementById("Skill_Effects").value);
+        var i =1;
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var firstrow = tb.insertRow(0);
+        var firstcelltitle = firstrow.insertCell(0);
+        var firstcelldata = firstrow.insertCell(1);
+        firstcelltitle.setAttribute("class","title");
+        firstcelldata.setAttribute("class","data");
+        firstcelltitle.innerHTML = "操作";
+        firstcelldata.innerHTML = "<label onclick='postEffect('"+effectArr.Skill_Effect_Arr[selectedEff.value].id+"')'>提交</label>";
+        //tb.firstChild.removeChild(true);
+        effectArr.Skill_Effect_Arr[selectedEff.value].param.forEach(function(item){
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='' />"
+            i++;
+
+        })
+
+
+    }
+
+    function postEffect(effId){
+        var selectedEff = document.getElementById("add_Skill_Effect");
+        var selectedvalue = selectedEff.options[selectedEff.selectedIndex].value;
+
+        var effectArr = JSON.parse(document.getElementById("Skill_Effects").value);
+        var postv = new Array();
+        var effectName = effectArr.Skill_Effect_Arr[selectedvalue].name;
+        var effectid = effId;
+        var effectparam = effectArr.Skill_Effect_Arr[selectedvalue].param;
+
+        effectparam.forEach(function(item){
+            var itemvalue;
+            var tempvalue
+            if (document.getElementById(item.id).value){
+                tempvalue = document.getElementById(item.id).value;
+            }else{
+                tempvalue = 0;
+            }
+
+            itemvalue = {
+                "id" : item.id,
+                "name":item.name,
+                "value":tempvalue
+
+            }
+            postv.push(itemvalue);
+
+        });
+        var resultEffect = JSON.parse(document.getElementById("Skill_Effect").value);
+        for(var i =0;i< resultEffect.Skill_Effect_Arr.length;i++){
+            if(resultEffect.Skill_Effect_Arr[i].id == effectid){
+                resultEffect.Skill_Effect_Arr.splice(i,1);
+            }
+        }
+        resultEffect.Skill_Effect_Arr.push({
+            id:effectid,
+            name:effectName,
+            param:postv
+        });
+        document.getElementById("Skill_Effect").value = JSON.stringify(resultEffect);
+        //删除编辑页面
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (var i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum--;
+            i--;
+        }
+        //增加列表项
+        var listTB = document.getElementById("effectList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultEffect.Skill_Effect_Arr.forEach(function(item){
+            var newtr = listTB.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editEffect(\'"+item.id+"\')\">"+item.name+"</label>";
+            newtddata.innerHTML = "<label onclick='delEffect('"+item.id+"')'>删除</label>";
+            i++;
+
+        })
+
+    }
+
+    function delEffect(effid){
+        var resultEffect = JSON.parse(document.getElementById("Skill_Effect").value);
+        for(var i =0;i< resultEffect.Skill_Effect_Arr.length;i++){
+            if(resultEffect.Skill_Effect_Arr[i].id == effid){
+                resultEffect.Skill_Effect_Arr.splice(i,1);
+            }
+        }
+        document.getElementById("Skill_Effect").value = JSON.stringify(resultEffect);
+        var listTB = document.getElementById("effectList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultEffect.Skill_Effect_Arr.forEach(function(item){
+            var newtr = listTB.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editEffect(\'"+item.id+"\')\">"+item.name+"</label>";
+            newtddata.innerHTML = "<label onclick='delEffect('"+item.id+"')'>删除</label>";
+            i++;
+
+        })
+    }
+    function editEffect(effid){
+        //alert("edit : "+document.getElementById("Skill_Effect"));
+        var effectForEdit = JSON.parse(document.getElementById("Skill_Effect").value).Skill_Effect_Arr;
+        var effectid;
+        var effectname;
+        var effectparam;
+        effectForEdit.forEach(function(item){
+            if (item.id == effid){
+                effectid= item.id;
+                effectname = item.name;
+                effectparam = item.param;
+            }
+        })
+
+        var i =1;
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var lastrow = tb.insertRow(0);
+        var lastcelltitle = lastrow.insertCell(0);
+        var lastcelldata = lastrow.insertCell(1);
+        lastcelltitle.setAttribute("class","title");
+        lastcelldata.setAttribute("class","data");
+        lastcelltitle.innerHTML = "操作";
+        lastcelldata.innerHTML = "<label onclick='postEffect('"+effectid+"')'>提交</label>";
+        //tb.firstChild.removeChild(true);
+        effectparam.forEach(function(item){
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+item.value+"' />"
+            i++;
+
+        })
+        lastrow = tb.insertRow(0);
+        lastcelltitle = lastrow.insertCell(0);
+        lastcelldata = lastrow.insertCell(1);
+        lastcelltitle.setAttribute("class","title");
+        lastcelltitle.setAttribute("colspan","2");
+        lastcelltitle.innerHTML = effectname;
+
+
+
+
+    }
+</script>
+
+</body>
+</html>

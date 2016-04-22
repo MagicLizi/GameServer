@@ -1,0 +1,46 @@
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config/regions/index">返回</a> | <a href="/config/regions/match/add">添加</a>
+</div>
+<div class="pagetitle">
+    比赛模式设置
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">名称</td>
+        <td class="title">描述</td>
+        <td class="title">背景ID</td>
+        <td class="title">底注</td>
+        <td class="title">最小金贝</td>
+        <td class="title">最大金贝</td>
+        <td class="title">托管开放</td>
+        <td class="title">选牌帮助开放</td>
+        <td class="title">编辑</td>
+    </tr>
+<%
+    results.forEach(function(item){
+        if(item.mode_id == 3){
+%>
+<tr>
+    <td class="data"><%-item.region_id%></td>
+    <td class="data"><%-item.name%></td>
+    <td class="data"><%-item.description%></td>
+    <td class="data"><%-item.scene_id%></td>
+    <td class="data"><%-item.antes%></td>
+    <td class="data"><%-item.min%></td>
+    <td class="data"><%-item.max%></td>
+    <td class="data"><%-item.trusteeship%></td>
+    <td class="data"><%-item.select_help%></td>
+    <td class="data"><a href="?id=<%-item.region_id%>">删除</a> <a href="match/edit?id=<%-item.region_id%>">编辑</a></td>
+</tr>
+<%
+    }
+});
+%>
+</table>

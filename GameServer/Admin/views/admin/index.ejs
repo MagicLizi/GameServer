@@ -1,0 +1,64 @@
+<script>
+    function e(account,i){
+        alert("1");
+        var password = $('#password'+i).val();
+        var level = $('#level'+i).val();
+        window.location.href = '/admin/edit?account='+account+'&password='+password+'&level='+level;
+    }
+
+    function d(account){
+        window.location.href = '/admin/delete?account='+account;
+    }
+
+</script>
+
+<div class="message">
+  <%-message%>
+</div>
+
+<form id="form2" name="form2" method="post" action="/admin">
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">账号</td>
+        <td class="title">密码</td>
+        <td class="title">权限等级</td>
+        <td class="title">操作</td>
+    </tr>
+<%
+    results.forEach(function(item, i){
+%>
+    <tr>
+    <td class="data"><%-item.account%></td>
+        <td class="data">
+            <input type="text" name="password<%-i%>" id="password<%-i%>" value=<%-item.password%>>
+        </td>
+        <td class="data">
+            <input type="text" name="level<%-i%>" id="level<%-i%>" value=<%-item.level%>>
+        </td>
+        <td class="data">
+            <a href="javascript:e('<%-item.account%>',<%-i%>);">修改</a>
+            <a href="javascript:d('<%-item.account%>',<%-i%>);">删除</a>
+        </td>
+    </tr>
+<%
+});
+%>
+
+<tr>
+    <td class="data">
+                <input type="text" name="account" id="account">
+            </td>
+        <td class="data">
+            <input type="text" name="password" id="password">
+        </td>
+        <td class="data">
+                <input type="text" name="level" id="level">
+        </td>
+        <td class="data">
+           <input type="submit" name="submit" id="submit" value="添加">
+        </td>
+    </tr>
+</table>
+</div>
+
+</form>

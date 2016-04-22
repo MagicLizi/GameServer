@@ -1,0 +1,563 @@
+<div class="pagetitle">
+    <a href="/hero">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<td class="data">
+    <input type="submit" name="add" id="add" value="提交">
+</td>
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="4">战斗单位参数配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            名称
+        </td>
+        <td class="data">
+            <input type="text" name="name" id="name" value="" />
+            <label id = 'hero_Tag_Id' value="" visible="false"></label>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            英雄识别名
+        </td>
+        <td class="data">
+            <select name="hero_Tag" id="hero_Tag">
+                <option value=""></option>
+                <option value="Tiny">小小</option>
+                <option value="Bone">骨弓</option>
+                <option value="Nec">死灵法师</option>
+                <option value="DK">死骑</option>
+                <option value="Luna">月骑</option>
+                <option value="Jugg">剑圣</option>
+                <option value="DR">小黑</option>
+                <option value="Lina">火女</option>
+                <option value="Zeus">宙斯</option>
+                <option value="Ench">小鹿</option>
+                <option value="Razon">电魂</option>
+                <option value="Axe">斧王</option>
+                <option value="AM">敌法</option>
+                <option value="OM">蓝胖</option>
+                <option value="WR">风行者</option>
+                <option value="Ghoul">食尸鬼</option>
+                <option value="Merman">鱼人</option>
+                <option value="CW">半人马酋长</option>
+                <option value="Tiny_Guide">小小(新手引导)</option>
+                <option value="Jugg_Guide">剑圣(新手引导)</option>
+                <option value="DK_Guide">死骑(新手引导)</option>
+                <option value="Axe_Guide">斧王(新手引导)</option>
+                <option value="CW_Guide">半人马酋长(新手引导)</option>
+                <option value="DR_Guide">小黑(新手引导)</option>
+                <option value="GoldGoblin">金皮地精</option>
+                <option value="StoneskinGoblin">石肤地精</option>
+                <option value="SmallGoblin">杂兵地精</option>
+                <option value="Stones">石块（障碍物）</option>
+                <option value="RottingWood">腐木（障碍物）</option>
+                <option value="Landmine">地雷</option>
+                <option value="GoldenDragon">小金龙</option>
+                <option value="StoneMan">石头人</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            单位类型
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="unit_Type" id="unit_Type" >英雄
+            <input type="radio" value="2" name="unit_Type" id="unit_Type" >怪物
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击类型
+        </td>
+        <td class="data">
+            <select name="type" id="type">
+                <option value="1">近战－物理</option>
+                <option value="2">近战－法系</option>
+                <option value="3">远程－物理</option>
+                <option value="4">远程－法系</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            初始星级
+        </td>
+        <td class="data">
+            <select name="star_lvl" id="star_lvl">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </td>
+    </tr>
+    <!--<tr>-->
+        <!--<td class="title">-->
+            <!--品质-->
+        <!--</td>-->
+        <!--<td class="data">-->
+            <!--<select name="quality" id="quality">-->
+                <!--<option value="1">白</option>-->
+                <!--<option value="2">绿</option>-->
+                <!--<option value="3">蓝</option>-->
+                <!--<option value="4">紫</option>-->
+                <!--<option value="4">橙</option>-->
+            <!--</select>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <tr>
+        <td class="title">
+            元素属性
+        </td>
+        <td class="data">
+            <select name="element_type" id="element_type">
+                <option value="1">红</option>
+                <option value="2">黄</option>
+                <option value="3">蓝</option>
+                <option value="4">绿</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            速度
+        </td>
+        <td class="data">
+            <input type="text" name="speed" id="speed" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            行动力
+        </td>
+        <td class="data">
+                <input type="text" name="move_power" id="move_power" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击范围
+        </td>
+        <td class="data">
+            <select name="attack_range" id="attack_range">
+                <option value="" ></option>
+                <%
+                result[0].forEach(function(item){%>
+                <option value="<%=JSON.stringify(item.Range_Json)%>" ><%-item.Range_Name%></option>
+                <%})%>
+            </select>
+            <a href="/skill/indexRange?id=">编辑范围</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            路径加成
+        </td>
+        <td class="data">
+            <input type="text" name="move_addition" id="move_addition" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            主动技能ID
+        </td>
+        <td class="data">
+            <select name="initiative_skill_id" id="initiative_skill_id">
+                <option value="">
+                    <%
+                    result[1].forEach(function(item){%>
+                <option value="<%-item.Skill_Id%>">
+                    <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            被动技能ID
+        </td>
+        <td class="data">
+            <select name="passive_skill_id" id="passive_skill_id">
+                <option value="">
+                    <%
+                    result[1].forEach(function(item){%>
+                <option value="<%-item.Skill_Id%>">
+                    <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            特性技能ID
+        </td>
+        <td class="data">
+            <select name="characteristic_skill_id" id="characteristic_skill_id">
+                <option value="">
+                    <%
+                    result[1].forEach(function(item){%>
+                <option value="<%-item.Skill_Id%>">
+                    <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            T值
+        </td>
+        <td class="data">
+            <input type="text" name="t_value" id="t_value" value="" />
+        </td>
+    </tr>
+
+    <tr>
+        <td class="title">
+            对T值有效
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="t_enable" id="t_enable">有效
+            <input type="radio" value="0" name="t_enable" id="t_enable">无效
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            优先目标的T值
+        </td>
+        <td class="data">
+            <input type="text" name="first_target_tvalue" id="first_target_tvalue" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            英雄站位
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="position_type" id="position_type">前排
+            <input type="radio" value="2" name="position_type" id="position_type">后排
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            描述
+        </td>
+        <td class="data">
+            <textarea name="description" id="description" cols="45" rows="5"></textarea>
+        </td>
+    </tr>
+
+</table>
+
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" style="visibility: hidden">
+    <tr class="title">
+        <td colspan="4">英雄装备配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备1
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment1" id="Hero_Equipment1">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+
+        </td>
+        <td class="title">
+            装备2
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment2" id="Hero_Equipment2">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备3
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment3" id="Hero_Equipment3">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+        <td class="title">
+            装备4
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment4" id="Hero_Equipment4">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备5
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment5" id="Hero_Equipment5">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+        <td class="title">
+            装备6
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment6" id="Hero_Equipment6">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+
+</table>
+
+<!--添加英雄不加入成长性-->
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" style="visibility: hidden">
+    <tr class="title">
+        <td colspan="4">英雄初始/成长属性配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            生命值
+        </td>
+        <td class="data">
+            <input type="text" name="life" id="life" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="life_add" id="life_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            生命回复
+        </td>
+        <td class="data">
+            <input type="text" name="life_Restore" id="life_Restore" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="life_Restore_add" id="life_Restore_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            能量回复
+        </td>
+        <td class="data">
+            <input type="text" name="energy_Restore" id="energy_Restore" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="energy_Restore_add" id="energy_Restore_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击力
+        </td>
+        <td class="data">
+            <input type="text" name="attack" id="attack" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="attack_add" id="attack_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            法术强度
+        </td>
+        <td class="data">
+            <input type="text" name="spell" id="spell" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="spell_add" id="spell_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            护甲
+        </td>
+        <td class="data">
+            <input type="text" name="armor" id="armor" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="armor_add" id="armor_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            魔抗
+        </td>
+        <td class="data">
+            <input type="text" name="magic_resistance" id="magic_resistance" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="magic_resistance_add" id="magic_resistance_add" value="" />
+        </td>
+    </tr>
+
+    <tr>
+        <td class="title">
+            物理暴击等级
+        </td>
+        <td class="data">
+            <input type="text" name="attack_crit_lvl" id="attack_crit_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="attack_crit_lvl_add" id="attack_crit_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            物理暴击伤害加成等级
+        </td>
+        <td class="data">
+            <input type="text" name="attack_crit_damage_addition_lvl" id="attack_crit_damage_addition_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="attack_crit_damage_addition_lvl_add" id="attack_crit_damage_addition_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            闪避等级
+        </td>
+        <td class="data">
+            <input type="text" name="avoid_lvl" id="avoid_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="avoid_lvl_add" id="avoid_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            命中等级
+        </td>
+        <td class="data">
+            <input type="text" name="hit_lvl" id="hit_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="hit_lvl_add" id="hit_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            吸血等级
+        </td>
+        <td class="data">
+            <input type="text" name="suck_blood_lvl" id="suck_blood_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="suck_blood_lvl_add" id="suck_blood_lvl_adjust_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            主动技能能量减少等级
+        </td>
+        <td class="data">
+            <input type="text" name="initiative_skill_energy_less_lvl" id="initiative_skill_energy_less_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="initiative_skill_energy_less_lvl_add" id="initiative_skill_energy_less_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            被动技能能量减少等级
+        </td>
+        <td class="data">
+            <input type="text" name="passive_skill_energy_less_lvl" id="passive_skill_energy_less_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="passive_skill_energy_less_lvl_add" id="passive_skill_energy_less_lvl_add" value="" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            治疗技能效果提升等级
+        </td>
+        <td class="data">
+            <input type="text" name="skill_cure_lvl" id="skill_cure_lvl" value="" />
+        </td>
+        <td class="title">
+            成长值
+        </td>
+        <td class="data">
+            <input type="text" name="skill_cure_lvl_add" id="skill_cure_lvl_add" value="" />
+        </td>
+    </tr>
+</table>
+</form>

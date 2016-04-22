@@ -1,0 +1,284 @@
+{
+  "Internal": {
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyou1015",
+      "host": "txgameb.ichangyou.cn",
+      "port": "3306",
+      "database": "admin_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyou1015",
+      "host": "txgameb.ichangyou.cn",
+      "port": "3306",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "logger": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyou1015",
+      "host": "txgameb.ichangyou.cn",
+      "port": "3306",
+      "database": "Logger_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "--Internal": {
+    "tinygame": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "gamma23$",
+      "host": "192.168.27.9",
+      "port": "3306",
+      "database": "mahjong",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "admin_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "tinylogs": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "gamma23$",
+      "host": "192.168.27.9",
+      "port": "3306",
+      "database": "tinylogs",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "logger": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "Logger_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "QA": {
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "",
+      "host": "192.168.2.200",
+      "port": "3306",
+      "database": "admin_QA",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "",
+      "host": "192.168.2.200",
+      "port": "3306",
+      "database": "membership_QA",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "DEV": {
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "admin_DEV",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "logger": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "Logger_DEV",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "OutSide": {
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "admin",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "DEMO": {
+    "admin": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "",
+      "host": "192.168.2.200",
+      "port": "3306",
+      "database": "admin_DEV",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "membership": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "",
+      "host": "192.186.2.200",
+      "port": "3306",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    },
+    "logger": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "",
+      "host": "192.168.2.200",
+      "port": "3306",
+      "database": "Logger_DEV",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  }
+}

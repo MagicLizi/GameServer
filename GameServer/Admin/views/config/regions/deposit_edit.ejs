@@ -1,0 +1,99 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config/regions/deposit">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post" action="/config/regions/deposit/edit?id=<%-result.region_id%>">
+    <table width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr>
+            <td class="title1">
+                赛场ID
+            </td>
+            <td class="data1">
+                <%-result.region_id%>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                赛场名称
+            </td>
+            <td class="data1">
+                <input type="text" name="name" id="name" value="<%-result.name%>"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                准入分
+            </td>
+            <td class="data1">
+                <input type="text" name="score_limit" id="score_limit" value="<%-result.score_limit%>"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                准入等级
+            </td>
+            <td class="data1">
+                <input type="text" name="lvl_limit" id="lvl_limit" value="<%-result.lvl_limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                底注
+            </td>
+            <td class="data1">
+                <input type="text" name="base_score" id="base_score" value="<%-result.base_score%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                服务费
+            </td>
+            <td class="data1">
+                <input type="text" name="server_score" id="server_score" value="<%-result.server_score%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                开启日期
+            </td>
+            <td class="data1" >
+                <input style="width: 150px" type="text" name="begin_date" id="begin_date" value="<%-result.begin_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                关闭日期
+            </td>
+            <td class="data1">
+                <input style="width: 150px" type="text" name="end_date" id="end_date" value="<%-result.end_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                是否有效
+            </td>
+            <td class="data1">
+                无效<input type="radio" name="is_valid" id="is_valid1" value="0" />
+                有效<input type="radio" name="is_valid" id="is_valid2" value="1" checked="checked" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+            </td>
+            <td class="data1">
+                <input type="submit" name="submit" id="submit" value="提交" />
+            </td>
+        </tr>
+    </table>
+</form>

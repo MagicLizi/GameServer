@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Admin_Internal" type="NodeJSConfigurationType" factoryName="Node.js" singleton="false" path-to-node="/usr/local/bin/node" path-to-js-file="app.js" application-parameters="Internal" working-dir="$PROJECT_DIR$/Admin">
+    <method />
+  </configuration>
+</component>

@@ -1,0 +1,149 @@
+<div class="pagetitle">
+    <a href="/skill">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+        <table id="StageDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+            <tr>
+                <td class="title">
+                    技能编号
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Id" id="Skill_Id" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能名称
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Name" id="Skill_Name" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能标识
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Tag" id="Skill_Tag" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能排序
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Order" id="Skill_Order" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能类型
+                </td>
+                <td class="data">
+                    <input type="radio" value="1" name="Skill_Type">主动技能
+                    <input type="radio" value="2" name="Skill_Type">被动技能
+                    <input type="radio" value="3" name="Skill_Type">特性技能
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    是否需要指向目标
+                </td>
+                <td class="data">
+                    <input type="radio" value="0" name="Need_Target" checked="true">非指向
+                    <input type="radio" value="1" name="Need_Target">指向
+
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能范围
+                </td>
+                <td class="data">
+                    使用范围: <select name="Skill_Use_Range" id="Skill_Use_Range">
+                        <%
+                        result[1].forEach(function(item){%>
+                        <option value="<%=JSON.stringify(item.Range_Json)%>" ><%-item.Range_Name%></option>
+                        <%})%>
+                    </select>
+                    效果范围: <select name="Skill_Effect_Range" id="Skill_Effect_Range">
+                        <%
+                        result[1].forEach(function(item){%>
+                        <option value="<%=JSON.stringify(item.Range_Json)%>" ><%-item.Range_Name%></option>
+                        <%})%>
+                    </select>
+                    <a href="/skill/indexRange?id=">编辑范围</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    能量消耗
+                </td>
+                <td class="data">
+                    <input type="text" name="Energy_Expends" id="Energy_Expends" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    目标数量
+                </td>
+                <td class="data">
+                    <input type="text" name="Target_Num" id="Target_Num" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    技能对象类型
+                </td>
+                <td class="data">
+                    <select name="Skill_Target_Type" id="Skill_Target_Type">
+                        <option value="" ></option>
+                        <option value="1">友方</option>
+                        <option value="2">敌方</option>
+                        <option value="3">双方</option>
+                    </select>
+              </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    描述
+                </td>
+                <td class="data">
+                    <textarea name="Skill_Description" id="Skill_Description" value="" wrap="virtual" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    持续回合数
+                </td>
+                <td class="data">
+                    <input type="text" name="Duration_Rounds" id="Duration_Rounds" value="" />
+                </td>
+            </tr>
+                <td class="title">
+                    技能图标
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Icon_Url" id="Skill_Icon_Url" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td class="title">
+                    是否能被反击
+                </td>
+                <td class="data">
+                    <input type="text" name="Skill_Particle_Url" id="Skill_Particle_Url" value="" />
+                </td>
+            </tr>
+
+        </table>
+
+</form>

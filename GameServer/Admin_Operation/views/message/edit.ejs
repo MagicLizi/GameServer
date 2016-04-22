@@ -1,0 +1,83 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/message">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title1">ID</td>
+        <td class="data1">
+           <%-result.message_id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">类型</td>
+        <td class="data1">
+           <%-result.type==2?"<span class='red'>系统消息</pan>":"<span class='blue'>用户消息</span>"%>
+        </td>
+    </tr>
+     <tr>
+            <td class="title1">用户域</td>
+            <td class="data1">
+               <%-result.user_id%>
+            </td>
+        </tr>
+    <tr>
+        <td class="title1">名称</td>
+        <td class="data1">
+             <input type="text" name="name" id="name" value="<%-result.name%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">内容</td>
+        <td class="data1">
+           <textarea name="content" id="content" cols="45" rows="5"><%-result.content%></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">排序编号</td>
+        <td class="data1">
+           <input type="text" name="sort" id="sort" value="<%-result.sort%>" />
+        </td>
+    </tr>
+    <!--
+    <tr>
+        <td class="title1">
+             开始日期
+        </td>
+        <td class="data1">
+             <input type="text" name="begin_date" id="begin_date" value="<%-result.begin_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">结束日期</td>
+        <td class="data1">
+            <input type="text" name="end_date" id="end_date" value="<%-result.end_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+        </td>
+    </tr>
+    -->
+    <tr>
+        <td class="title1">是否有效</td>
+        <td class="data1">
+            无效<input type="radio" name="is_valid" id="is_valid1" value="0" <%if(result.is_valid==0){%>checked="checked" <%}%> />
+            有效<input type="radio" name="is_valid" id="is_valid2" value="1" <%if(result.is_valid==1){%>checked="checked" <%}%> />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+
+        </td>
+        <td class="data1">
+            <input type="submit" name="submit" id="submit" value="提交" />
+        </td>
+    </tr>
+</table>
+</form>

@@ -1,0 +1,778 @@
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="save" id="save" value="提交">
+    </td>
+
+    <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="5">英雄配置信息</td>
+        </tr>
+        <tr>
+            <td class="title">
+                英雄等级
+            </td>
+            <td class="data">
+                <a href="/global/herolvl">配置</a>
+            </td>
+            <td class="title">
+                战队等级
+            </td>
+            <td class="data">
+                <a href="/global/trooplvl">配置</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能等级
+            </td>
+            <td class="data">
+                <a href="/global/skilllvl">配置</a>
+            </td>
+            <td class="title">
+                灵魂石
+            </td>
+            <td class="data">
+                <a href="/global/soulStone">配置</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                用户初始配置
+            </td>
+            <td class="data">
+                <a href="/global/userInit">配置</a>
+            </td>
+            <td class="title">
+
+            </td>
+            <td class="data">
+                <a href=""></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                主动技能开启条件
+            </td>
+            <td class="data">
+                <input type="text" name="initiative_skill_enable" id="initiative_skill_enable" value="<%-result.initiative_skill_enable%>" />
+            </td>
+            <td class="title">
+                被动技能开启条件
+            </td>
+            <td class="data">
+                <input type="text" name="passive_skill_enable" id="passive_skill_enable" value="<%-result.passive_skill_enable%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                特效技能开启条件
+            </td>
+            <td class="data">
+                <input type="text" name="characteristic_skill_enable" id="characteristic_skill_enable" value="<%-result.characteristic_skill_enable%>" />
+            </td>
+            <td class="title">
+                技能点数恢复
+            </td>
+            <td class="data">
+                <input type="text" name="skill_point_recovery_interval" id="skill_point_recovery_interval" value="<%-result.skill_point_recovery_interval%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能点数上限
+            </td>
+            <td class="data">
+                <input type="text" name="skill_point_limit" id="skill_point_limit" value="<%-result.skill_point_limit%>" />
+            </td>
+            <td class="title">
+                技能点数上限（vip）
+            </td>
+            <td class="data">
+                <input type="text" name="vip_skill_point_limit" id="vip_skill_point_limit" value="<%-result.vip_skill_point_limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物理暴击等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="attack_crit_lvl_adjust_coe" id="attack_crit_lvl_adjust_coe" value="<%-result.attack_crit_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="attack_crit_lvl_coe" id="attack_crit_lvl_coe" value="<%-result.attack_crit_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物理暴击伤害加成等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="attack_crit_damage_addition_lvl_adjust_coe" id="attack_crit_damage_addition_lvl_adjust_coe" value="<%-result.attack_crit_damage_addition_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="attack_crit_damage_addition_lvl_coe" id="attack_crit_damage_addition_lvl_coe" value="<%-result.attack_crit_damage_addition_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                闪避等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="avoid_lvl_adjust_coe" id="avoid_lvl_adjust_coe" value="<%-result.avoid_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="avoid_lvl_coe" id="avoid_lvl_coe" value="<%-result.avoid_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                命中等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="hit_lvl_adjust_coe" id="hit_lvl_adjust_coe" value="<%-result.hit_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="hit_lvl_coe" id="hit_lvl_coe" value="<%-result.hit_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                吸血等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="suck_blood_lvl_adjust_coe" id="suck_blood_lvl_adjust_coe" value="<%-result.suck_blood_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="suck_blood_lvl_coe" id="suck_blood_lvl_coe" value="<%-result.suck_blood_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                治疗技能效果提升等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="skill_cure_lvl_adjust_coe" id="skill_cure_lvl_adjust_coe" value="<%-result.skill_cure_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="skill_cure_lvl_coe" id="skill_cure_lvl_coe" value="<%-result.skill_cure_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                主动技能能量减少等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="initiative_skill_energy_less_lvl_adjust_coe" id="initiative_skill_energy_less_lvl_adjust_coe" value="<%-result.initiative_skill_energy_less_lvl_adjust_coe%>" />
+            </td>
+            <td class="title">
+                系数
+            </td>
+            <td class="data">
+                <input type="text" name="initiative_skill_energy_less_lvl_coe" id="initiative_skill_energy_less_lvl_coe" value="<%-result.initiative_skill_energy_less_lvl_coe%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                行动一格能量回复值
+            </td>
+            <td class="data">
+                <input type="text" name="pre_step_energy_restore" id="pre_step_energy_restore" value="<%-result.pre_step_energy_restore%>" />
+            </td>
+            <td class="title" >
+                体力总上限
+            </td>
+            <td class="data">
+                <input type="text" name="troop_max_stamina" id="troop_max_stamina"
+                       value="<%-result.troop_max_stamina%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                体力恢复（秒/恢复1点）
+            </td>
+            <td class="data">
+                <input type="text" name="stamina_recover_interval" id="stamina_recover_interval" value="<%-result.stamina_recover_interval%>" />
+            </td>
+            <td class="title" >
+                战队等级上限
+            </td>
+            <td class="data">
+                <input type="text" name="troop_Lvl_Limit" id="stamina_recover_interval" value="<%-result.troop_Lvl_Limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                服务器重置时间
+            </td>
+            <td class="data">
+                <input type="text" name="server_reset_time" id="server_reset_time" value="<%-result.server_reset_time%>" />
+            </td>
+            <td class="title" >
+                英雄等级战斗力折算
+            </td>
+            <td class="data">
+                <input type="text" name="hero_lvl_fighting_force" id="hero_lvl_fighting_force" value="<%-result.hero_lvl_fighting_force%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                英雄技能战斗力折算
+            </td>
+            <td class="data">
+                <input type="text" name="hero_skill_fighting_force" id="hero_skill_fighting_force" value="<%-result.hero_skill_fighting_force%>" />
+            </td>
+            <td class="title" >
+                技能解锁战斗力折算
+            </td>
+            <td class="data">
+                <input type="text" name="skill_unlock_fighting_force" id="skill_unlock_fighting_force" value="<%-result.skill_unlock_fighting_force%>" />
+            </td>
+        </tr>
+        <tr class="title">
+            <td class="title"  colspan="5">
+                远征配置
+            </td>
+        </tr>
+        <tr >
+            <td class="title">
+                金币基数
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_Base_Coin" id="FarFight_Base_Coin" value="<%-result.FarFight_Base_Coin%>" />
+            </td>
+            <td class="title">
+                金币等级调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_Lvl_Coe" id="FarFight_Lvl_Coe" value="<%-result.FarFight_Lvl_Coe%>" />
+            </td>
+        </tr>
+        <tr >
+            <td class="title">
+                金币战斗力调整系数
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_FightForce_Coe" id="FarFight_FightForce_Coe" value="<%-result.FarFight_FightForce_Coe%>" />
+            </td>
+            <td class="title">
+                战斗力匹配系数
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_FightForce_Match_Coe" id="FarFight_FightForce_Match_Coe" value="<%-result.FarFight_FightForce_Match_Coe%>" />
+            </td>
+        </tr>
+        <tr >
+            <td class="title">
+                生命值增幅
+            </td>
+            <td class="data">
+                <input type="text" name="farfight_life_enhance" id="farfight_life_enhance" value="<%-result.farfight_life_enhance%>" />
+            </td>
+            <td class="title">
+                攻击力增幅
+            </td>
+            <td class="data">
+                <input type="text" name="farfight_attack_enhance" id="farfight_attack_enhance" value="<%-result.farfight_attack_enhance%>" />
+            </td>
+        </tr>
+        <tr >
+            <td class="title" >
+                法强增幅
+            </td>
+            <td class="data">
+                <input type="text" name="farfight_spell_enhance" id="farfight_spell_enhance" value="<%-result.farfight_spell_enhance%>" />
+            </td>
+            <td class="title">
+                地块颜色数
+            </td>
+            <td class="data">
+                <input type="text" name="farfight_grid_colour" id="farfight_grid_colour" value="<%-result.farfight_grid_colour%>" />
+            </td>
+        </tr>
+        <tr class="title">
+            <td class="title"  colspan="5">
+                竞技场战斗单位设定
+            </td>
+        </tr>
+        <tr >
+            <td class="title">
+                生命值增幅
+            </td>
+            <td class="data">
+                <input type="text" name="life_enhance" id="life_enhance" value="<%-result.life_enhance%>" />
+            </td>
+            <td class="title">
+                攻击力增幅
+            </td>
+            <td class="data">
+                <input type="text" name="attack_enhance" id="attack_enhance" value="<%-result.attack_enhance%>" />
+            </td>
+        </tr>
+        <tr >
+            <td class="title" >
+                法强增幅
+            </td>
+            <td class="data">
+                <input type="text" name="spell_enhance" id="spell_enhance" value="<%-result.spell_enhance%>" />
+            </td>
+            <td class="title">
+
+            </td>
+            <td class="data">
+
+            </td>
+        </tr>
+        <tr >
+            <td class="title">
+                PVP战斗回合限制
+            </td>
+            <td class="data">
+                <input type="text" name="round_limit" id="round_limit" value="<%-result.round_limit%>" />
+            </td>
+            <td class="title" >
+                掉血惩罚
+            </td>
+            <td class="data">
+                <input type="text" name="deduction" id="deduction" value="<%-result.deduction%>" />
+            </td>
+
+        </tr>
+        <tr class="title">
+            <td colspan="5">副本配置信息</td>
+        </tr>
+        <tr>
+            <td class="title">
+                精英关卡重置时间
+            </td>
+            <td class="data">
+                <input type="text" name="Elite_Dungeon_Reset_Cycle" id="Elite_Dungeon_Reset_Cycle" value="<%-result.Elite_Dungeon_Reset_Cycle%>" />
+            </td>
+            <td class="title">
+                精英模式开启等级
+            </td>
+            <td class="data">
+                <input type="text" name="Elite_Dungeon_Lvl_Limit" id="Elite_Dungeon_Lvl_Limit" value="<%-result.Elite_Dungeon_Lvl_Limit%>" />
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">货币配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                金币
+            </td>
+            <td class="data">
+                <select name="Gold" id="Gold">
+                    <option value="" ></option>
+                    <%result.Currency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.Gold == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                钻石
+            </td>
+            <td class="data">
+                <select name="Diamond" id="Diamond">
+                    <option value="" ></option>
+                    <%result.Currency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.Diamond == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                角斗币
+            </td>
+            <td class="data">
+                <select name="PVPCoin" id="PVPCoin">
+                    <option value="" ></option>
+                    <%result.Currency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.PVPCoin == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                扫荡券
+            </td>
+            <td class="data">
+                <select name="RaidCoin" id="RaidCoin">
+                    <option value="" ></option>
+                    <%result.Consumables.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.RaidCoin == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                远征币
+            </td>
+            <td class="data">
+                <select name="FarFightCoin" id="FarFightCoin">
+                    <option value="" ></option>
+                    <%result.Currency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.FarFightCoin == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                购买钻石
+            </td>
+            <td class="data">
+                <select name="Purchased_Diamond" id="Purchased_Diamond">
+                    <option value="" ></option>
+                    <%result.Currency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.Purchased_Diamond == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                四叶草
+            </td>
+            <td class="data">
+                <select name="FourLeaf" id="FourLeaf">
+                    <option value="" ></option>
+                    <%result.Consumables.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(result.FourLeaf == item.Item_Id){%>selected="selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+                </select>
+            </td>
+            <td class="title">
+            </td>
+            <td class="data">
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">商店配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                竞技场商店
+            </td>
+            <td class="data">
+                <select name="ArenaStore" id="ArenaStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.ArenaStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                钻石商店
+            </td>
+            <td class="data">
+                <select name="DiamondStore" id="DiamondStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.DiamondStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                体力商店
+            </td>
+            <td class="data">
+                <select name="StaminaStore" id="StaminaStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.StaminaStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                金币商店
+            </td>
+            <td class="data">
+                <select name="CoinStore" id="CoinStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.CoinStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                PVE商店
+            </td>
+            <td class="data">
+                <select name="PVETimesStore" id="PVETimesStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.PVETimesStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                技能点商店
+            </td>
+            <td class="data">
+                <select name="SkillPointStore" id="SkillPointStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.SkillPointStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                远征商店
+            </td>
+            <td class="data">
+                <select name="FarFightStore" id="FarFightStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.FarFightStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                钻石普通商店
+            </td>
+            <td class="data">
+                <select name="NormalDiamondStore" id="NormalDiamondStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.NormalDiamondStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                金币普通商店
+            </td>
+            <td class="data">
+                <select name="NormalCoinStore" id="NormalCoinStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.NormalCoinStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+            <td class="title">
+                地精商店
+            </td>
+            <td class="data">
+                <select name="GoblinStore" id="GoblinStore">
+                    <option value="" ></option>
+                    <%result.Store.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" <%if(result.GoblinStore == item.Store_Id){%>selected="selected"<%}%>><%-item.Store_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">钻石收费配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                修改昵称
+            </td>
+            <td class="data">
+                <input type="text" name="ChangeNickname" id="ChangeNickname" value="<%-result.DiamondExpend.ChangeNickname%>" />
+            </td>
+            <td class="title">
+                四叶草价格
+            </td>
+            <td class="data">
+                <input type="text" name="FourLeafPrice" id="FourLeafPrice" value="<%-result.DiamondExpend.FourLeafPrice%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+
+            </td>
+            <td class="data">
+
+                </select>
+            </td>
+            <td class="title">
+
+            </td>
+            <td class="data">
+
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">公告配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                公告地址
+            </td>
+            <td class="data" colspan="3">
+                <input type="text" name="Notice_Url" id="Notice_Url" style="width:500px" value="<%-result.Notice.Notice_Url%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                是否弹出
+            </td>
+            <td class="data">
+                <input type="radio" value="1" name="Notice_Is_Popup" id="Notice_Is_Popup" <%if(result.Notice.Is_Popup==1){%>checked="true"<%}%>>弹出
+                <input type="radio" value="0" name="Notice_Is_Popup" id="Notice_Is_Popup" <%if(result.Notice.Is_Popup==0){%>checked="true"<%}%>>不弹出
+            </td>
+            <td class="title">
+                公告版本
+            </td>
+            <td class="data">
+                <input type="text" name="Notice_Version" id="Notice_Version" value="<%-result.Notice.Notice_Version%>" />
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">三方接入配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                友盟IOS
+            </td>
+            <td class="data">
+                <input type="text" name="IOS_App_Key" id="IOS_App_Key" value="<%-result.IOS_App_Key%>" />
+            </td>
+            <td class="title">
+                友盟Android
+            </td>
+            <td class="data">
+                <input type="text" name="Android_App_Key" id="Android_App_Key" value="<%-result.Android_App_Key%>" />
+            </td>
+        </tr>
+        <tr class="title">
+            <td colspan="5">游戏功能开启等级</td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                竞技场
+            </td>
+            <td class="data">
+                <input type="text" name="Arena" id="Arena" value="<%-result.Game_Function.Arena%>" />
+            </td>
+            <td class="title">
+                精英副本等级
+            </td>
+            <td class="data">
+                <input type="text" name="Elite_Stage" id="" value="<%-result.Game_Function.Elite_Stage%>" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                排行榜
+            </td>
+            <td class="data">
+                <input type="text" name="Leaderboard" id="Leaderboard" value="<%-result.Game_Function.Leaderboard%>" />
+            </td>
+            <td class="title">
+                远征
+            </td>
+            <td class="data">
+                <input type="text" name="Expedition" id="Expedition" value="<%-result.Game_Function.Expedition%>" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                时光之穴
+            </td>
+            <td class="data">
+                <input type="text" name="Caverns_Of_Time" id="Caverns_Of_Time" value="<%-result.Game_Function.Caverns_Of_Time%>" />
+            </td>
+            <td class="title">
+                商人
+            </td>
+            <td class="data">
+                <input type="text" name="Businessman" id="Businessman" value="<%-result.Game_Function.Businessman%>" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                公会
+            </td>
+            <td class="data">
+                <input type="text" name="Guild" id="Guild" value="<%-result.Game_Function.Guild%>" />
+            </td>
+            <td class="title">
+                英雄试炼
+            </td>
+            <td class="data">
+                <input type="text" name="Hero_Trial" id="Hero_Trial" value="<%-result.Game_Function.Hero_Trial%>" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                装备附魔
+            </td>
+            <td class="data">
+                <input type="text" name="Enchanting" id="Enchanting" value="<%-result.Game_Function.Enchanting%>" />
+            </td>
+            <td class="title">
+                藏宝地穴
+            </td>
+            <td class="data">
+                <input type="text" name="Buried_Treasure" id="Buried_Treasure" value="<%-result.Game_Function.Buried_Treasure%>" />
+            </td>
+        </tr>
+        <tr>
+
+            <td class="title">
+                预言之池
+            </td>
+            <td class="data">
+                <input type="text" name="Pool_Of_Prophecy" id="Pool_Of_Prophecy" value="<%-result.Game_Function.Pool_Of_Prophecy%>" />
+            </td>
+            <td class="title">
+
+            </td>
+            <td class="data">
+                <!--<input type="text" name="Buried_Treasure" id="Buried_Treasure" value="<%//-result.Game_Function.Buried_Treasure%>" />-->
+            </td>
+        </tr>
+    </table>
+</form>

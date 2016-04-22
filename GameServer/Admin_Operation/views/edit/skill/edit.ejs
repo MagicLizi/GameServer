@@ -1,0 +1,401 @@
+<div class="pagetitle">
+    <a href="/skill">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+
+    <input type="submit" name="submit" id="submit" value="提交" />
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="2">英雄技能配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            编号
+        </td>
+        <td class="data">
+            <%-result[0].Skill_Id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            名称
+        </td>
+        <td class="data">
+            <input type="text" name="Skill_Name" id="Skill_Name" value="<%-result[0].Skill_Name%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            识别名
+        </td>
+        <td class="data">
+            <input type="text" name="Skill_Tag" id="Skill_Tag" value="<%-result[0].Skill_Tag%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            排序
+        </td>
+        <td class="data">
+            <input type="text" name="Skill_Order" id="Skill_Order" value="<%-result[0].Skill_Order%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            类型
+        </td>
+        <td class="data">
+                <input type="radio" value="1" name="Skill_Type" id="Skill_Type"<%if(result[0].Skill_Type == 1){%>checked="true"<%}%>>主动技能
+                <input type="radio" value="2" name="Skill_Type" id="Skill_Type"<%if(result[0].Skill_Type == 2){%>checked="true"<%}%>>被动技能
+                <input type="radio" value="3" name="Skill_Type" id="Skill_Type"<%if(result[0].Skill_Type == 3){%>checked="true"<%}%>>特性技能
+        </td>
+    </tr>
+
+    <tr>
+        <td class="title">
+            是否需要指向目标
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="Need_Target" id="Need_Target" <%if(result[0].Need_Target==1){%>checked="true"<%}%>>需要
+            <input type="radio" value="0" name="Need_Target" id="Need_Target" <%if(result[0].Need_Target==0){%>checked="true"<%}%>>不需要
+
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            技能范围
+        </td>
+        <td class="data">
+            使用范围: <select name="Skill_Use_Range" id="Skill_Use_Range">
+                <%
+                result[1].forEach(function(item){%>
+                <option value="<%=JSON.stringify(item.Range_Json)%>"
+                        <%if(result[0].Skill_Use_Range == item.Range_Json){%>
+                        selected="selected"<%};%>><%-item.Range_Name%></option>
+                <%})%>
+            </select>
+            效果范围: <select name="Skill_Effect_Range" id="Skill_Effect_Range">
+                <%
+                result[1].forEach(function(item){%>
+                <option value="<%=JSON.stringify(item.Range_Json)%>"
+                        <%if(result[0].Skill_Effect_Range == item.Range_Json){%>
+                        selected="selected"<%};%>><%-item.Range_Name%></option>
+                <%})%>
+            </select>
+            <a href="/skill/indexRange?id=<%-result[0].Skill_Id%>">编辑范围</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            能量消耗
+        </td>
+        <td class="data">
+            <input type="text" name="Energy_Expends" id="Energy_Expends" value="<%-result[0].Energy_Expends%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            目标数量
+        </td>
+        <td class="data">
+            <input type="text" name="Target_Num" id="Target_Num" value="<%-result[0].Target_Num%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            技能对象类型
+        </td>
+        <td class="data">
+            <select name="Skill_Target_Type" id="Skill_Target_Type">
+                <option value="" ></option>
+                <option value="1" <%if(result[0].Skill_Target_Type == 1){%>selected="selected" <%}%>>友方</option>
+                <option value="2" <%if(result[0].Skill_Target_Type == 2){%>selected="selected" <%}%>>敌方</option>
+                <option value="3" <%if(result[0].Skill_Target_Type == 3){%>selected="selected" <%}%>>双方</option>
+            </select>
+        </td>
+
+    <tr>
+        <td class="title">
+            描述
+        </td>
+        <td class="data">
+            <textarea name="Skill_Description" id="Skill_Description" value="" wrap="virtual" rows="5"><%-result[0].Skill_Description%></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            持续回合数
+        </td>
+        <td class="data">
+            <input type="text" name="Duration_Rounds" id="Duration_Rounds" value="<%-result[0].Duration_Rounds%>" />
+        </td>
+    </tr>
+    <tr>
+    <td class="title">
+        技能图标
+    </td>
+    <td class="data">
+        <input type="text" name="Skill_Icon_Url" id="Skill_Icon_Url" value="<%-result[0].Skill_Icon_Url%>" />
+    </td>
+    </tr>
+    <tr>
+        <td class="title">
+            是否能被反击
+        </td>
+        <td class="data">
+            <input type="text" name="Skill_Particle_Url" id="Skill_Particle_Url" value="<%-result[0].Skill_Particle_Url%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            技能效果
+        </td>
+        <td class="data">
+
+            <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="effectList" name="effectList">
+                <tr>
+                    <td colspan="2">
+                        <input type="text" name="Skill_Effects" id="Skill_Effects" value="<%=result[2]%>" style="visibility: hidden"/>
+                        <input type="text" name="Skill_Effect" id="Skill_Effect" value="<%=result[0].Skill_Effect%>"  style="visibility: hidden"/>
+
+                        <select name="add_Skill_Effect" id="add_Skill_Effect">
+                            <%var i = 0;
+                                    JSON.parse(result[2]).Skill_Effect_Arr.forEach(function(item){%>
+                            <option value="<%-i%>"><%-item.name%></option>
+                            <%i++;})%>
+
+                        </select>
+                        <label onclick="btn_addEffect()">添加效果</label>
+                    </td>
+                </tr>
+                <%if(result[0].Skill_Effect){JSON.parse(result[0].Skill_Effect).Skill_Effect_Arr.forEach(function(item){%>
+                            <tr>
+                                <td>
+                                    <label onclick="editEffect('<%-item.id%>')"><%-item.name%></label>
+                                </td>
+                                <td>
+                                    <label onclick="delEffect('<%-item.id%>')">删除</label>
+                                </td>
+                            </tr>
+                        <%})}%>
+
+            </table>
+            <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="effectEdit" name="effectEdit">
+
+            </table>
+        </td>
+    </tr>
+</table>
+</form>
+
+<script>
+    function btn_addEffect(){
+        var selectedEff = document.getElementById("add_Skill_Effect");
+        var selectedvalue = selectedEff.options[selectedEff.selectedIndex].value;
+
+        var effectArr = JSON.parse(document.getElementById("Skill_Effects").value);
+        var i =1;
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var firstrow = tb.insertRow(0);
+        var firstcelltitle = firstrow.insertCell(0);
+        var firstcelldata = firstrow.insertCell(1);
+        firstcelltitle.setAttribute("class","title");
+        firstcelldata.setAttribute("class","data");
+        firstcelltitle.innerHTML = "操作";
+        firstcelldata.innerHTML = "<label onclick=postEffect('"+effectArr.Skill_Effect_Arr[selectedvalue].id+"')>提交</label>";
+        //tb.firstChild.removeChild(true);
+        effectArr.Skill_Effect_Arr[selectedEff.value].param.forEach(function(item){
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='' />"
+            i++;
+
+        })
+
+
+    }
+
+    function postEffect(effId){
+        var selectedEff = document.getElementById("add_Skill_Effect");
+        var selectedvalue = selectedEff.options[selectedEff.selectedIndex].value;
+
+        var effectArr = JSON.parse(document.getElementById("Skill_Effects").value);
+        var postv = new Array();
+        var effectName;
+        var effectid =effId;
+        var effectparam;
+        for(var i =0;i< effectArr.Skill_Effect_Arr.length;i++){
+            //alert(effectArr.Skill_Effect_Arr[i].id +"////"+effectid);
+            if(effectArr.Skill_Effect_Arr[i].id == effectid){
+                effectName = effectArr.Skill_Effect_Arr[i].name;
+                effectid = effId;
+                effectparam = effectArr.Skill_Effect_Arr[i].param;
+            }
+        }
+
+        effectparam.forEach(function(item){
+            var itemvalue;
+            var tempvalue;
+
+            if (document.getElementById(item.id)!=null){
+                tempvalue = document.getElementById(item.id).value;
+            }else{
+                tempvalue = 0;
+            }
+
+            itemvalue = {
+                "id" : item.id,
+                "name":item.name,
+                "value":tempvalue
+
+            }
+            postv.push(itemvalue);
+
+        });
+        var resultEffect = JSON.parse(document.getElementById("Skill_Effect").value);
+        for(var i =0;i< resultEffect.Skill_Effect_Arr.length;i++){
+            if(resultEffect.Skill_Effect_Arr[i].id == effectid){
+                resultEffect.Skill_Effect_Arr.splice(i,1);
+            }
+        }
+        resultEffect.Skill_Effect_Arr.push({
+            id:effectid,
+            name:effectName,
+            param:postv
+        });
+        document.getElementById("Skill_Effect").value = JSON.stringify(resultEffect);
+        //删除编辑页面
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (var i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum--;
+            i--;
+        }
+        //增加列表项
+        var listTB = document.getElementById("effectList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultEffect.Skill_Effect_Arr.forEach(function(item){
+            var newtr = listTB.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editEffect(\'"+item.id+"\')\">"+item.name+"</label>";
+            newtddata.innerHTML = "<label onclick='delEffect('"+item.id+"')'>删除</label>";
+            i++;
+
+        })
+
+    }
+
+    function delEffect(effid){
+        var resultEffect = JSON.parse(document.getElementById("Skill_Effect").value);
+        for(var i =0;i< resultEffect.Skill_Effect_Arr.length;i++){
+            if(resultEffect.Skill_Effect_Arr[i].id == effid){
+                resultEffect.Skill_Effect_Arr.splice(i,1);
+            }
+        }
+        document.getElementById("Skill_Effect").value = JSON.stringify(resultEffect);
+        var listTB = document.getElementById("effectList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultEffect.Skill_Effect_Arr.forEach(function(item){
+            var newtr = listTB.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editEffect(\'"+item.id+"\')\">"+item.name+"</label>";
+            newtddata.innerHTML = "<label onclick='delEffect('"+item.id+"')'>删除</label>";
+            i++;
+
+        })
+    }
+    function editEffect(effid){
+        //alert("edit : "+document.getElementById("Skill_Effect"));
+        var effectForEdit = JSON.parse(document.getElementById("Skill_Effect").value).Skill_Effect_Arr;
+        var effectid;
+        var effectname;
+        var effectparam;
+        effectForEdit.forEach(function(item){
+            if (item.id == effid){
+                effectid= item.id;
+                effectname = item.name;
+                effectparam = item.param;
+            }
+        })
+
+        var i =1;
+        var tb = document.getElementById("effectEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var lastrow = tb.insertRow(0);
+        var lastcelltitle = lastrow.insertCell(0);
+        var lastcelldata = lastrow.insertCell(1);
+        lastcelltitle.setAttribute("class","title");
+        lastcelldata.setAttribute("class","data");
+        lastcelltitle.innerHTML = "操作";
+        lastcelldata.innerHTML = "<label onclick=postEffect('"+effid+"')>提交</label>";
+        //tb.firstChild.removeChild(true);
+        effectparam.forEach(function(item){
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+item.value+"' />"
+            i++;
+
+        })
+        lastrow = tb.insertRow(0);
+        lastcelltitle = lastrow.insertCell(0);
+        lastcelldata = lastrow.insertCell(1);
+        lastcelltitle.setAttribute("class","title");
+        lastcelltitle.setAttribute("colspan","2");
+        lastcelltitle.innerHTML = effectname;
+
+
+
+
+    }
+</script>

@@ -1,0 +1,29 @@
+<div class="pagetitle">
+    <a href="/resource/add">上传资源</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编号</td>
+        <td class="title">资源名称</td>
+        <td class="title">版本</td>
+        <td class="title">资源链接</td>
+        <td class="title">创建日期</td>
+        <td class="title">操作</td>
+    </tr>
+    <%
+    //if(results){
+    results.forEach(function(item){
+    %>
+    <tr>
+        <td class="data"><%-item.Resource_Id%></td>
+        <td class="data"><%-item.Resource_Tag%></td>
+        <td class="data"><%-item.Resource_Version%></td>
+        <td class="data"><%-item.Resource_Url%></td>
+        <td class="data"><%-item.Create_Date.format('yyyy-MM-dd hh:mm:ss')%></td>
+        <td class="data"><a href="/resource/del?id=<%-item.Resource_Id%>">删除</a></td>
+    </tr>
+    <%
+    });
+    //}
+    %>
+</table>

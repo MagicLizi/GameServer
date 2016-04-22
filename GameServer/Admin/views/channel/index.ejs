@@ -1,0 +1,23 @@
+<div class="pagetitle">
+    <a href="/channel/add">添加渠道</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">名称</td>
+        <td class="title">备注</td>
+        <td class="title">编辑</td>
+    </tr>
+<%
+    results.forEach(function(channel){
+%>
+<tr>
+    <td class="data"><%-channel.channel_id%></td>
+    <td class="data"><%-channel.channel_name%></td>
+    <td class="data"><%-channel.remark%></td>
+    <td class="data"><a href="/channel/edit?id=<%-channel.channel_id%>">编辑</a></td>
+</tr>
+<%
+});
+%>
+</table>

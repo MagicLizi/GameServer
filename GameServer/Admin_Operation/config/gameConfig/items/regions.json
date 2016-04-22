@@ -1,0 +1,182 @@
+[
+    {
+        "region_id": 2,
+        "mode_id": 2,
+        "name": "押金一区",
+        "description": "进行押金比赛",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1000,
+        "max": 100000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [
+            {
+                "element_id": 10001,
+                "count": 256
+            }
+        ],
+        "deposit": {
+            "chips": 1000,
+            "rate": 2,
+            "free_id": 2,
+            "game_prizes": [
+                {
+                    "times": "1-10",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 1000
+                        }
+                    ],
+                    "description": "1-10"
+                }
+            ],
+            "streak_prizes": {
+                "limit": 80,
+                "config": [
+                    {
+                        "times": "1-10",
+                        "elements": [
+                            {
+                                "element_id": 10001,
+                                "count": 2000
+                            }
+                        ],
+                        "description": "1-10"
+                    }
+                ]
+            }
+        },
+        "detail_description": "游戏场详细描述",
+        "reward_description": ""
+    },
+    {
+        "region_id": 1,
+        "mode_id": 1,
+        "name": "抢庄一场",
+        "description": "抢庄一场",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1,
+        "max": 1000000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [],
+        "detail_description": "游戏场详细描述",
+        "reward_description": "奖励描述"
+    },
+    {
+        "region_id": 11,
+        "mode_id": 3,
+        "name": "比赛模式",
+        "description": "比赛模式",
+        "scene_id": 11,
+        "antes": 20,
+        "min": 1,
+        "max": 10000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [
+            {
+                "element_id": 10001,
+                "count": 1002
+            }
+        ],
+        "match": {
+            "begin_date": "2014-05-31T16:00:00.000Z",
+            "end_date": "2014-06-28T16:00:00.000Z",
+            "loop_cycle": 720,
+            "base_chips": 100,
+            "out_chips": 200,
+            "round_count": [3, 3],
+            "min": 10,
+            "max": 200,
+            "out_chips_additions": [
+                [-1, 9, -1],
+                [-1, -1, -1]
+            ],
+            "antes_additions": [
+                [-1, -1, -1],
+                [6, -1, 7]
+            ],
+            "round_promotions": [-1, -1],
+            "rewards": [
+                {
+                    "no": "1-10",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 456
+                        }
+                    ]
+                }
+            ],
+            "sign_up_consume": [
+                {
+                    "element_id": 10001,
+                    "count": 500
+                }
+            ]
+        },
+        "detail_description": "游戏场详细描述",
+        "reward_description": "奖励描述"
+    },
+    {
+        "region_id": 5,
+        "mode_id": 2,
+        "name": "押金二区",
+        "description": "押金二区",
+        "detail_description": "押金二区",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1,
+        "max": 1000000,
+        "trusteeship": true,
+        "select_help": true,
+        "reward_description": "押金二区",
+        "consume": [],
+        "deposit": {
+            "chips": 1000,
+            "rate": 4,
+            "free_id": 2,
+            "game_prizes": [
+                {
+                    "times": "1",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 1000
+                        }
+                    ],
+                    "description": ""
+                },
+                {
+                    "times": "5",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 2000
+                        }
+                    ],
+                    "description": ""
+                }
+            ],
+            "streak_prizes": {
+                "limit": 20,
+                "config": [
+                    {
+                        "times": "2",
+                        "elements": [
+                            {
+                                "element_id": 10001,
+                                "count": 5000
+                            }
+                        ],
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    }
+]

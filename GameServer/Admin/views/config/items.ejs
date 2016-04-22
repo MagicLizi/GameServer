@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">类型</td>
+        <td class="title">名称</td>
+        <td class="title">icon</td>
+        <td class="title">描述</td>
+        <td class="title">开始时间</td>
+        <td class="title">结束时间</td>
+        <td class="title">排序</td>
+        <td class="title">价值</td>
+        <td class="title">编辑</td>
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.item_id%></td>
+     <td class="data"><%-item.type==1?"道具":item.type==2?"话费兑奖":"实物兑奖"%></td>
+     <td class="data"><%-item.name%></td>
+     <td class="data"><%-item.icon%></td>
+     <td class="data"><%-item.description%></td>
+     <td class="data"><%-item.begin_date%></td>
+     <td class="data"><%-item.end_date%></td>
+    <td class="data"><%-item.sort_id%></td>
+    <td class="data"><%-item.value%></td>
+    <td class="data"><a href="?id=<%-item.item_id%>">删除</a></td>
+</tr>
+<%
+});
+%>
+<tr>
+    <td class="data"><input type="text" name="item_id" id="region_id" /></td>
+    <td class="data">
+    <select name="type" id="type">
+    <option value=1>普通</option>
+    <option value=2>话费兑奖</option>
+    <option value=3>实物兑奖</option>
+    </select>
+    </td>
+    <td class="data"><input type="text" name="name" id="name" /></td>
+    <td class="data"><input type="text" name="icon" id="icon" /></td>
+    <td class="data"><input type="text" name="description" id="description" /></td>
+    <td class="data"><input type="text" name="begin_date" id="begin_date" ></td>
+    <td class="data"><input type="text" name="end_date" id="end_date"></td>
+    <td class="data"><input type="text" name="sort_id" id="sort_id" /></td>
+    <td class="data"><input type="text" name="value" id="value" /></td>
+    <td class="data"><input type="submit" name="submit" id="submit" value="提交" /></td>
+</tr>
+</table>
+</form>

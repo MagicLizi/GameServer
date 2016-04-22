@@ -1,0 +1,613 @@
+<div class="pagetitle">
+    <a href="/hero">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<td class="data">
+    <input type="submit" name="submit" id="submit" value="提交" />
+</td>
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="4">战斗单位参数配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            编号
+        </td>
+        <td class="data">
+            <%-result[0][0].recharge_id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            单位类型
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="unit_Type" id="unit_Type" <%if(result[0][0].unit_Type==1){%>checked="true"<%}%>>英雄
+            <input type="radio" value="2" name="unit_Type" id="unit_Type" <%if(result[0][0].unit_Type==2){%>checked="true"<%}%>>怪物
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            名称
+        </td>
+        <td class="data">
+            <input type="text" name="name" id="name" value="<%-result[0][0].name%>" />
+            <input type="text" name="hero_Tag_Id" id="hero_Id" value="<%-result[0][0].hero_Tag_Id%>" style="visibility: hidden;"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            英雄识别名
+        </td>
+        <td class="data">
+            <select name="hero_Tag" id="hero_Tag">
+                <option value=""></option><%console.log(result[0][0].hero_Tag);%>>
+                <option value="Tiny" <%if(result[0][0].hero_Tag == "Tiny"){%>selected="selected"<%}%>>小小</option>
+                <option value="Bone" <%if(result[0][0].hero_Tag == "Bone"){%>selected="selected"<%}%>>骨弓</option>
+                <option value="Nec" <%if(result[0][0].hero_Tag == "Nec"){%>selected="selected"<%}%>>死灵法师</option>
+                <option value="DK" <%if(result[0][0].hero_Tag == "DK"){%>selected="selected"<%}%>>死骑</option>
+                <option value="Luna" <%if(result[0][0].hero_Tag == "Luna"){%>selected="selected"<%}%>>月骑</option>
+                <option value="Jugg" <%if(result[0][0].hero_Tag == "Jugg"){%>selected="selected"<%}%>>剑圣</option>
+                <option value="DR" <%if(result[0][0].hero_Tag == "DR"){%>selected="selected"<%}%>>小黑</option>
+                <option value="Lina" <%if(result[0][0].hero_Tag == "Lina"){%>selected="selected"<%}%>>火女</option>
+                <option value="Zeus" <%if(result[0][0].hero_Tag == "Zeus"){%>selected="selected"<%}%>>宙斯</option>
+                <option value="Ench" <%if(result[0][0].hero_Tag == "Ench"){%>selected="selected"<%}%>>小鹿</option>
+                <option value="Razon" <%if(result[0][0].hero_Tag == "Razon"){%>selected="selected"<%}%>>电魂</option>
+                <option value="Axe" <%if(result[0][0].hero_Tag == "Axe"){%>selected="selected"<%}%>>斧王</option>
+                <option value="AM" <%if(result[0][0].hero_Tag == "AM"){%>selected="selected"<%}%>>敌法</option>
+                <option value="OM" <%if(result[0][0].hero_Tag == "OM"){%>selected="selected"<%}%>>蓝胖</option>
+                <option value="WR" <%if(result[0][0].hero_Tag == "WR"){%>selected="selected"<%}%>>风行者</option>
+                <option value="Ghoul" <%if(result[0][0].hero_Tag == "Ghoul"){%>selected="selected"<%}%>>食尸鬼</option>
+                <option value="Merman" <%if(result[0][0].hero_Tag == "Merman"){%>selected="selected"<%}%>>鱼人</option>
+                <option value="CW" <%if(result[0][0].hero_Tag == "CW"){%>selected="selected"<%}%>>半人马酋长</option>
+                <option value="Tiny_Guide" <%if(result[0][0].hero_Tag == "Tiny_Guide"){%>selected="selected"<%}%>>小小(新手引导)</option>
+                <option value="Jugg_Guide" <%if(result[0][0].hero_Tag == "Jugg_Guide"){%>selected="selected"<%}%>>剑圣(新手引导)</option>
+                <option value="DK_Guide" <%if(result[0][0].hero_Tag == "DK_Guide"){%>selected="selected"<%}%>>死骑(新手引导)</option>
+                <option value="Axe_Guide" <%if(result[0][0].hero_Tag == "Axe_Guide"){%>selected="selected"<%}%>>斧王(新手引导)</option>
+                <option value="CW_Guide" <%if(result[0][0].hero_Tag == "CW_Guide"){%>selected="selected"<%}%>>半人马酋长(新手引导)</option>
+                <option value="DR_Guide" <%if(result[0][0].hero_Tag == "DR_Guide"){%>selected="selected"<%}%>>小黑(新手引导)</option>
+                <option value="GoldGoblin" <%if(result[0][0].hero_Tag == "GoldGoblin"){%>selected="selected"<%}%>>金皮地精</option>
+                <option value="StoneskinGoblin" <%if(result[0][0].hero_Tag == "StoneskinGoblin"){%>selected="selected"<%}%>>石肤地精</option>
+                <option value="SmallGoblin" <%if(result[0][0].hero_Tag == "SmallGoblin"){%>selected="selected"<%}%>>杂兵地精</option>
+                <option value="Stones" <%if(result[0][0].hero_Tag == "Stones"){%>selected="selected"<%}%>>石块（障碍物）</option>
+                <option value="RottingWood" <%if(result[0][0].hero_Tag == "RottingWood"){%>selected="selected"<%}%>>腐木（障碍物）</option>
+                <option value="Landmine" <%if(result[0][0].hero_Tag == "Landmine"){%>selected="selected"<%}%>>地雷</option>
+                <option value="GoldenDragon" <%if(result[0][0].hero_Tag == "GoldenDragon"){%>selected="selected"<%}%>>小金龙</option>
+                <option value="StoneMan" <%if(result[0][0].hero_Tag == "StoneMan"){%>selected="selected"<%}%>>石头人</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            灵魂石
+        </td>
+        <td class="data">
+            <select name="soulStone" id="soulStone">
+                <option value="0"></option>
+                <%result[4].forEach(function(item){%>
+                            <option value = "<%-item.Item_Id%>"
+                                    <%if(result[0][0].soul_Stone_Id == item.Item_Id){%>selected="selected" <%}%>
+                                    ><%-item.Item_Name%></option>
+                        <%})%>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击类型
+        </td>
+        <td class="data">
+            <select name="type" id="type">
+                <option value="1" <%if(result[0][0].type==1){%>selected="selected"<%}%>>近战－物理</option>
+                <option value="2" <%if(result[0][0].type==2){%>selected="selected"<%}%>>近战－法系</option>
+                <option value="3" <%if(result[0][0].type==3){%>selected="selected"<%}%>>远程－物理</option>
+                <option value="4" <%if(result[0][0].type==4){%>selected="selected"<%}%>>远程－法系</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            初始星级
+        </td>
+        <td class="data">
+            <select name="star_lvl" id="star_lvl">
+                <option value="1"<%if(result[0][0].star_lvl==1){%>selected="selected"<%}%>>1</option>
+                <option value="2"<%if(result[0][0].star_lvl==2){%>selected="selected"<%}%>>2</option>
+                <option value="3"<%if(result[0][0].star_lvl==3){%>selected="selected"<%}%>>3</option>
+                <option value="4"<%if(result[0][0].star_lvl==4){%>selected="selected"<%}%>>4</option>
+                <option value="5"<%if(result[0][0].star_lvl==5){%>selected="selected"<%}%>>5</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            品质
+        </td>
+        <td class="data"><%if (result[0].length>0){%>
+            <%if(result[0][0].recharge_id==result[0][1].recharge_id){%>白色<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][1].recharge_id%>">白色</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][2].recharge_id){%>绿色<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][2].recharge_id%>">绿色</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][3].recharge_id){%>绿色+1<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][3].recharge_id%>">绿色+1</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][4].recharge_id){%>蓝色<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][4].recharge_id%>">蓝色</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][5].recharge_id){%>蓝色+1<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][5].recharge_id%>">蓝色+1</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][6].recharge_id){%>蓝色+2<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][6].recharge_id%>">蓝色+2</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][7].recharge_id){%>紫色<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][7].recharge_id%>">紫色</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][8].recharge_id){%>紫色+1<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][8].recharge_id%>">紫色+1</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][9].recharge_id){%>紫色+2<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][9].recharge_id%>">紫色+2</a><%}%>
+            <%if(result[0][0].recharge_id==result[0][10].recharge_id){%>紫色+3<%}else{%>
+            <a href="/hero/edit?id=<%-result[0][10].recharge_id%>">紫色+3</a><%}%>
+            <%}%>
+            <!--<select name="quality" id="quality">-->
+
+                <!--<option value="1"<%if(result.quality==1){%>selected="selected"<%}%>>白</option>-->
+                <!--<option value="2"<%if(result.quality==2){%>selected="selected"<%}%>>绿</option>-->
+                <!--<option value="3"<%if(result.quality==3){%>selected="selected"<%}%>>蓝</option>-->
+                <!--<option value="4"<%if(result.quality==4){%>selected="selected"<%}%>>紫</option>-->
+                <!--<option value="4"<%if(result.quality==5){%>selected="selected"<%}%>>橙</option>-->
+            <!--</select>-->
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            元素属性
+        </td>
+        <td class="data">
+            <select name="element_type" id="element_type">
+                <option value="1"<%if(result[0][0].element_type==1){%>selected="selected"<%}%>>红</option>
+                <option value="2"<%if(result[0][0].element_type==2){%>selected="selected"<%}%>>黄</option>
+                <option value="3"<%if(result[0][0].element_type==3){%>selected="selected"<%}%>>蓝</option>
+                <option value="4"<%if(result[0][0].element_type==4){%>selected="selected"<%}%>>绿</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            速度
+        </td>
+        <td class="data">
+            <input type="text" name="speed" id="speed" value="<%-result[0][0].speed%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            行动力
+        </td>
+        <td class="data">
+
+            <input type="text" name="move_power" id="move_power" value="<%-result[0][0].move_power%>" />
+
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            攻击范围
+        </td>
+        <td class="data">
+            <select name="attack_range" id="attack_range">
+                <%
+                result[2].forEach(function(item){%>
+                <option value="<%=JSON.stringify(item.Range_Json)%>"
+                        <%if(result[0][0].attack_range == item.Range_Json){%>
+                        selected="selected"<%};%>><%-item.Range_Name%></option>
+                <%})%>
+            </select>
+            <a href="/skill/indexRange?id=">编辑范围</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            路径加成
+        </td>
+        <td class="data">
+            <input type="text" name="move_addition" id="move_addition" value="<%-result[0][0].move_addition%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            主动技能ID
+        </td>
+        <td class="data">
+            <select name="initiative_skill_id" id="initiative_skill_id">
+                <option value="">
+                <%
+                result[1].forEach(function(item){%>
+                    <option value="<%-item.Skill_Id%>"<%if(result[0][0].initiative_skill_id==item.Skill_Id){%>selected="selected"<%}%>>
+                        <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            被动技能ID
+        </td>
+        <td class="data">
+            <select name="passive_skill_id" id="passive_skill_id">
+                <option value="">
+                <%
+                result[1].forEach(function(item){%>
+                <option value="<%-item.Skill_Id%>"<%if(result[0][0].passive_skill_id==item.Skill_Id){%>selected="selected"<%}%>>
+                    <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            特性技能ID
+        </td>
+        <td class="data">
+            <select name="characteristic_skill_id" id="characteristic_skill_id">
+                <option value="">
+                <%
+                result[1].forEach(function(item){%>
+                <option value="<%-item.Skill_Id%>"<%if(result[0][0].characteristic_skill_id==item.Skill_Id){%>selected="selected"<%}%>>
+                    <%-item.Skill_Name%></option>
+                <%})%>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            T值
+        </td>
+        <td class="data">
+            <input type="text" name="t_value" id="t_value" value="<%-result[0][0].t_value%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            对T值有效
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="t_enable" id="t_enable" <%if(result[0][0].t_enable==1){%>checked="true"<%}%>>有效
+            <input type="radio" value="0" name="t_enable" id="t_enable" <%if(result[0][0].t_enable==0){%>checked="true"<%}%>>无效
+        </td>
+
+    </tr>
+    <tr>
+        <td class="title">
+            优先目标的T值
+        </td>
+        <td class="data">
+            <input type="text" name="first_target_tvalue" id="first_target_tvalue" value="<%-result[0][0].first_target_tvalue%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            英雄站位
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="position_type" id="position_type"
+                   <%if(result[0][0].position_type==1){%>checked="true"<%}%>>前排
+            <input type="radio" value="2" name="position_type" id="position_type"
+                   <%if(result[0][0].position_type==2){%>checked="true"<%}%>>后排
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            描述
+        </td>
+        <td class="data">
+            <textarea name="description" id="description" cols="45" rows="5"><%-result[0][0].description%></textarea>
+        </td>
+    </tr>
+</table>
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="4">英雄装备配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备1
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment1" id="Hero_Equipment1">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment1){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+
+        </td>
+        <td class="title">
+            装备2
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment2" id="Hero_Equipment2">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment2){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备3
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment3" id="Hero_Equipment3">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment3){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+        <td class="title">
+            装备4
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment4" id="Hero_Equipment4">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment4){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备5
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment5" id="Hero_Equipment5">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment5){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+        <td class="title">
+            装备6
+        </td>
+        <td class="data">
+            <select name="Hero_Equipment6" id="Hero_Equipment6">
+                <option value="0">  </option>
+                <%result[3].forEach(function(item){%>
+                <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result[0][0].Hero_Equipment6){%> selected="selected"<%}%> ><%-item.Item_Name%></option>
+                <%});%>
+
+            </select>
+        </td>
+    </tr>
+
+</table>
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+<tr class="title">
+    <td colspan="4">英雄初始/成长属性配置</td>
+</tr>
+<tr>
+    <td class="title">
+        生命值
+    </td>
+    <td class="data">
+        <input type="text" name="life" id="life" value="<%-result[0][0].life%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="life_add" id="life_add" value="<%-result[0][0].life_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        生命回复
+    </td>
+    <td class="data">
+        <input type="text" name="life_Restore" id="life_Restore" value="<%-result[0][0].life_Restore%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="life_Restore_add" id="life_Restore_add" value="<%-result[0][0].life_Restore_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        能量回复
+    </td>
+    <td class="data">
+        <input type="text" name="energy_Restore" id="energy_Restore" value="<%-result[0][0].energy_Restore%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="energy_Restore_add" id="energy_Restore_add" value="<%-result[0][0].energy_Restore_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        攻击力
+    </td>
+    <td class="data">
+        <input type="text" name="attack" id="attack" value="<%-result[0][0].attack%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="attack_add" id="attack_add" value="<%-result[0][0].attack_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        法术强度
+    </td>
+    <td class="data">
+        <input type="text" name="spell" id="spell" value="<%-result[0][0].spell%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="spell_add" id="spell_add" value="<%-result[0][0].spell_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        护甲
+    </td>
+    <td class="data">
+        <input type="text" name="armor" id="armor" value="<%-result[0][0].armor%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="armor_add" id="armor_add" value="<%-result[0][0].armor_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        魔抗
+    </td>
+    <td class="data">
+        <input type="text" name="magic_resistance" id="magic_resistance" value="<%-result[0][0].magic_resistance%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="magic_resistance_add" id="magic_resistance_add" value="<%-result[0][0].magic_resistance_add%>" />
+    </td>
+</tr>
+
+<tr>
+    <td class="title">
+        物理暴击等级
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_lvl" id="attack_crit_lvl" value="<%-result[0][0].attack_crit_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_lvl_add" id="attack_crit_lvl_add" value="<%-result[0][0].attack_crit_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        物理暴击伤害加成等级
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_damage_addition_lvl" id="attack_crit_damage_addition_lvl" value="<%-result[0][0].attack_crit_damage_addition_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="attack_crit_damage_addition_lvl_add" id="attack_crit_damage_addition_lvl_add" value="<%-result[0][0].attack_crit_damage_addition_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        闪避等级
+    </td>
+    <td class="data">
+        <input type="text" name="avoid_lvl" id="avoid_lvl" value="<%-result[0][0].avoid_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="avoid_lvl_add" id="avoid_lvl_add" value="<%-result[0][0].avoid_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        命中等级
+    </td>
+    <td class="data">
+        <input type="text" name="hit_lvl" id="hit_lvl" value="<%-result[0][0].hit_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="hit_lvl_add" id="hit_lvl_add" value="<%-result[0][0].hit_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        吸血等级
+    </td>
+    <td class="data">
+        <input type="text" name="suck_blood_lvl" id="suck_blood_lvl" value="<%-result[0][0].suck_blood_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="suck_blood_lvl_add" id="suck_blood_lvl_add" value="<%-result[0][0].suck_blood_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        主动技能能量减少等级
+    </td>
+    <td class="data">
+        <input type="text" name="initiative_skill_energy_less_lvl" id="initiative_skill_energy_less_lvl" value="<%-result[0][0].initiative_skill_energy_less_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="initiative_skill_energy_less_lvl_add" id="initiative_skill_energy_less_lvl_add" value="<%-result[0][0].initiative_skill_energy_less_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        被动技能能量减少等级
+    </td>
+    <td class="data">
+        <input type="text" name="passive_skill_energy_less_lvl" id="passive_skill_energy_less_lvl" value="<%-result[0][0].passive_skill_energy_less_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="passive_skill_energy_less_lvl_add" id="passive_skill_energy_less_lvl_add" value="<%-result[0][0].passive_skill_energy_less_lvl_add%>" />
+    </td>
+</tr>
+<tr>
+    <td class="title">
+        治疗技能效果提升等级
+    </td>
+    <td class="data">
+        <input type="text" name="skill_cure_lvl" id="skill_cure_lvl" value="<%-result[0][0].skill_cure_lvl%>" />
+    </td>
+    <td class="title">
+        成长值
+    </td>
+    <td class="data">
+        <input type="text" name="skill_cure_lvl_add" id="skill_cure_lvl_add" value="<%-result[0][0].skill_cure_lvl_add%>" />
+    </td>
+</tr>
+</table>
+
+
+
+</form>

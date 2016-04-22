@@ -1,0 +1,46 @@
+[2015-01-09 03:15:40.733] [ERROR] db - { [Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?,?,?,?,?,?)' at line 1]
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?,?,?,?,?,?)' at line 1
+    at Query.Sequence._packetToError (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/sequences/Sequence.js:30:14)
+    at Query.ErrorPacket (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/sequences/Query.js:82:18)
+    at Protocol._parsePacket (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:213:24)
+    at Parser.write (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Parser.js:62:12)
+    at Protocol.write (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:37:16)
+    at Socket.<anonymous> (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/Connection.js:75:28)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:764:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:426:10)
+    --------------------
+    at Protocol._enqueue (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:110:48)
+    at Connection.query (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/Connection.js:166:25)
+    at /Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/data_provider/dao/connection.js:70:36
+    at fn (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/async/lib/async.js:641:34)
+    at Object._onImmediate (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/async/lib/async.js:557:34)
+    at processImmediate [as _immediateCallback] (timers.js:345:15)
+[2015-01-09 03:16:45.550] [ERROR] db - { [Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?,?,?,?,?,?)' at line 1]
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?,?,?,?,?,?)' at line 1
+    at Query.Sequence._packetToError (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/sequences/Sequence.js:30:14)
+    at Query.ErrorPacket (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/sequences/Query.js:82:18)
+    at Protocol._parsePacket (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:213:24)
+    at Parser.write (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Parser.js:62:12)
+    at Protocol.write (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:37:16)
+    at Socket.<anonymous> (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/Connection.js:75:28)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:764:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:426:10)
+    --------------------
+    at Protocol._enqueue (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/protocol/Protocol.js:110:48)
+    at Connection.query (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/mysql/lib/Connection.js:166:25)
+    at /Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/data_provider/dao/connection.js:70:36
+    at fn (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/async/lib/async.js:641:34)
+    at Object._onImmediate (/Users/peihengyang/Documents/DT/DtServer/GameServer/Admin/node_modules/async/lib/async.js:557:34)
+    at processImmediate [as _immediateCallback] (timers.js:345:15)

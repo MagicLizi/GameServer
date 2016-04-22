@@ -1,0 +1,62 @@
+<div class="pagetitle">
+     <a href="/config">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="4">人物初始化</td>
+    </tr>
+    <tr>
+        <td class="data">初始金贝：</td>
+        <td class="data"><input type="text" name="chips" id="chips" value="<%-result.player.chips%>" /></td>
+        <td class="data">初始通宝卡：</td>
+        <td class="data"><input type="text" name="diamond" id="diamond" value="<%-result.player.diamond%>" /></td>
+    </tr>
+    <tr class="title">
+        <td colspan="4">昵称修改</td>
+    </tr>
+    <tr>
+        <td class="data">花费金贝：</td>
+        <td class="data"><input type="text" name="change_count" id="change_count" value="<%-result.change_nickname[0].count%>" /></td>
+        <td class="data"></td>
+        <td class="data"></td>
+    </tr>
+    <tr class="title">
+        <td colspan="4">排行榜设置</td>
+    </tr>
+    <tr>
+        <td class="data">排行榜数量：</td>
+        <td class="data"><input type="text" name="rank_count" id="rank_count" value="<%-result.rank_count%>" /></td>
+        <td class="data"></td>
+        <td class="data"></td>
+    </tr>
+    <tr class="title">
+        <td colspan="4">游戏设置</td>
+    </tr>
+    <tr>
+        <td class="data">赢取上限：</td>
+        <td class="data"><input type="text" name="win_limit" id="win_limit" value="<%-result.win_limit%>" /></td>
+        <td class="data">输取上限</td>
+        <td class="data"><input type="text" name="lose_limit" id="lose_limit" value="<%-result.lose_limit%>" /></td>
+    </tr>
+    <tr>
+        <td class="data">重置时间：</td>
+        <td class="data"><input type="text" name="reset_time" id="reset_time" value="<%-result.reset_time%>" /></td>
+        <td class="data"></td>
+        <td class="data"></td>
+    </tr>
+    <tr class="title">
+            <td colspan="4">游戏维护</td>
+    </tr>
+    <tr>
+            <td class="data">维护中提示</td>
+            <td class="data"><input type="text" name="maintain_message" id="maintain_message" value="<%-result.maintain_message%>" /></td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><input type="submit" name="submit" id="submit" value="提交" /></td>
+    </tr>
+</table>
+</form>

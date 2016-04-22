@@ -1,0 +1,144 @@
+<div class="pagetitle">
+    <a href="/lottery/lottery_Method/index">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <input type="submit" name="submit" id="submit" value="提交" />
+
+    <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="4">抽取方法配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽取方法名称
+            </td>
+            <td class="data">
+                <input type="text" name="method_Tag" id="method_Tag" value="<%-results.lotteryMethod.Method_Tag%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽取方法编号
+            </td>
+            <td class="data">
+                <label ><%-results.lotteryMethod.Lottery_Method_Id%></label>
+                <input  name="lottery_Method_Id" id="lottery_Method_Id" value="<%-results.lotteryMethod.Lottery_Method_Id%>" style="visibility: hidden"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽取方法类型
+            </td>
+            <td class="data">
+                <select name="method_Id" id="method_Id">
+                <option value=""></option>
+                <%results.lotteryMethods.forEach(function(item){%>
+                <option value="<%-item.id%>" <%if(item.id == results.lotteryMethod.Method_Id){%> selected="selected" <%}%>><%-item.name%></option>
+                <%})%>
+                </select>
+                <label name="method_Name" id="method_Name"></label>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                奖池名称
+            </td>
+            <td class="data">
+                <select name = "pool_Id" id = "pool_Id">
+                    <option value=""></option>
+                    <%results.pools.forEach(function(item){%>
+                    <option value="<%-item.Pool_Id%>" <%if(item.Pool_Id==results.lotteryMethod.Pool_Id){%>selected="selected" <%}%>><%-item.Pool_Name%></option>
+                    <%})%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽取次数
+            </td>
+            <td class="data">
+                <input type="text" name="lottery_Times" id="lottery_Times" value="<%-results.lotteryMethod.Lottery_Times%>" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                品质1概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality1_Probability" id="quality1_Probability" value="<%-results.lotteryMethod.Quality1_Probability%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                品质2概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality2_Probability" id="quality2_Probability" value="<%-results.lotteryMethod.Quality2_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质3概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality3_Probability" id="quality3_Probability" value="<%-results.lotteryMethod.Quality3_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质4概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality4_Probability" id="quality4_Probability" value="<%-results.lotteryMethod.Quality4_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质5概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality5_Probability" id="quality5_Probability" value="<%-results.lotteryMethod.Quality5_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质6概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality6_Probability" id="quality6_Probability" value="<%-results.lotteryMethod.Quality6_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质7概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality7_Probability" id="quality7_Probability" value="<%-results.lotteryMethod.Quality7_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质8概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality8_Probability" id="quality8_Probability" value="<%-results.lotteryMethod.Quality8_Probability%>" />
+            </td>
+        </tr>        <tr>
+            <td class="title">
+                品质9概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality9_Probability" id="quality9_Probability" value="<%-results.lotteryMethod.Quality9_Probability%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                品质10概率
+            </td>
+            <td class="data">
+                <input type="text" name="quality10_Probability" id="quality10_Probability" value="<%-results.lotteryMethod.Quality10_Probability%>" />
+            </td>
+        </tr>
+    </table>
+
+
+</form>

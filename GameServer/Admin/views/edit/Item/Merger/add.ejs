@@ -1,0 +1,73 @@
+<div class="pagetitle">
+    <a href="/Item/Merger/index?id=<%-results.Item_Id%>">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <input type="submit" name="submit" id="submit" value="提交" />
+    <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="2">物品合成配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                目标物品名称
+            </td>
+            <td class="data">
+
+
+                    <%
+                    results.resultItem.forEach(function(item){
+                if(item.Item_Id == results.Item_Id){%>
+
+                <label name="Target_Item_Name" id="Target_Item_Name"><%-item.Item_Name%></label>
+                <input name="Target_Item_Id" id="Target_Item_Id" value="<%-item.Item_Id%>" style="visibility: hidden" />
+                <%}
+                });
+                %>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                源物品名称
+            </td>
+            <td class="data">
+                <select name="Source_Item_Id" id="Source_Item_Id">
+                    <%results.resultItem.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" ><%-item.Item_Name%></option>
+                    <%});%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                源物品数量
+            </td>
+            <td class="data">
+
+                <input type="text" name="Source_Item_Amount" id="Item_Name" value="" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                合成类型
+            </td>
+            <td class="data">
+                <select name="Merger_Type" id="Merger_Type">
+                    <option value="0" >  </option>
+                    <option value="1" >物品合成</option>
+                    <option value="2" >卷轴合成</option>
+                    <option value="3" >装备合成</option>
+                    <option value="4" >英雄合成</option>
+
+                </select>
+            </td>
+        </tr>
+
+    </table>
+</form>

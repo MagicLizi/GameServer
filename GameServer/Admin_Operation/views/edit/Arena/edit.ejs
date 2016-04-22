@@ -1,0 +1,165 @@
+<div class="pagetitle">
+    <a href="/Item">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+
+    <input type="submit" name="submit" id="submit" value="提交" />
+
+<table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="2">物品配置</td>
+    </tr>
+    <tr>
+        <td class="title">
+            物品编号
+        </td>
+        <td class="data">
+            <%-result.Item.Item_Id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            物品名称
+        </td>
+        <td class="data">
+            <input type="text" name="Item_Name" id="Item_Name" value="<%-result.Item.Item_Name%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            顺序编号
+        </td>
+        <td class="data">
+            <input type="text" name="Item_Order" id="Item_Order" value="<%-result.Item.Item_Order%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            类型
+        </td>
+        <td class="data">
+            <input type="radio" value="1" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==1){
+            %>checked="true"<%}%>>货币
+            <input type="radio" value="2" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==2){
+            %>checked="true"<%}%>>碎片
+            <input type="radio" value="3" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==3){
+            %>checked="true"<%}%>>卷轴
+            <input type="radio" value="4" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==4){
+            %>checked="true"<%}%>>灵魂石
+            <input type="radio" value="5" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==5){
+            %>checked="true"<%}%>>消耗品
+            <input type="radio" value="6" name="Item_Type" id="Item_Type"<%
+            if(result.Item.Item_Type ==6){
+            %>checked="true"<%}%>>装备
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            直接打开
+        </td>
+        <td class="data">
+
+            <input type="radio" name="Auto_Open" id="Auto_Open" value="1" <%if(result.Item.Auto_Open ==1){%>checked="true" <%}%>/>是
+
+            <input type="radio" name="Auto_Open" id="Auto_Open" value="0" <%if(result.Item.Auto_Open ==0){%>checked="true" <%}%>/>否
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            数量上限
+        </td>
+        <td class="data">
+            <input type="text" name="Amount_Limit" id="Amount_Limit" value="<%-result.Item.Amount_Limit%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            描述
+        </td>
+        <td class="data">
+            <textarea name="Description" id="Description" value="" wrap="virtual" rows="5"><%-result.Item.Description%></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            物品品质
+        </td>
+        <td class="data">
+            <select name="Item_Quality" id="Item_Quality">
+                <option value="0" <%
+                if(result.Item.Item_Quality==0){
+                %>selected="true"<%}%>>白</option>
+                <option value="1" <%
+                if(result.Item.Item_Quality==1){
+                %>selected="true"<%}%>>绿</option>
+                <option value="2" <%
+                if(result.Item.Item_Quality==2){
+                %>selected="true"<%}%>>蓝</option>
+                <option value="3" <%
+                if(result.Item.Item_Quality==3){
+                %>selected="true"<%}%>>紫</option>
+                <option value="4" <%
+                if(result.Item.Item_Quality==4){
+                %>selected="true"<%}%>>橙</option>
+
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="title">
+            售价
+        </td>
+        <td class="data">
+            <input type="text" name="Price" id="Price" value="<%-result.Item.Price%>" />
+        </td>
+    </tr>
+    <td class="title">
+        图标
+    </td>
+    <td class="data">
+        <input type="text" name="Icon_Url" id="Icon_Url" value="<%-result.Item.Icon_Url%>" />
+    </td>
+    </tr>
+    <tr>
+        <td class="title">
+            装备等级
+        </td>
+        <td class="data">
+            <input type="text" name="Equip_Level" id="Equip_Level" value="<%-result.Item.Equip_Level%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            物品合成
+        </td>
+        <td class="data">
+            <a href="/Item/Merger/index?id=<%-result.Item.Item_Id%>">合成列表</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            物品效果
+        </td>
+        <td class="data">
+            <a href="/Item/Effect/index?id=<%-result.Item.Item_Id%>">效果列表</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="title">
+            创建日期
+        </td>
+        <td class="data">
+            <input type="text" name="Create_Date" id="Create_Date" value="<%-result.Item.Create_Date.format('yyyy-MM-dd hh:mm:ss')%>" />
+        </td>
+    </tr>
+</table>
+</form>

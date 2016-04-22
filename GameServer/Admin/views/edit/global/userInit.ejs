@@ -1,0 +1,158 @@
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="save" id="save" value="提交">
+    </td>
+
+    <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="5">用户初始配置信息</td>
+        </tr>
+        <tr>
+            <td class="title">
+                初始英雄配置
+            </td>
+            <td class="data">
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" >
+                    <tr colspan="2">
+
+                        <td class="data">
+                            <input type="text" name="result_UserHero" id="result_UserHero" value="<%=result.userInit.Heros%>"  style="visibility: hidden"/>
+                            选择英雄:<select name="User_Hero_Add" id="User_Hero_Add">
+                                <option value=""></option>
+                                <%result.editHero.forEach(function(item){%>
+                                <option value="<%-item.recharge_id%>,<%-item.name%>(<%-item.quality%>)" ><%-item.name%>(<%-item.quality%>)</option>
+                                <%})%>
+                            </select>
+                            总经验:<input type="text" name="first_Hero_Lvl" id="first_Hero_Lvl" value=""  />
+                            是否初始:<input type="text" name="is_First" id="is_First" value=""  />
+                            被动技能等级:<input type="text" name="PassiveSkill_Lvl" id="PassiveSkill_Lvl" value=""  />
+                            主动技能等级:<input type="text" name="InitiativeSkill_Lvl" id="InitiativeSkill_Lvl" value=""  />
+                            特性技能等级:<input type="text" name="CharacteristicSkill_Lvl" id="CharacteristicSkill_Lvl" value=""  />
+                            <label onclick="btn_addHero()">添加初始英雄</label>
+                        </td>
+                    </tr>
+                    <tr colspan="2">
+                        <table id="TB_HeroInit" name="TB_HeroInit" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98"></table>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                初始物品配置
+            </td>
+            <td class="data">
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" >
+                    <tr colspan="2">
+
+                        <td class="data">
+                            <input type="text" name="result_UserItem" id="result_UserItem" value="<%=result.userInit.Items%>"  style="visibility: hidden"/>
+                            选择道具:<select name="User_Item_Add" id="User_Item_Add">
+                                <option value=""></option>
+                                <%result.editItem.forEach(function(item){%>
+                                <option value="<%-item.Item_Id%>,<%-item.Item_Name%>" ><%-item.Item_Name%></option>
+                                <%})%>
+                            </select>
+                            数量:<input type="text" name="item_Amount" id="item_Amount" value=""  />
+                            差异数量:<input type="text" name="item_Diff_Amount" id="item_Diff_Amount" value=""  />
+                            <label onclick="btn_addItem()">添加初始道具</label>
+                        </td>
+                    </tr>
+                    <tr colspan="2">
+                        <table id="TB_ItemInit" name="TB_ItemInit" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98"></table>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+    createTable('TB_HeroInit','result_UserHero','编号,英雄名称,总经验,是否初始,被动技能等级,主动技能等级,特性技能等级,操作');
+    createTable('TB_ItemInit','result_UserItem','编号,道具名称,数量,差异数量,操作');
+    var btn_addHero = function(){
+        var data_Add_Arr = [];
+        var table_Title = '编号,英雄名称,总经验,是否初始,被动技能等级,主动技能等级,特性技能等级,操作';
+        if(document.getElementById('result_UserHero').value!='undefined'){
+            data_Add_Arr = JSON.parse(document.getElementById('result_UserHero').value);
+        }
+
+        data_Add_Arr.push(document.getElementById('User_Hero_Add').value+','+document.getElementById('first_Hero_Lvl').value
+        +','+document.getElementById('is_First').value + ',' + document.getElementById('PassiveSkill_Lvl').value
+        + ',' + document.getElementById('InitiativeSkill_Lvl').value
+        + ',' + document.getElementById('CharacteristicSkill_Lvl').value);
+        document.getElementById('result_UserHero').value=JSON.stringify(data_Add_Arr);
+        addRow('result_UserHero','TB_HeroInit',table_Title);
+    }
+    var btn_addItem = function(){
+        var data_Add_Arr = [];
+        var table_Title = '编号,道具名称,数量,差异数量,操作';
+        if(document.getElementById('result_UserItem').value!='undefined'){
+            data_Add_Arr = JSON.parse(document.getElementById('result_UserItem').value);
+        }
+        data_Add_Arr.push(document.getElementById('User_Item_Add').value+','+document.getElementById('item_Amount').value
+        +','+document.getElementById('item_Diff_Amount').value);
+        document.getElementById('result_UserItem').value=JSON.stringify(data_Add_Arr);
+        addRow('result_UserItem','TB_ItemInit',table_Title);
+    };
+
+
+    var addRow =function(arr_Data_Id,table_Id,tb_Title){
+        createTable(table_Id,arr_Data_Id,tb_Title);
+    }
+    function delRow(Data_Id,arr_Data_Id,table_Id,tb_Title){
+        var arr_Data =  JSON.parse(document.getElementById(arr_Data_Id).value);
+        arr_Data.splice(Data_Id,1);
+        document.getElementById(arr_Data_Id).value=JSON.stringify(arr_Data);
+        createTable(table_Id,arr_Data_Id,tb_Title);
+    }
+
+    function createTable(tabel_Id,arr_Data_Id,tb_Title){
+        var arr_Data = '[]';
+        if(document.getElementById(arr_Data_Id).value!="undefined"){
+            arr_Data=document.getElementById(arr_Data_Id).value
+        }
+        var data_Rows = JSON.parse(arr_Data);
+
+        var tb = document.getElementById(tabel_Id);
+        var rowNum=tb.rows.length;
+        for (var i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var Rowi = 1;
+        data_Rows.forEach(function(data_Row){
+            var data_Cols = data_Row.split(',');
+            var firstrow = tb.insertRow(0);
+            var Coli = 0;
+            data_Cols.forEach(function(data_Col){
+                var firstcelltitle = firstrow.insertCell(Coli);
+                firstcelltitle.setAttribute("class","data");
+                firstcelltitle.innerHTML = data_Col;
+                Coli++;
+            });
+            var firstcelldata = firstrow.insertCell(Coli);
+            firstcelldata.setAttribute("class","data");
+            var tb_Rowi = Rowi-1;
+            firstcelldata.innerHTML = "<label onclick=delRow("+tb_Rowi+",'"+arr_Data_Id+"','"+tabel_Id+"','" +
+            tb_Title+"')>删除</label>";
+            Rowi++;
+        });
+        var data_Cols = tb_Title.split(',');
+        var firstrow = tb.insertRow(0);
+        var Coli = 0;
+        data_Cols.forEach(function(data_Col){
+            var firstcelltitle = firstrow.insertCell(Coli);
+            firstcelltitle.setAttribute("class","data");
+            firstcelltitle.innerHTML = data_Col;
+            Coli++;
+        });
+    }
+</script>

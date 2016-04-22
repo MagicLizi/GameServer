@@ -1,0 +1,29 @@
+{"Internal": {
+    "Admin": 5000,
+    "Game": 5001,
+    "Login":5002,
+    "Logger":5003
+},
+"QA":{
+    "Admin": 4000,
+    "Game": 4001,
+    "Login":4002
+},
+    "DEV":{
+        "Admin": 8000,
+        "Game": 8001,
+        "Login":8002,
+      "Logger":8003
+    },
+    "OutSide": {
+        "Admin": 3000,
+        "Game": 3001,
+        "Login":3002
+    },
+  "DEMO":{
+    "Admin": 10000,
+    "Game": 10001,
+    "Login":10002,
+    "Logger":10003
+  }
+}

@@ -1,0 +1,476 @@
+{"Internal": {
+  "Login": {
+    "membership": {
+      "user": "steve",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "58.213.141.221",
+      "port": "5004",
+      "database": "membership",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "Game": {
+    "game": {
+      "user": "steve",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "58.213.141.221",
+      "port": "5004",
+      "database": "Game_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "Admin": {
+    "admin": {
+      "user": "steve",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "58.213.141.221",
+      "port": "5004",
+      "database": "admin_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  },
+  "Logger": {
+    "logger": {
+      "user": "steve",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "58.213.141.221",
+      "port": "5004",
+      "database": "Logger_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  }
+},"--Internal": {
+    "Login": {
+        "membership": {
+            "user": "root",
+            "protocol": "mysql",
+            "password": "ichangyouroot",
+            "host": "115.28.72.150",
+            "port": "3306",
+            "database": "membership",
+            "query": {
+                "pool": true,
+                "debug": false
+            },
+            "connectionLimit": 10,
+            "multipleStatements": true,
+            "timezone": "local"
+        }
+    },
+    "Game": {
+        "game": {
+            "user": "root",
+            "protocol": "mysql",
+            "password": "ichangyouroot",
+            "host": "115.28.72.150",
+            "port": "3306",
+            "database": "Game_Internal",
+            "query": {
+                "pool": true,
+                "debug": false
+            },
+            "connectionLimit": 10,
+            "multipleStatements": true,
+            "timezone": "local"
+        }
+    },
+    "Admin": {
+        "admin": {
+            "user": "root",
+            "protocol": "mysql",
+            "password": "ichangyouroot",
+            "host": "115.28.72.150",
+            "port": "3306",
+            "database": "admin_Internal",
+            "query": {
+                "pool": true,
+                "debug": false
+            },
+            "connectionLimit": 10,
+            "multipleStatements": true,
+            "timezone": "local"
+        }
+    },
+  "Logger": {
+    "logger": {
+      "user": "root",
+      "protocol": "mysql",
+      "password": "ichangyouroot",
+      "host": "115.28.72.150",
+      "port": "3306",
+      "database": "Logger_Internal",
+      "query": {
+        "pool": true,
+        "debug": false
+      },
+      "connectionLimit": 10,
+      "multipleStatements": true,
+      "timezone": "local"
+    }
+  }
+},
+    "QA":{
+        "Login": {
+            "membership": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "192.168.2.200",
+                "port": "3306",
+                "database": "membership",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Game": {
+            "game": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "192.168.2.200",
+                "port": "3306",
+                "database": "Game_DEV",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Admin": {
+            "admin": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "192.168.2.200",
+                "port": "3306",
+                "database": "admin_DEV",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+      "Logger": {
+        "logger": {
+          "user": "root",
+          "protocol": "mysql",
+          "password": "ichangyouroot",
+          "host": "192.168.2.200",
+          "port": "3306",
+          "database": "Logger_DEV",
+          "query": {
+            "pool": true,
+            "debug": false
+          },
+          "connectionLimit": 10,
+          "multipleStatements": true,
+          "timezone": "local"
+        }
+      }
+    },
+    "DEV": {
+
+        "Admin" : {
+            "admin": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "admin_DEV",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Login": {
+            "membership": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "membership",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Game": {
+            "game": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "Game_DEV",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+      "Logger": {
+        "logger": {
+          "user": "root",
+          "protocol": "mysql",
+          "password": "ichangyouroot",
+          "host": "115.28.72.150",
+          "port": "3306",
+          "database": "Logger_DEV",
+          "query": {
+            "pool": true,
+            "debug": false
+          },
+          "connectionLimit": 10,
+          "multipleStatements": true,
+          "timezone": "local"
+        }
+      }
+    },
+  "DEV1": {
+
+    "Admin" : {
+      "admin": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "115.28.72.150",
+        "port": "3306",
+        "database": "admin_DEV1",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Login": {
+      "membership": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "115.28.72.150",
+        "port": "3306",
+        "database": "membership",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Game": {
+      "game": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "115.28.72.150",
+        "port": "3306",
+        "database": "Game_DEV1",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Logger": {
+      "logger": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "115.28.72.150",
+        "port": "3306",
+        "database": "Logger_DEV",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    }
+  },
+    "OutSide": {
+        "Login": {
+            "membership": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "membership",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Game": {
+            "game": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "Game",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        },
+        "Admin": {
+            "admin": {
+                "user": "root",
+                "protocol": "mysql",
+                "password": "ichangyouroot",
+                "host": "115.28.72.150",
+                "port": "3306",
+                "database": "admin",
+                "query": {
+                    "pool": true,
+                    "debug": false
+                },
+                "connectionLimit": 10,
+                "multipleStatements": true,
+                "timezone": "local"
+            }
+        }
+    }
+,
+  "DEMO": {
+    "Admin" : {
+      "admin": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "gl.ichangyou.cn",
+        "port": "3306",
+        "database": "admin_DEMO",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Login": {
+      "membership": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "gl.ichangyou.cn",
+        "port": "3306",
+        "database": "membership",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Game": {
+      "game": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "gl.ichangyou.cn",
+        "port": "3306",
+        "database": "Game_DEMO",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    },
+    "Logger": {
+      "logger": {
+        "user": "root",
+        "protocol": "mysql",
+        "password": "ichangyouroot",
+        "host": "gl.ichangyou.cn",
+        "port": "3306",
+        "database": "Logger_DEMO",
+        "query": {
+          "pool": true,
+          "debug": false
+        },
+        "connectionLimit": 10,
+        "multipleStatements": true,
+        "timezone": "local"
+      }
+    }
+  }
+}

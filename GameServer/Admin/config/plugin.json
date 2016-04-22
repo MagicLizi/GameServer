@@ -1,0 +1,1691 @@
+[
+  {
+    "title": "DT",
+    "url": "/",
+    "get": [
+      {
+        "route": "/",
+        "method": "index"
+      },
+      {
+        "route": "/left",
+        "method": "left"
+      }
+    ]
+  },
+  {
+    "title": "用户登录",
+    "url": "/membership/login",
+    "get": [
+      {
+        "route": "/login",
+        "method": "index"
+      },
+      {
+        "route": "/logout",
+        "method": "logout"
+      }
+    ],
+    "post": [
+      {
+        "route": "/login",
+        "method": "login"
+      }
+    ]
+  },
+  {
+    "title": "全局配置",
+    "url": "/edit/global",
+    "get": [
+      {
+        "route": "/global",
+        "method": "index"
+      },
+      {
+        "route": "/global/herolvl",
+        "method": "herolvl"
+      },
+      {
+        "route": "/global/trooplvl",
+        "method": "trooplvl"
+      },
+      {
+        "route": "/global/skilllvl",
+        "method": "skilllvl"
+      },
+      {
+        "route": "/global/soulStone",
+        "method": "soulStone"
+      },
+      {
+        "route": "/global/userInit",
+        "method": "userInit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/global",
+        "method": "index"
+      },
+      {
+        "route": "/global/herolvl",
+        "method": "herolvl"
+      },
+      {
+        "route": "/global/trooplvl",
+        "method": "trooplvl"
+      },
+      {
+        "route": "/global/skilllvl",
+        "method": "skilllvl"
+      },
+      {
+        "route": "/global/soulStone",
+        "method": "soulStone"
+      },
+      {
+        "route": "/global/userInit",
+        "method": "userInit"
+      }
+    ]
+  },
+  {
+    "title": "副本编辑",
+    "url": "/edit/Dungeon",
+    "get": [
+      {
+        "route": "/Dungeon",
+        "method": "index"
+      },
+      {
+        "route": "/Dungeon/addDungeon",
+        "method": "addDungeon"
+      },
+      {
+        "route": "/Dungeon/addStage",
+        "method": "addStage"
+      },
+      {
+        "route": "/Dungeon/editStage",
+        "method": "editStage"
+      },
+      {
+        "route": "/Dungeon/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/Dungeon",
+        "method": "index"
+      },
+      {
+        "route": "/Dungeon/addDungeon",
+        "method": "addDungeon"
+      },
+      {
+        "route": "/Dungeon/addStage",
+        "method": "addStage"
+      },
+      {
+        "route": "/Dungeon/editStage",
+        "method": "editStage"
+      },
+      {
+        "route": "/Dungeon/edit",
+        "method": "edit"
+      }
+    ]
+  },{
+  "title": "英雄编辑",
+  "url": "/edit/hero",
+  "get": [
+    {
+      "route": "/hero",
+      "method": "index"
+    },
+    {
+      "route": "/hero/add",
+      "method": "add"
+    },
+    {
+      "route": "/hero/edit",
+      "method": "edit"
+    }
+  ],
+  "post": [
+    {
+      "route": "/hero/add",
+      "method": "add"
+    },
+    {
+      "route": "/hero/edit",
+      "method": "edit"
+    }
+  ]
+},{
+  "title": "头像编辑",
+  "url": "/edit/Avatar",
+  "get": [
+    {
+      "route": "/Avatar",
+      "method": "index"
+    },
+    {
+      "route": "/Avatar/AddAvatar",
+      "method": "add"
+    },
+    {
+      "route": "/Avatar/EditAvatar",
+      "method": "edit"
+    }
+  ],
+  "post": [
+    {
+      "route": "/Avatar/AddAvatar",
+      "method": "add"
+    },
+    {
+      "route": "/Avatar/EditAvatar",
+      "method": "edit"
+    }
+  ]
+},{
+  "title": "物品编辑",
+  "url": "/edit/Item",
+  "get": [
+    {
+      "route": "/Item",
+      "method": "index"
+    },
+    {
+      "route": "/Item/add",
+      "method": "add"
+    },
+    {
+      "route": "/Item/edit",
+      "method": "edit"
+    },
+    {
+      "route": "/Item/Merger/edit",
+      "method": "editMerger"
+    },
+    {
+      "route": "/Item/Merger/index",
+      "method": "indexMerger"
+    },
+    {
+      "route": "/Item/Merger/add",
+      "method": "addMerger"
+    },
+    {
+      "route": "/Item/Merger/del",
+      "method": "delMerger"
+    },
+    {
+      "route": "/Item/Effect/edit",
+      "method": "editEffect"
+    },
+    {
+      "route": "/Item/Effect/index",
+      "method": "indexEffect"
+    },
+    {
+      "route": "/Item/Effect/add",
+      "method": "addEffect"
+    },
+    {
+      "route": "/Item/Effect/del",
+      "method": "delEffect"
+    }
+
+  ],
+  "post": [
+    {
+      "route": "/Item",
+      "method": "index"
+    },
+    {
+      "route": "/Item/add",
+      "method": "add"
+    },
+    {
+      "route": "/Item/edit",
+      "method": "edit"
+    },
+    {
+      "route": "/Item/Merger/edit",
+      "method": "editMerger"
+    },
+    {
+      "route": "/Item/Merger/add",
+      "method": "addMerger"
+    },
+    {
+      "route": "/Item/Merger/del",
+      "method": "delMerger"
+    },
+    {
+      "route": "/Item/Effect/add",
+      "method": "addEffect"
+    },
+    {
+      "route": "/Item/Effect/edit",
+      "method": "editEffect"
+    },
+    {
+      "route": "/Item/Effect/del",
+      "method": "delEffect"
+    }
+  ]
+},
+  {
+    "title": "怪物编辑",
+    "url": "/edit/monster",
+    "get": [
+      {
+        "route": "/monster",
+        "method": "index"
+      },
+      {
+        "route": "/monster/add",
+        "method": "add"
+      },
+      {
+        "route": "/monster/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/monster/add",
+        "method": "add"
+      },
+      {
+        "route": "/monster/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "技能编辑",
+    "url": "/edit/skill",
+    "get": [
+      {
+        "route": "/skill",
+        "method": "index"
+      },
+      {
+        "route": "/skill/add",
+        "method": "add"
+      },
+      {
+        "route": "/skill/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/skill/addRange",
+        "method": "addRange"
+      },
+      {
+        "route": "/skill/editRange",
+        "method": "editRange"
+      },
+      {
+        "route": "/skill/indexRange",
+        "method": "indexRange"
+      }
+    ],
+    "post": [
+      {
+        "route": "/skill/add",
+        "method": "add"
+      },
+      {
+        "route": "/skill/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/skill/addRange",
+        "method": "addRange"
+      },
+      {
+        "route": "/skill/editRange",
+        "method": "editRange"
+      },
+      {
+        "route": "/skill/indexRange",
+        "method": "indexRange"
+      }
+    ]
+  },{
+  "title": "奖池编辑",
+  "url": "/edit/lottery",
+  "get": [
+    {
+      "route": "/lottery",
+      "method": "index"
+    },
+    {
+      "route": "/lottery/add",
+      "method": "add"
+    },
+    {
+      "route": "/lottery/edit",
+      "method": "edit"
+    },
+    {
+      "route": "/lottery/pool_Item/index",
+      "method": "indexPoolItem"
+    },
+    {
+      "route": "/lottery/pool_Item/add",
+      "method": "addPoolItem"
+    },
+    {
+      "route": "/lottery/pool_Item/edit",
+      "method": "editPoolItem"
+    },
+    {
+      "route": "/lottery/pool_Item/del",
+      "method": "delPoolItem"
+    },
+    {
+      "route": "/lottery/lottery_Method/index",
+      "method": "indexLotteryMethod"
+    },
+    {
+      "route": "/lottery/lottery_Method",
+      "method": "indexLotteryMethod"
+    },
+    {
+      "route": "/lottery/lottery_Method/add",
+      "method": "addLotteryMethod"
+    },
+    {
+      "route": "/lottery/lottery_Method/edit",
+      "method": "editLotteryMethod"
+    }
+  ],
+  "post": [
+    {
+      "route": "/lottery/add",
+      "method": "add"
+    },
+    {
+      "route": "/lottery/edit",
+      "method": "edit"
+    },
+    {
+      "route": "/lottery/pool_Item/add",
+      "method": "addPoolItem"
+    },
+    {
+      "route": "/lottery/pool_Item/edit",
+      "method": "editPoolItem"
+    },
+    {
+      "route": "/lottery/pool_Item/del",
+      "method": "delPoolItem"
+    },
+    {
+      "route": "/lottery/lottery_Method/add",
+      "method": "addLotteryMethod"
+    },
+    {
+      "route": "/lottery/lottery_Method/edit",
+      "method": "editLotteryMethod"
+    }
+  ]
+},
+  {
+    "title":"抽奖",
+    "url":"/edit/lottery",
+    "get":[
+      {
+        "route":"/lottery_System",
+        "method":"indexLotterySystem"
+      },
+      {
+        "route":"/lottery_System/add",
+        "method":"addLotterySystem"
+      },
+      {
+        "route":"/lottery_System/edit",
+        "method":"editLotterySystem"
+      }
+    ],
+    "post":[
+      {
+        "route":"/lottery_System/add",
+        "method":"addLotterySystem"
+      },
+      {
+        "route":"/lottery_System/edit",
+        "method":"editLotterySystem"
+      }
+    ]
+  },
+  {
+    "title":"商品",
+    "url":"/edit/Store",
+    "get":[
+      {
+        "route":"/Goods",
+        "method":"indexGoods"
+      },
+      {
+        "route":"/Goods/add",
+        "method":"addGoods"
+      },
+      {
+        "route":"/Goods/edit",
+        "method":"editGoods"
+      }
+    ],
+    "post":[
+      {
+        "route":"/Goods/add",
+        "method":"addGoods"
+      },
+      {
+        "route":"/Goods/edit",
+        "method":"editGoods"
+      }
+    ]
+  },
+  {
+    "title":"商店",
+    "url":"/edit/Store",
+    "get":[
+      {
+        "route":"/Store",
+        "method":"indexStore"
+      },
+      {
+        "route":"/Store/add",
+        "method":"addStore"
+      },
+      {
+        "route":"/Store/edit",
+        "method":"editStore"
+      }
+    ],
+    "post":[
+      {
+        "route":"/Store/add",
+        "method":"addStore"
+      },
+      {
+        "route":"/Store/edit",
+        "method":"editStore"
+      }
+    ]
+  },
+  {
+    "title":"排行榜",
+    "url":"/edit/Rank",
+    "get":[
+      {
+        "route":"/Rewards",
+        "method":"indexRewards"
+      },
+      {
+        "route":"/Rewards/add",
+        "method":"addRewards"
+      },
+      {
+        "route":"/Rewards/edit",
+        "method":"editRewards"
+      }
+    ],
+    "post":[
+      {
+        "route":"/Rewards/add",
+        "method":"addRewards"
+      },
+      {
+        "route":"/Rewards/edit",
+        "method":"editRewards"
+      }
+    ]
+  },
+  {
+    "title": "任务",
+    "url": "/edit/task",
+    "get": [
+      {
+        "route": "/task",
+        "method": "index"
+      },
+      {
+        "route": "/task/add",
+        "method": "add"
+      },
+      {
+        "route": "/task/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/task/add",
+        "method": "add"
+      },
+      {
+        "route": "/task/edit",
+        "method": "edit"
+      }
+    ]
+  },{
+  "title": "远征奖励",
+  "url": "/edit/FarFight",
+  "get": [
+    {
+      "route": "/FarFight",
+      "method": "index"
+    },
+    {
+      "route": "/FarFight/Add",
+      "method": "add"
+    },
+    {
+      "route": "/FarFight/Edit",
+      "method": "edit"
+    }
+  ],
+  "post": [
+    {
+      "route": "/FarFight/Add",
+      "method": "add"
+    },
+    {
+      "route": "/FarFight/Edit",
+      "method": "edit"
+    }
+  ]
+},
+  {
+    "title": "资源管理",
+    "url": "/manage_Tools/resource",
+    "get": [
+      {
+        "route": "/resource",
+        "method": "index"
+      },
+      {
+        "route": "/resource/add",
+        "method": "add"
+      },
+      {
+        "route": "/resource/del",
+        "method": "del"
+      }
+    ],
+    "post": [
+      {
+        "route": "/resource/add",
+        "method": "add"
+      },
+      {
+        "route": "/resource/del",
+        "method": "del"
+      }
+    ]
+  },
+  {
+    "title":"活动",
+    "url":"/edit/Activity",
+    "get":[
+      {
+        "route":"/Activity",
+        "method":"index"
+      },
+      {
+        "route":"/Activity/add",
+        "method":"add"
+      },
+      {
+        "route":"/Activity/edit",
+        "method":"edit"
+      }
+    ],
+    "post":[
+      {
+        "route":"/Activity/add",
+        "method":"add"
+      },
+      {
+        "route":"/Activity/edit",
+        "method":"edit"
+      }
+    ]
+  },{
+  "title": "VIP编辑",
+  "url": "/edit/VIP",
+  "get": [
+    {
+      "route": "/VIP",
+      "method": "index"
+    },
+    {
+      "route": "/VIP/add",
+      "method": "add"
+    },
+    {
+      "route": "/VIP/edit",
+      "method": "edit"
+    }
+  ],
+  "post": [
+    {
+      "route": "/VIP/add",
+      "method": "add"
+    },
+    {
+      "route": "/VIP/edit",
+      "method": "edit"
+    }
+  ]
+},
+  {
+    "title": "版本管理",
+    "url": "/manage_Tools/version",
+    "get": [
+      {
+        "route": "/version",
+        "method": "index"
+      },
+      {
+        "route": "/version/add",
+        "method": "add"
+      },
+      {
+        "route": "/version/del",
+        "method": "del"
+      },
+      {
+        "route": "/version/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/version/add",
+        "method": "add"
+      },
+      {
+        "route": "/version/del",
+        "method": "del"
+      },
+      {
+        "route": "/version/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "商城",
+    "url": "/store/apple",
+    "get": [
+      {
+        "route": "/apple",
+        "method": "index"
+      },
+      {
+        "route": "/apple/add",
+        "method": "add"
+      },
+      {
+        "route": "/apple/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/apple/add",
+        "method": "add"
+      },
+      {
+        "route": "/apple/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "道具商城",
+    "url": "/store/item_store",
+    "get": [
+      {
+        "route": "/item_store",
+        "method": "index"
+      },
+      {
+        "route": "/item_store/add",
+        "method": "add"
+      },
+      {
+        "route": "/item_store/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/item_store/add",
+        "method": "add"
+      },
+      {
+        "route": "/item_store/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "公告",
+    "url": "/system/notice",
+    "get": [
+      {
+        "route": "/notice",
+        "method": "index"
+      },
+      {
+        "route": "/notice/add",
+        "method": "add"
+      },
+      {
+        "route": "/notice/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/notice/add",
+        "method": "add"
+      },
+      {
+        "route": "/notice/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "消息",
+    "url": "/system/message",
+    "get": [
+      {
+        "route": "/message",
+        "method": "index"
+      },
+      {
+        "route": "/message/add",
+        "method": "add"
+      },
+      {
+        "route": "/message/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/message/add",
+        "method": "add"
+      },
+      {
+        "route": "/message/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "游戏开关",
+    "url": "/server/shut",
+    "get": [
+      {
+        "route": "/shut",
+        "method": "index"
+      },
+      {
+        "route": "/shut/restartServer",
+        "method": "restartServer"
+      }
+    ],
+    "post": [
+      {
+        "route": "/shut",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "帐号",
+    "url": "/membership/account",
+    "get": [
+      {
+        "route": "/account",
+        "method": "index"
+      },
+      {
+        "route": "/account/sanction",
+        "method": "sanction"
+      }
+    ],
+    "post": [
+      {
+        "route": "/account",
+        "method": "search"
+      },
+      {
+        "route": "/account/sanction",
+        "method": "operation"
+      }
+    ]
+  },
+  {
+    "title": "角色",
+    "url": "/membership/role",
+    "get": [
+      {
+        "route": "/role",
+        "method": "index"
+      },
+      {
+        "route": "/role/sanction",
+        "method": "sanction"
+      }
+    ],
+    "post": [
+      {
+        "route": "/role",
+        "method": "search"
+      },
+      {
+        "route": "/role/sanction",
+        "method": "operation"
+      }
+    ]
+  },
+  {
+    "title": "机器人",
+    "url": "/membership/robot",
+    "get": [
+      {
+        "route": "/robot",
+        "method": "index"
+      },
+      {
+        "route": "/robot_active",
+        "method": "active"
+      },
+      {
+        "route": "/robot_excel",
+        "method": "excel"
+      }
+    ]
+  },
+  {
+    "title": "道具",
+    "url": "/item/item",
+    "get": [
+      {
+        "route": "/item",
+        "method": "index"
+      },
+      {
+        "route": "/item/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/item/add",
+        "method": "add"
+      }
+    ],
+    "post": [
+      {
+        "route": "/item/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/item/add",
+        "method": "add"
+      }
+    ]
+  },
+  {
+    "title": "密码修改",
+    "url": "/membership/modify",
+    "get": [
+      {
+        "route": "/modify",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/modify",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "兑奖信息管理",
+    "url": "/itemUse/itemUse",
+    "get": [
+      {
+        "route": "/itemUse",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/itemUse",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "兑换码管理",
+    "url": "/redeemCode/redeemCode",
+    "get": [
+      {
+        "route": "/redeemCode",
+        "method": "index"
+      },
+      {
+        "route": "/redeemCode/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/redeemCode/delete",
+        "method": "delete"
+      },
+      {
+        "route": "/redeemCode/excel",
+        "method": "excel"
+      },
+      {
+        "route": "/redeemCode/update",
+        "method": "update"
+      },
+      {
+        "route": "/redeemCode/deleteCode",
+        "method": "deleteCode"
+      }
+    ],
+    "post": [
+      {
+        "route": "/redeemCode",
+        "method": "index"
+      },
+      {
+        "route": "/redeemCode/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/redeemCode/delete",
+        "method": "delete"
+      },
+      {
+        "route": "/redeemCode/excel",
+        "method": "excel"
+      },
+      {
+        "route": "/redeemCode/update",
+        "method": "update"
+      },
+      {
+        "route": "/redeemCode/deleteCode",
+        "method": "deleteCode"
+      }
+    ]
+  },
+  {
+    "title": "兑换码查询",
+    "url": "/redeemCode/redeemCodeSearch",
+    "get": [
+      {
+        "route": "/redeemCodeSearch",
+        "method": "index"
+      },
+      {
+        "route": "/redeemCodeSearch/search",
+        "method": "search"
+      },
+      {
+        "route": "/redeemCodeSearch/searchPackage",
+        "method": "searchPackage"
+      }
+    ],
+    "post": [
+      {
+        "route": "/redeemCodeSearch",
+        "method": "index"
+      },
+      {
+        "route": "/redeemCodeSearch/search",
+        "method": "search"
+      },
+      {
+        "route": "/redeemCodeSearch/searchPackage",
+        "method": "searchPackage"
+      }
+    ]
+  },
+  {
+    "title": "日志",
+    "url": "/log",
+    "get": [
+      {
+        "route": "/log",
+        "method": "index"
+      },
+      {
+        "route": "/log/account",
+        "method": "account"
+      },
+      {
+        "route": "/log/role",
+        "method": "role"
+      },
+      {
+        "route": "/log/account",
+        "method": "account"
+      },
+      {
+        "route": "/log/robot",
+        "method": "robot"
+      },
+      {
+        "route": "/log/item",
+        "method": "item"
+      }
+    ],
+    "post": [
+      {
+        "route": "/log/account",
+        "method": "account"
+      },
+      {
+        "route": "/log/role",
+        "method": "role"
+      },
+      {
+        "route": "/log/item",
+        "method": "item"
+      }
+    ]
+  },
+  {
+    "title": "支付查询",
+    "url": "/pay/index",
+    "get": [
+      {
+        "route": "/pay",
+        "method": "index"
+      },
+      {
+        "route": "/pay/apple",
+        "method": "apple"
+      }
+    ],
+    "post": [
+      {
+        "route": "/pay/apple",
+        "method": "apple"
+      }
+    ]
+  },
+  {
+    "title": "权限管理",
+    "url": "/authority/authority",
+    "get": [
+      {
+        "route": "/authority",
+        "method": "index"
+      },
+      {
+        "route": "/authority/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/authority",
+        "method": "index"
+      },
+      {
+        "route": "/authority/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "账号管理",
+    "url": "/admin/admin",
+    "get": [
+      {
+        "route": "/admin",
+        "method": "index"
+      },
+      {
+        "route": "/admin/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/admin/delete",
+        "method": "delete"
+      }
+    ],
+    "post": [
+      {
+        "route": "/admin",
+        "method": "index"
+      },
+      {
+        "route": "/admin/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/admin/delete",
+        "method": "delete"
+      }
+    ]
+  },
+  {
+    "title": "配置表",
+    "url": "/config",
+    "get": [
+      {
+        "route": "/config",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-大区设置",
+    "url": "/config/regions/index",
+    "get": [
+      {
+        "route": "/config/regions/index",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-礼包",
+    "url": "/config/packages",
+    "get": [
+      {
+        "route": "/config/packages",
+        "method": "index"
+      },
+      {
+        "route": "/config/packages/edit",
+        "method": "edit"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/packages",
+        "method": "index"
+      },
+      {
+        "route": "/config/packages/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "配置表-大区设置-抢庄模式",
+    "url": "/config/regions/maker",
+    "get": [
+      {
+        "route": "/config/regions/maker",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/maker/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/maker/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/config/regions/maker/removeConsumeElement",
+        "method": "removeConsumeElement"
+      },
+      {
+        "route": "/config/regions/maker/addConsumeElement",
+        "method": "addConsumeElement"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/regions/maker",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/maker/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/maker/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "配置表-大区设置-押金模式",
+    "url": "/config/regions/deposit",
+    "get": [
+      {
+        "route": "/config/regions/deposit",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/deposit/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/deposit/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/config/regions/deposit/removeGameElement",
+        "method": "removeGameElement"
+      },
+      {
+        "route": "/config/regions/deposit/addGameElement",
+        "method": "addGameElement"
+      },
+      {
+        "route": "/config/regions/deposit/removeGameTimes",
+        "method": "removeGameTimes"
+      },
+      {
+        "route": "/config/regions/deposit/addGameTimes",
+        "method": "addGameTimes"
+      },
+      {
+        "route": "/config/regions/deposit/removeStreakElement",
+        "method": "removeStreakElement"
+      },
+      {
+        "route": "/config/regions/deposit/addStreakElement",
+        "method": "addStreakElement"
+      },
+      {
+        "route": "/config/regions/deposit/removeStreakTimes",
+        "method": "removeStreakTimes"
+      },
+      {
+        "route": "/config/regions/deposit/addStreakTimes",
+        "method": "addStreakTimes"
+      },
+      {
+        "route": "/config/regions/deposit/removeConsumeElement",
+        "method": "removeConsumeElement"
+      },
+      {
+        "route": "/config/regions/deposit/addConsumeElement",
+        "method": "addConsumeElement"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/regions/deposit",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/deposit/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/deposit/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "配置表-大区设置-比赛模式",
+    "url": "/config/regions/match",
+    "get": [
+      {
+        "route": "/config/regions/match",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/match/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/match/edit",
+        "method": "edit"
+      },
+      {
+        "route": "/config/regions/match/removeGameTimes",
+        "method": "removeGameTimes"
+      },
+      {
+        "route": "/config/regions/match/addGameTimes",
+        "method": "addGameTimes"
+      },
+      {
+        "route": "/config/regions/match/removeStreakElement",
+        "method": "removeStreakElement"
+      },
+      {
+        "route": "/config/regions/match/updateStreakElement",
+        "method": "updateStreakElement"
+      },
+      {
+        "route": "/config/regions/match/addStreakElement",
+        "method": "addStreakElement"
+      },
+      {
+        "route": "/config/regions/match/removeAntesLoop",
+        "method": "removeAntesLoop"
+      },
+      {
+        "route": "/config/regions/match/addAntesLoop",
+        "method": "addAntesLoop"
+      },
+      {
+        "route": "/config/regions/match/deleteAntesRound",
+        "method": "deleteAntesRound"
+      },
+      {
+        "route": "/config/regions/match/addAntesRound",
+        "method": "addAntesRound"
+      },
+      {
+        "route": "/config/regions/match/updateAntesRound",
+        "method": "updateAntesRound"
+      },
+      {
+        "route": "/config/regions/match/removeRoundPeople",
+        "method": "removeRoundPeople"
+      },
+      {
+        "route": "/config/regions/match/addRoundPeople",
+        "method": "addRoundPeople"
+      },
+      {
+        "route": "/config/regions/match/updateRoundPeople",
+        "method": "updateRoundPeople"
+      },
+      {
+        "route": "/config/regions/match/addRankArea",
+        "method": "addRankArea"
+      },
+      {
+        "route": "/config/regions/match/removeRankArea",
+        "method": "removeRankArea"
+      },
+      {
+        "route": "/config/regions/match/removeAreaElement",
+        "method": "removeAreaElement"
+      },
+      {
+        "route": "/config/regions/match/addAreaElement",
+        "method": "addAreaElement"
+      },
+      {
+        "route": "/config/regions/match/removeConsumeElement",
+        "method": "removeConsumeElement"
+      },
+      {
+        "route": "/config/regions/match/addConsumeElement",
+        "method": "addConsumeElement"
+      },
+      {
+        "route": "/config/regions/match/removeRound",
+        "method": "removeRound"
+      },
+      {
+        "route": "/config/regions/match/addRound",
+        "method": "addRound"
+      },
+      {
+        "route": "/config/regions/match/updateRound",
+        "method": "updateRound"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/regions/match",
+        "method": "index"
+      },
+      {
+        "route": "/config/regions/match/add",
+        "method": "add"
+      },
+      {
+        "route": "/config/regions/match/edit",
+        "method": "edit"
+      }
+    ]
+  },
+  {
+    "title": "配置表-游戏模式",
+    "url": "/config/modes",
+    "get": [
+      {
+        "route": "/config/modes",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/modes",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-道具",
+    "url": "/config/items",
+    "get": [
+      {
+        "route": "/config/items",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/items",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-配置表生成",
+    "url": "/config/config_take_effect",
+    "get": [
+      {
+        "route": "/config/config_take_effect",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/config_take_effect",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-配置表导出",
+    "url": "/config/config_export",
+    "get": [
+      {
+        "route": "/config/config_export",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/config_export",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-合成公式",
+    "url": "/config/formulas",
+    "get": [
+      {
+        "route": "/config/formulas",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/formulas",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-兑换配置",
+    "url": "/config/exchange",
+    "get": [
+      {
+        "route": "/config/exchange",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/exchange",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-商城",
+    "url": "/config/store",
+    "get": [
+      {
+        "route": "/config/store",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/store",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-道具商城",
+    "url": "/config/item_store",
+    "get": [
+      {
+        "route": "/config/item_store",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/item_store",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-等待时间",
+    "url": "/config/wait",
+    "get": [
+      {
+        "route": "/config/wait",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/wait",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-救济金",
+    "url": "/config/alms",
+    "get": [
+      {
+        "route": "/config/alms",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/alms",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-其他配置",
+    "url": "/config/others",
+    "get": [
+      {
+        "route": "/config/others",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/others",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "配置表-生效配置",
+    "url": "/config/configuration",
+    "get": [
+      {
+        "route": "/config/configuration",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/config/configuration",
+        "method": "index"
+      }
+    ]
+  },
+  {
+    "title": "游戏日志",
+    "url": "/game_logs/search",
+    "get": [
+      {
+        "route": "/game_logs/search",
+        "method": "index"
+      },
+      {
+        "route": "/game_logs/excel",
+        "method": "excel"
+      }
+    ]
+  },
+  {
+    "title": "QA工具-算番工具",
+    "url": "/qa_tool/calculator_fan",
+    "get": [
+      {
+        "route": "/qa_tool/calculator_fan",
+        "method": "index"
+      }
+    ],
+    "post": [
+      {
+        "route": "/qa_tool/calculator_fan",
+        "method": "index"
+      }
+    ]
+  }
+]

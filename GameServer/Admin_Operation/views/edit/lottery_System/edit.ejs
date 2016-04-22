@@ -1,0 +1,101 @@
+<div class="pagetitle">
+    <a href="/lottery_System">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <input type="submit" name="submit" id="submit" value="提交" />
+    <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="4">抽奖配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                名称
+            </td>
+            <td class="data">
+                <input type="text" name="Lottery_Name" id="Lottery_Name" value="<%-results.ResultLotterySystem.Lottery_Name%>" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Lottery_Description" id="Lottery_Description" cols="45" rows="5"><%-results.ResultLotterySystem.Lottery_Description%></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                首抽
+            </td>
+            <td class="data">
+                <input type="radio" value="0" name="Is_First" Id="Is_First" <%if(results.ResultLotterySystem.Is_First == 0){%> checked="true" <%}%>>否
+                <input type="radio" value="1" name="Is_First" Id="Is_First" <%if(results.ResultLotterySystem.Is_First == 1){%> checked="true" <%}%>>是
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                免费次数（每天）
+            </td>
+            <td class="data">
+                <input type="text" name="Free_Times" id="Free_Times" value="<%-results.ResultLotterySystem.Free_Times%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                免费抽间隔(单位：秒)
+            </td>
+            <td class="data">
+                <input type="text" name="Free_Interval" id="Free_Interval" value="<%-results.ResultLotterySystem.Free_Interval%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                等级区间
+            </td>
+            <td class="data">
+                <input type="text" name="Min_Level" id="Min_Level" value="<%-results.ResultLotterySystem.Min_Level%>" />
+                - <input type="text" name="Max_Level" id="Max_Level" value="<%-results.ResultLotterySystem.Max_Level%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                消费货币类型
+            </td>
+            <td class="data">
+                <select name = "Type_Of_Expense" id = "Type_Of_Expense">
+                    <option value=""></option>
+                    <%results.ResultCurrency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(results.ResultLotterySystem.Type_Of_Expense == item.Item_Id){%>selected = "selected"<%}%>><%-item.Item_Name%></option>
+                    <%})%>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                消费货币数量
+            </td>
+            <td class="data">
+                <input type="text" name="Expense_Amount" id="Expense_Amount" value="<%-results.ResultLotterySystem.Expense_Amount%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽取方法
+            </td>
+            <td class="data">
+                <select name = "Lottery_Method_Id" id = "Lottery_Method_Id">
+                    <option value=""></option>
+                    <%results.ResultLotteryMethod.forEach(function(item){%>
+                    <option value="<%-item.Lottery_Method_Id%>,<%-item.Method_Id%>" <%if(results.ResultLotterySystem.Lottery_Method_Id == item.Lottery_Method_Id){%>selected = "selected"<%}%>><%-item.Method_Tag%></option>
+                    <%})%>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+
+</form>

@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    function goSearch(code){
+        var d = getDate();
+        window.location.href = '/game_logs/search?action='+code+'&begin_date='+d.begin_date+'&end_date='+d.end_date;
+    }
+</script>
+
+<div class="pagetitle">
+    请选择要查询的日志类型：<select name="type" id="type" onchange="goSearch(this.value);">
+    <option value="-1">---请选择---</option>
+    <%
+        codes.forEach(function(code){
+    %>
+    <option value="<%-code.code%>"<%if(action==code.code){%> selected="selected"<%}%>><%-code.name%></option>
+    <%
+        });
+    %>
+    </select>
+</div>

@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">材料道具id</td>
+        <td class="title">材料道具数量</td>
+        <td class="title">合成道具id</td>
+        <td class="title">合成道具数量</td>
+        <td class="title">合成类型</td>
+        <td class="title">开始时间</td>
+        <td class="title">结束时间</td>
+        <td class="title">是否有效</td>
+    </tr>
+<%
+    results.forEach(function(formula){
+%>
+<tr>
+    <td class="data"><%-formula.formula_id%></td>
+     <td class="data">
+     <%-formula.origin_item_name%>
+     </td>
+     <td class="data"><%-formula.origin_item_count%></td>
+     <td class="data"><%-formula.target_item_name%></td>
+     <td class="data"><%-formula.target_item_count%></td>
+     <td class="data"><%-formula.type==1?"物品合成":"奖品合成"%></td>
+     <td class="data"><%-formula.begin_date%></td>
+     <td class="data"><%-formula.end_date%></td>
+     <td class="data"><%-formula.is_valid%></td>
+     <td class="data"><a href="?id=<%-formula.formula_id%>">删除</a></td>
+</tr>
+<%
+});
+%>
+<tr>
+
+    <td class="data"><input type="text" name="formula_id" id="formula_id" /></td>
+    <td class="data">
+    <select name="origin_item_id" id="origin_item_id"/>
+    <%
+        items.forEach(function(item){
+    %>
+         <option value="<%-item.item_id%>" ><%-item.name%></option>
+         <%
+         });
+         %>
+         </select>
+    </td>
+    <td class="data"><input type="text" name="origin_item_count" id="origin_item_count" /></td>
+    <td class="data">
+    <select name="target_item_id" id="target_item_id"/>
+        <%
+            items.forEach(function(item){
+        %>
+             <option value="<%-item.item_id%>" ><%-item.name%></option>
+             <%
+             });
+             %>
+             </select>
+        </td>
+    <td class="data"><input type="text" name="target_item_count" id="target_item_count" /></td>
+    <td class="data"><select name="type" id="type"/>
+            <option value=1 >物品合成</option>
+            <option value=2 >奖品合成</option>
+    </select>
+    </td>
+    <td class="data"><input type="text" name="begin_date" id="begin_date" /></td>
+    <td class="data"><input type="text" name="end_date" id="end_date" /></td>
+    <td class="data"><input type="checkbox" name="is_valid" id="is_valid" /></td>
+    <td class="data"><input type="submit" name="submit" id="submit" value="提交" /></td>
+</tr>
+</table>
+</form>

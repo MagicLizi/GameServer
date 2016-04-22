@@ -1,0 +1,79 @@
+<div class="pagetitle">
+    <a href="/Store">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="Store" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title">
+                商店名称
+            </td>
+            <td class="data">
+                <input type="text" name="Store_Name" id="Store_Name" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                货币
+            </td>
+            <td class="data" >
+                <select name="Currency_Id" id="Currency_Id">
+                    <option value="" ></option>
+                    <%results.resultsCurrency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" ><%-item.Item_Order%>     <%-item.Item_Name%></option>
+                    <%});%>
+                </select>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                生效
+            </td>
+            <td class="data">
+                <input type="radio" name="Enable" id="Enable" value="1" checked="true"/>是
+                <input type="radio" name="Enable" id="Enable" value="0" />否
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Description" id="Description" value="" wrap="virtual" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                刷新时间
+            </td>
+            <td class="data">
+                <input type="text" name="Refresh_Time" id="Refresh_Time" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                刷新消耗
+            </td>
+            <td class="data">
+                <input type="text" name="Refresh_Expend" id="Refresh_Expend" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                出现概率
+            </td>
+            <td class="data">
+                <input type="text" name="Appear_Pre" id="Appear_Pre" value="" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+

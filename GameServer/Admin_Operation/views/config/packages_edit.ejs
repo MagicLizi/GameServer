@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config/packages">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">道具id</td>
+        <td class="title">道具数量</td>
+        <td class="title">操作</td>
+    </tr>
+<%
+    result.items.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.item_id%></td>
+     <td class="data"><%-item.item_count%></td>
+     <td class="data"><a href="?item_id=<%-item.item_id%>&id=<%-package_id%>">删除</a></td>
+</tr>
+<%
+});
+%>
+<tr>
+    <td class="data"><select name="item_id" id="item_id">
+        <%
+            items.forEach(function(item, i) {
+        %>
+        <option value="<%-item.item_id%>"><%-item.name%></option>
+        <%});%>
+    </select></td>
+    <td class="data"><input type="text" name="item_count" id="item_count" /></td>
+    <td class="data"><input type="submit" name="submit" id="submit" value="添加" /></td>
+</tr>
+</table>
+</form>

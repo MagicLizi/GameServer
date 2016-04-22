@@ -1,0 +1,38 @@
+/**
+ * Created with JetBrains WebStorm.
+ * User: Jay
+ * Date: 14/10/31
+ * Time: 下午12:17
+ * To change this template use File | Settings | File Templates.
+ */
+module.exports = {
+    SUCCESS: 200,
+    UnKnowError: 500,
+    ACCOUNT: {
+        CERTIFICATE_NOT_EXIST: 11001,
+        ACCOUNT_NOT_EXIST: 11002,
+        ACCOUNT_PASSWORD_ERROR: 11003,
+        ACCOUNT_HAS_EXIST: 11004,
+        ACCOUNT_NICKNAME_HAS_EXIST: 11005,
+        THIRDCOUNT_HAS_EXIST: 11006,
+        RESTORE_TIMES_LIMIT: 11007,
+        ACCOUNT_CAN_NOT_NULL: 11008,
+        ACCOUNT_PASSWORD_CAN_NOT_NULL: 11009,
+        ACCOUNT_OR_PASSWORD_CAN_NOT_NULL: 11010,
+        ACCOUNT_RESET_FAIL: 11011,
+        ACCOUNT_EXPAND_NOT_EXIST: 11012,
+        PLAYER_NOT_EXIST: 11013,
+        ACCOUNT_FORMAT_ERROR : 11014,
+        PASSWORD_FORMAT_ERROR : 11015,
+        ACCOUNT_PASSWORD_SAME : 11016,
+        ACCOUNT_VERIFY_ERROR : 11017,
+        OLD_PASSWORD_ERROR : 11018,
+        ACCOUNT_NOT_VALID: 11019,
+        PHONE_IS_NULL : 11020, //手机为空
+        PHONE_NUMBER_ERROR : 11021, //手机号码错误
+        PHONE_IS_EXISTS : 11022, //手机号码已经被绑定
+        PLAYER_BIND_PHONE : 11023, //帐号已经绑定了手机
+        ACCOUNT_OAUTH_ERROR : 11024,
+        LOGIN_TYPE_ERROR : 11025
+    }
+};

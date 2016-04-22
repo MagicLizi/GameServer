@@ -1,0 +1,34 @@
+<div class="pagetitle">
+    <a href="/FarFight/add">添加远征奖励</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">远征名称</td>
+        <td class="title">类别</td>
+        <td class="title">等级下限</td>
+        <td class="title">等级上限</td>
+        <td class="title">创建日期</td>
+    </tr>
+    <%
+    results.forEach(function(item){
+    %>
+    <tr>
+        <td class="data"><a href="/FarFight/edit?id=<%-item.FarFight_Id%>"><input type="submit" name="submit" id="submit" value="编辑" /></a></td>
+        <td class="data"><%-item.FarFight_Name%></td>
+        <td class="data">
+            <%if(item.FarFight_Type == 1){%>小关卡<%}%>
+            <%if(item.FarFight_Type == 2){%>档次1<%}%>
+            <%if(item.FarFight_Type == 3){%>档次2<%}%>
+            <%if(item.FarFight_Type == 4){%>档次3<%}%>
+            <%if(item.FarFight_Type == 5){%>档次4<%}%>
+            <%if(item.FarFight_Type == 6){%>档次5<%}%>
+        </td>
+        <td class="data"><%-item.Min_Lvl%></td>
+        <td class="data"><%-item.Max_Lvl%></td>
+        <td class="data"><%-item.Create_Date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    </tr>
+    <%
+    });%>
+</table>
+

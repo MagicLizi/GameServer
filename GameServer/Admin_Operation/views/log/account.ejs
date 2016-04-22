@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    $(function () {
+        $('#sd').datetimepicker();
+        $('#ed').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/log/account">帐号制裁日志</a> | <a href="/log/role">角色制裁日志</a>  | <a href="/log/robot">机器人日志</a> |<a href="/log/item">道具管理日志</a>
+</div>
+<div class="pagetitle">
+<form id="form1" name="form1" method="get">
+     开始日期：<input type="text" name="sd" id="sd" value="<%-begin_date%>" />
+     结束日期：<input type="text" name="ed" id="ed" value="<%-end_date%>" />
+     <input type="submit" name="submit" id="submit" value="提交" />
+</form>
+</div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">制裁项</td>
+        <td class="title">帐号</td>
+        <td class="title">角色ID</td>
+        <td class="title">操作人员</td>
+        <td class="title">缘由</td>
+        <td class="title">操作时间</td>
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.sanction_id%></td>
+    <td class="data"><%-item.type==1?'<span class="red">封停</span>':'<span class="blue">解封</span>'%></td>
+    <td class="data"><%-item.account%></td>
+    <td class="data"><%-item.membership_id%></td>
+    <td class="data"><%-item.name%></td>
+    <td class="data"><%-item.reason%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+</tr>
+<%
+});
+%>
+    <td colspan="7" align="center">[
+<%
+    for(var i=1;i<=count;i++){
+%>
+    <a href="?sd=<%-begin_date%>&ed=<%-end_date%>&page_no=<%-i%>"><%-i%></a>
+<%
+    }
+%> ]
+    </td>
+</table>

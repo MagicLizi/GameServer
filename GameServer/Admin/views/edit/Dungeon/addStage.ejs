@@ -1,0 +1,188 @@
+
+<div class="pagetitle">
+    <a href="/Dungeon/edit?id=<%-results.Dungeon_Id%>">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+    <table id="StageDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                关卡编号
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Id" id="Stage_Id" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡名称
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Name" id="Stage_Name" value="" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                体力消耗
+            </td>
+            <td class="data">
+                <input type="text" name="Stamina_Expend" id="Stamina_Expend" value="6" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                英雄经验
+            </td>
+            <td class="data">
+                <input type="text" name="Heros_Experience" id="Heros_Experience" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡描述
+            </td>
+            <td class="data">
+                <textarea name="Stage_Description" id="Stage_Description" value="" wrap="virtual" rows="5"></textarea>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡顺序
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Order" id="Stage_Order" value="" />
+            </td>
+        </tr>
+        <tr style="visibility: hidden">
+            <td class="title"  style="visibility:hidden;height: 0px" >
+                关卡怪物
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Monsters" id="Stage_Monsters" value=""  style="visibility:hidden;height: 0px" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡掉落
+            </td>
+            <td class="data">
+                <select name="Pool_Id" id="Pool_Id">
+                    <option value=""></option>
+                    <%results.lotteryPool.forEach(function(item){%>
+                    <option value="<%-item.Lottery_Method_Id%>" ><%-item.Method_Tag%>(<%-item.Pool_Name%>)</option>
+                    <%})%>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                可攻打次数
+            </td>
+            <td class="data">
+                <input type="text" name="Attack_Times_Limit" id="Attack_Times_Limit" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡图标
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Icon_Url" id="Stage_Icon_Url" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                图标坐标
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Icon_Position" id="Stage_Icon_Position" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡类型
+            </td>
+            <td class="data">
+                <select name="Stage_Type" id="Stage_Type">
+                    <%if(results.Dungeon_Type == 1){%>
+                    <option value="1" >普通</option>
+                    <option value="2" >精英</option>
+                    <%}else if(results.Dungeon_Type == 3){%>
+                    <option value="3" >金币关卡</option>
+                    <option value="4" >经验关卡</option>
+                    <option value="5" >魔法装备关卡</option>
+                    <option value="6" >物理装备关卡</option>
+                    <%}%>
+                </select>
+            </td>
+        </tr>
+        <%if(results.Dungeon_Type == 3){%>
+        <tr>
+            <td class="title">
+                关卡等级限制
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Lvl_Limit" id="Stage_Lvl_Limit" value="" />
+            </td>
+        </tr>
+        <%}%>
+        <tr>
+            <td class="title">
+                关卡主次
+            </td>
+            <td class="data">
+                <input type="radio" value="1" name="Stage_Main_Type">主要
+                <input type="radio" value="2" name="Stage_Main_Type">次要
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+               关卡回合数限制
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Rounds_Limit" id="Stage_Rounds_Limit" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                超出限制后扣血百分比
+            </td>
+            <td class="data">
+                <input type="text" name="Reduce_Life_Pre" id="Reduce_Life_Pre" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                开放日期
+            </td>
+            <td class="data">
+                <input type="text" name="Open_Day" id="Open_Day" value="" />格式：1,3,5
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                地块颜色数
+            </td>
+            <td class="data">
+                <input type="text" name="Grid_Colour" id="Grid_Colour" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                场景资源
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Layers_Resources" id="Stage_Layers_Resources" value="" />
+            </td>
+        </tr>
+    </table>
+
+</form>

@@ -1,0 +1,146 @@
+<script type="text/javascript">
+    $(function () {
+        $('#Start_Date').datetimepicker();
+        $('#End_Date').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/Goods">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="Goods" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title">
+                商品名称
+            </td>
+            <td class="data">
+                <select name="Item_Id" id="Item_Id">
+                    <option value="" ></option>
+                    <%results.resultsItems.Item.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" ><%-item.Item_Order%>     <%-item.Item_Name%></option>
+                    <%});%>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                商品排序
+            </td>
+            <td class="data">
+                <input type="text" name="Goods_Order" id="Goods_Order" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                商品数量
+            </td>
+            <td class="data">
+                <input type="text" name="Item_Amount" id="Item_Amount" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                价格
+            </td>
+            <td class="data" >
+                <input type="text" name="Price" id="Price" value="" />
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                所属商店
+            </td>
+            <td class="data">
+                <select name="Store_Id" id="Store_Id">
+                    <option value="" ></option>
+                    <%results.resultsStore.forEach(function(item){%>
+                    <option value="<%-item.Store_Id%>" ><%-item.Store_Name%></option>
+                    <%});%>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                图标
+            </td>
+            <td class="data" >
+                <input type="text" name="Icon_Url" id="Icon_Url" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                上架时间
+            </td>
+            <td class="data" >
+                <input type="text" name="Start_Date" id="Start_Date" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                下架时间
+            </td>
+            <td class="data" >
+                <input type="text" name="End_Date" id="End_Date" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                首冲奖励
+            </td>
+            <td class="data" >
+                <input type="text" name="First_Bonus" id="First_Bonus" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                任务序号
+            </td>
+            <td class="data" >
+                <input type="text" name="Task_Order" id="Task_Order" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                有效
+            </td>
+            <td class="data">
+                <input type="radio" name="Enable" id="Enable" value="1" checked="ture"/>是
+                <input type="radio" name="Enable" id="Enable" value="0" />否
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<script>
+    document.onreadystatechange = function(){
+        typeSelect();
+    };
+
+    function TargetsSelects(){
+
+
+    }
+
+    function typeSelect(){
+        if(document.getElementById("Type").value == "1"){
+            document.getElementById("Circul_Open_Time").style.visibility='visible';
+            document.getElementById("Circul_Over_Time").style.visibility='visible';
+            document.getElementById("Circul_Show_Time").style.visibility='visible';
+        }
+        else
+        {
+            document.getElementById("Circul_Open_Time").style.visibility='hidden';
+            document.getElementById("Circul_Over_Time").style.visibility='hidden';
+            document.getElementById("Circul_Show_Time").style.visibility='hidden';
+        }
+    }
+</script>

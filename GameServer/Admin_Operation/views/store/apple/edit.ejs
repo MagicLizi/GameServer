@@ -1,0 +1,136 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/apple">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title1">
+            项目编号
+        </td>
+        <td class="data1">
+           <%-result.recharge_id%>
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            商品类型
+        </td>
+        <td class="data1">
+           <select name="type" id="type">
+               <option value="1" <%if(result.type==1){%>selected="selected"<%}%>>苹果商城</option>
+               <option value="2"<%if(result.type==2){%>selected="selected"<%}%>>支付宝商城</option>
+           </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            商品名称
+        </td>
+        <td class="data1">
+             <input type="text" name="name" id="name" value="<%-result.name%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            图片ID
+        </td>
+        <td class="data1">
+            <input type="text" name="pic_id" id="pic_id" value="<%-result.pic_id%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+           价格
+        </td>
+        <td class="data1">
+           <input type="text" name="price" id="tier" value="<%-result.price%>" />
+        </td>
+    </tr>
+    <!--
+    <tr>
+        <td class="title1">
+            获得通宝卡
+        </td>
+        <td class="data1">
+            <input type="text" name="diamond" id="diamond" value="<%-result.diamond%>" />
+        </td>
+    </tr>
+    -->
+    <tr>
+        <td class="title1">
+            获得金贝
+        </td>
+        <td class="data1">
+            <input type="text" name="chips" id="chips" value="<%-result.chips%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            描述
+        </td>
+        <td class="data1">
+            <textarea name="description" id="description" cols="45" rows="5"><%-result.description%></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            排序
+        </td>
+        <td class="data1">
+           <input type="text" name="sort" id="sort" value="<%-result.sort%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            状态
+        </td>
+        <td class="data1">
+            普通<input type="radio" name="status" id="status1" value="0" <%if(result.status==0){%>checked="checked" <%}%> />
+            最热销<input type="radio" name="status" id="status2" value="1" <%if(result.status==1){%>checked="checked" <%}%> />
+            最划算<input type="radio" name="status" id="status3" value="2" <%if(result.status==2){%>checked="checked" <%}%> />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+             开始日期
+        </td>
+        <td class="data1">
+             <input type="text" name="begin_date" id="begin_date" value="<%-result.begin_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+           结束日期
+        </td>
+        <td class="data1">
+            <input type="text" name="end_date" id="end_date" value="<%-result.end_date.format('yyyy-MM-dd hh:mm:ss')%>" />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+            是否有效
+        </td>
+        <td class="data1">
+            无效<input type="radio" name="is_valid" id="is_valid1" value="0" <%if(result.is_valid==0){%>checked="checked" <%}%> />
+            有效<input type="radio" name="is_valid" id="is_valid2" value="1" <%if(result.is_valid==1){%>checked="checked" <%}%> />
+        </td>
+    </tr>
+    <tr>
+        <td class="title1">
+
+        </td>
+        <td class="data1">
+            <input type="submit" name="submit" id="submit" value="提交" />
+        </td>
+    </tr>
+</table>
+</form>

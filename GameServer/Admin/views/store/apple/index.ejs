@@ -1,0 +1,47 @@
+<div class="pagetitle">
+    <a href="/apple/add">添加商品</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">项目编号</td>
+        <td class="title">类型</td>
+        <td class="title">名称</td>
+        <td class="title">图片ID</td>
+        <td class="title">价格</td>
+        <td class="title">经验</td>
+        <td class="title">金贝</td>
+        <td class="title">描述</td>
+        <td class="title">排序编号</td>
+        <td class="title">热销&划算</td>
+        <td class="title">销售开始</td>
+        <td class="title">销售结束</td>
+        <td class="title">上架日期</td>
+        <td class="title">是否有效</td>
+
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><a href="/apple/edit?id=<%-item.recharge_id%>"><span class="red">编辑</span></a></td>
+    <td class="data"><%-item.recharge_id%></td>
+    <td class="data"><%-item.type==1?'<span class="red">苹果</span>':'<span class="red">支付宝</span>'%></td>
+    <td class="data"><%-item.name%></td>
+    <td class="data"><%-item.pic_id%></td>
+    <td class="data"><%-item.price%></td>
+    <td class="data"><%-item.exp%></td>
+    <td class="data"><%-item.chips%></td>
+    <td class="data"><%-item.description%></td>
+    <td class="data"><%-item.sort%></td>
+    <td class="data"><%-item.status==0?'普通':(item.status==1?'热销':'划算')%></td>
+    <td class="data"><%-item.begin_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    <td class="data"><%-item.end_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    <td class="data"><%-item.is_valid==1?'是':'否'%></td>
+
+</tr>
+<%
+});
+%>
+</table>

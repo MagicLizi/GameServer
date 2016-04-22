@@ -1,0 +1,1179 @@
+<div class="pagetitle">
+    <a href="/Dungeon/edit?id=<%-result[0].Dungeon_Id%>">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交" style="visibility:hidden">
+    </td>
+    <table id="StageDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                关卡编号
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Id" id="Stage_Id" value="<%-result[0].Stage_Id%>" />
+                <input type="text" name="Dungeon_Id" id="Dungeon_Id" value="<%-result[0].Dungeon_Id%>" style="visibility: hidden"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡名称
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Name" id="Stage_Name" value="<%-result[0].Stage_Name%>" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                体力消耗
+            </td>
+            <td class="data">
+                <input type="text" name="Stamina_Expend" id="Stamina_Expend" value="<%-result[0].Stamina_Expend%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                英雄经验
+            </td>
+            <td class="data">
+                <input type="text" name="Heros_Experience" id="Heros_Experience" value="<%-result[0].Heros_Experience%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡描述
+            </td>
+            <td class="data">
+                <textarea name="Stage_Description" id="Stage_Description" value="" wrap="virtual" rows="5"><%-result[0].Stage_Description%></textarea>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡顺序
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Order" id="Stage_Order" value="<%-result[0].Stage_Order%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡技能
+            </td>
+            <td class="data">
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="SkillList" name="SkillList">
+                    <tr>
+                        <td colspan="3">
+                            <!--Stage_Monsters记录关卡技能
+                            All_Monster用于记录所有存在的技能-->
+                            <input type="text" name="Stage_Skills" id="Stage_Skills" value="<%=result[0].Stage_Skills%>"  style="visibility: hidden"/>
+                            <!--<textarea rows="1" style="border:none;overflow:hidden visibility: visible" name="All_Skill" id="All_Skill" value="">-->
+                                <!--<%=JSON.stringify(result[3])%></textarea>-->
+                            <select name="add_Skill" id="add_Skill">
+                                <%//var i = 0;
+                                //显示技能列表
+                                        result[3].forEach(function(item){%>
+                                <option value="<%-item.Skill_Tag%>"><%-item.Skill_Name%>(<%-item.Skill_Tag%>)</option>
+                                <%//i++;
+                                 })%>
+
+                            </select>
+                            <label onclick="btn_addStageSkill()">添加技能</label>
+                        </td>
+                    </tr>
+                    <%//遍历显示关卡中已有的技能
+                    if(JSON.parse(result[0].Stage_Skills) != null){
+                    if(JSON.parse(result[0].Stage_Skills).StageSkills){JSON.parse(result[0].Stage_Skills).StageSkills.forEach(function(item){%>
+                    <tr>
+                        <td>
+                            <label onclick="editSkill('<%-item[6].value%>')"><%-item[1].value%></label>
+                        </td>
+                        <td>
+                            <label onclick="editSkill('<%-item[6].value%>')"><%-item[0].value%></label>
+                        </td>
+                        <td>
+                            <label onclick="delSkill('<%-item[6].value%>')">删除</label>
+                        </td>
+                    </tr>
+                    <%})}}%>
+
+                </table>
+
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="SkillEdit" name="SkillEdit">
+
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡怪物
+            </td>
+            <td class="data">
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="MonsterList" name="MonsterList">
+                    <tr>
+                        <td colspan="2">
+                            <!--Stage_Monsters记录关卡怪物
+                            All_Monster用于记录所有存在的怪物-->
+                            <input type="text" name="Stage_Monsters" id="Stage_Monsters" value="<%=result[0].Stage_Monsters%>"  style="visibility: hidden"/>
+                            <textarea rows="0" style="display:none" name="All_Monster" id="All_Monster" value="">
+                                <%=JSON.stringify(result[1])%></textarea>
+
+                            <select name="add_Monster" id="add_Monster">
+                                <%var i = 0;
+                                //显示怪物列表
+                                        result[1].forEach(function(item){%>
+                                <option value="<%-i%>"><%-item.name%>(<%-item.quality%>)</option>
+                                <%i++;})%>
+
+                            </select>
+                            <label onclick="btn_addMonster()">添加怪物</label>
+                        </td>
+                    </tr>
+                    <%//遍历显示关卡中已有的怪物
+                    if(JSON.parse(result[0].Stage_Monsters).Monsters){JSON.parse(result[0].Stage_Monsters).Monsters.forEach(function(item){
+                    %>
+                    <tr>
+                        <td>
+                            <label onclick="editMonster('<%-item[1].value%>')"><%-item[1].value%></label>
+                        </td>
+                        <td>
+                            <label onclick="editMonster('<%-item[0].value%>')"><%-item[0].value%></label>
+                        </td>
+                        <td>
+                            <label onclick="delMonster('<%-item[1].value%>')">删除</label>
+                        </td>
+                    </tr>
+                    <%})}%>
+
+                </table>
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="MonsterEdit" name="MonsterEdit">
+
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡掉落
+            </td>
+            <td>
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="TB_PoolList" name="TB_PoolList">
+                    <tr colspan="2">
+
+                        <td class="data">
+                            <input type="text" name="Pool_Id" id="Pool_Id" value="<%=result[0].Pool_Id%>"  style="visibility: hidden"/>
+                            <input type="text" name="Lottery_Methods" id="Lottery_Methods" value="<%=JSON.stringify(result[2])%>"  style="visibility: hidden"/>
+                            <select name="Pool_Id_Add" id="Pool_Id_Add">
+                                <option value=""></option>
+                                <%result[2].forEach(function(item){%>
+                                <option value="<%-item.Lottery_Method_Id%>" <%if(item.Lottery_Method_Id == result[0].Pool_Id){%>
+                                        selected="selected" <%}%>><%-item.Method_Tag%></option>
+                                <%})%>
+                            </select>
+                            <label onclick="btn_addMethod()">增加抽取方法</label>
+                        </td>
+                    </tr>
+                    <%
+                    if(result[0].Pool_Id!=null){
+                        var Pool_List = result[0].Pool_Id.split(',');
+                            Pool_List.forEach(function(item){if(item!=null){%>
+                    <tr>
+                        <td class="data">
+                            <label ><%result[2].forEach(function(Method){
+                                        if(Method.Lottery_Method_Id == item){%><%-Method.Method_Tag%><%}})
+                                %></label>
+                        </td>
+                        <td class="data">
+                            <label onclick="delMethod('<%-item%>')">删除</label>
+                        </td>
+                    </tr>
+                    <%}})}%>
+
+                </table>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                可攻打次数
+            </td>
+            <td class="data">
+                <input type="text" name="Attack_Times_Limit" id="Attack_Times_Limit" value="<%-result[0].Attack_Times_Limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡图标
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Icon_Url" id="Stage_Icon_Url" value="<%-result[0].Stage_Icon_Url%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                图标坐标
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Icon_Position" id="Stage_Icon_Position" value="<%-result[0].Stage_Icon_Position%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡类型
+            </td>
+            <td class="data">
+                <select name="Stage_Type" id="Stage_Type">
+                    <%if(result[0].Stage_Type ==1 ||result[0].Stage_Type == 2 ){%>
+                    <option value="1" <%if(result[0].Stage_Type == 1){%>selected="selected"<%}%>>普通</option>
+                    <option value="2" <%if(result[0].Stage_Type == 2){%>selected="selected"<%}%>>精英</option>
+                    <%}else if(result[0].Stage_Type <= 6 ||result[0].Stage_Type >= 3){%>
+                    <option value="3" <%if(result[0].Stage_Type == 3){%>selected="selected"<%}%>>金币关卡</option>
+                    <option value="4" <%if(result[0].Stage_Type == 4){%>selected="selected"<%}%>>经验关卡</option>
+                    <option value="5" <%if(result[0].Stage_Type == 5){%>selected="selected"<%}%>>魔法装备关卡</option>
+                    <option value="6" <%if(result[0].Stage_Type == 6){%>selected="selected"<%}%>>物理装备关卡</option>
+                    <%}%>
+                </select>
+            </td>
+        </tr>
+        <%if(result[0].Stage_Type <= 6 && result[0].Stage_Type >= 3){%>
+        <tr>
+            <td class="title">
+                关卡等级限制
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Lvl_Limit" id="Stage_Lvl_Limit" value="<%-result[0].Stage_Lvl_Limit%>" />
+            </td>
+        </tr>
+        <%}%>
+
+        <tr>
+            <td class="title">
+                关卡主次
+            </td>
+            <td class="data">
+                <input type="radio" value="1" name="Stage_Main_Type" <%if(result[0].Stage_Main_Type==1){%> checked=true<%}%>>主要
+                <input type="radio" value="2" name="Stage_Main_Type" <%if(result[0].Stage_Main_Type==2){%> checked=true<%}%>>次要
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡回合数限制
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Rounds_Limit" id="Stage_Rounds_Limit" value="<%-result[0].Stage_Rounds_Limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                超出限制后扣血百分比
+            </td>
+            <td class="data">
+                <input type="text" name="Reduce_Life_Pre" id="Reduce_Life_Pre" value="<%-result[0].Reduce_Life_Pre%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                开放日期
+            </td>
+            <td class="data">
+                <input type="text" name="Open_Day" id="Open_Day" value="<%-result[0].Open_Day%>" />格式：1,3,5
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                地块颜色数
+            </td>
+            <td class="data">
+                <input type="text" name="Grid_Colour" id="Grid_Colour" value="<%-result[0].Grid_Colour%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                场景资源
+            </td>
+            <td class="data">
+                <input type="text" name="Stage_Layers_Resources" id="Stage_Layers_Resources" value="<%-result[0].Stage_Layers_Resources%>" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+
+
+<script>
+document.onreadystatechange = function(){
+    if(document.readyState == 'complete'){
+        document.getElementById("add").style.visibility='visible';
+    };
+}
+
+function btn_addMethod(){//添加抽取方法
+    var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+    var Pool_Id = document.getElementById("Pool_Id_Add").value;
+    var Pool_Name = '';
+    PoolMethods.forEach(function(Method){
+        if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+            Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+            var tb = document.getElementById("TB_PoolList");
+            var rowNum=tb.rows.length;
+            var firstrow = tb.insertRow(1);
+            var firstcelltitle = firstrow.insertCell(0);
+            var firstcelldata = firstrow.insertCell(1);
+            firstcelltitle.setAttribute("class","data");
+            firstcelldata.setAttribute("class","data");
+            firstcelltitle.innerHTML = Pool_Name;
+            firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+            if(Pool_Id !=null && Pool_Id !='null'){
+                if(document.getElementById("Pool_Id").value!=''){
+                    document.getElementById("Pool_Id").value =document.getElementById("Pool_Id").value +','+Pool_Id;
+                }
+                else
+                {
+                    document.getElementById("Pool_Id").value = Pool_Id;
+                }
+            }
+
+        }
+    });
+    createPoolListTable(document.getElementById("Pool_Id").split(','));
+}
+function delMethod(Pool_Id){
+    var Pool_Ids = document.getElementById("Pool_Id").value.split(',');
+    var result_Pool_Ids = '';
+    var i = 0;
+    Pool_Ids.forEach(function(Pool_Item){
+        if(Number(Pool_Item)==Number(Pool_Id)){
+            Pool_Ids.splice(i,1);
+        }
+        i++
+    });
+    i = 0;
+    Pool_Ids.forEach(function(Pool_Item){
+       if(i==0){
+           result_Pool_Ids=''+Pool_Item;
+       }
+        else
+       {
+           result_Pool_Ids = result_Pool_Ids +','+Pool_Item;
+       }
+        i++;
+    });
+    document.getElementById("Pool_Id").value = result_Pool_Ids;
+    createPoolListTable(result_Pool_Ids);
+}
+
+function createPoolListTable(Pools){
+    var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+    var Pool_Ids = Pools.split(',');
+    var Pool_Name = '';
+    var tb = document.getElementById("TB_PoolList");
+    var rowNum=tb.rows.length;
+    for (i=1;i<rowNum;i++)
+    {
+        tb.deleteRow(i);
+        rowNum=rowNum-1;
+        i=i-1;
+    }
+    var i = 1;
+    Pool_Ids.forEach(function(Pool_Id){
+        PoolMethods.forEach(function(Method){
+            if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+                Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+                var firstrow = tb.insertRow(i);
+                var firstcelltitle = firstrow.insertCell(0);
+                var firstcelldata = firstrow.insertCell(1);
+                firstcelltitle.setAttribute("class","data");
+                firstcelldata.setAttribute("class","data");
+                firstcelltitle.innerHTML = Pool_Name;
+                firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+            }
+        });
+
+    })
+}
+    function btn_addMonster(){//添加怪物
+
+        var i =1;
+        var tb = document.getElementById("MonsterEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var firstrow = tb.insertRow(0);
+        var firstcelltitle = firstrow.insertCell(0);
+        var firstcelldata = firstrow.insertCell(1);
+        var monsterUdid = new UUID();
+        firstcelltitle.setAttribute("class","title");
+        firstcelldata.setAttribute("class","data");
+        firstcelltitle.innerHTML = "操作";
+        firstcelldata.innerHTML = "<label onclick=postMonster('"+monsterUdid+"')>提交</label>";
+        //tb.firstChild.removeChild(true);
+
+
+        Monster_Col.forEach(function(item){//遍历怪物属性模板
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            if(item.id == "Monster_Tag"){
+                //怪物标识默认为uuid
+                newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+new UUID()+"' />";
+            }
+            else            if(item.id == "Monster_Id"){
+                //怪物id
+                newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+
+                        JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id+"' />";
+            }else{
+                //显示模板相应属性
+                newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='' />";
+                }
+            i++;
+
+        })
+
+
+    }
+function btn_addStageSkill(){//添加关卡技能
+    var i =1;
+    var tb = document.getElementById("SkillEdit");
+    var rowNum=tb.rows.length;
+    for (i=0;i<rowNum;i++)
+    {
+        tb.deleteRow(i);
+        rowNum=rowNum-1;
+        i=i-1;
+    }
+    var firstrow = tb.insertRow(0);
+    var firstcelltitle = firstrow.insertCell(0);
+    var firstcelldata = firstrow.insertCell(1);
+    //var monsterUdid = new UUID();
+    firstcelltitle.setAttribute("class","title");
+    firstcelldata.setAttribute("class","data");
+    firstcelltitle.innerHTML = "操作";
+    firstcelldata.innerHTML = "<label onclick=postSkill()>提交</label>";
+    //tb.firstChild.removeChild(true);
+
+
+    Stage_Skill_Col.forEach(function(item){//遍历怪物属性模板
+        var newtr = tb.insertRow(i);
+        var newtdtitle = newtr.insertCell(0);
+        var newtddata = newtr.insertCell(1);
+        newtdtitle.setAttribute("class","title");
+        newtddata.setAttribute("class","data");
+        newtdtitle.innerHTML = item.name;
+        if(item.id == "Skill_Id"){
+            //怪物标识默认为uuid
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+new UUID()+"' />";
+        }
+        else if(item.id == "Skill_Tag"){
+            //怪物标识默认为uuid
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='" +
+            document.getElementById('add_Skill').value+"' />";
+        }
+        else if(item.id == "z"){
+            //怪物id
+            //newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+
+            //JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id+"' />";
+            var upHtml = "";
+            upHtml = "<select name='z' id='z'>";
+            //显示怪物列表
+                    JSON.parse(document.getElementById("All_Monster").value).forEach(function(item){
+                        upHtml += "<option value='" + item.recharge_id + "'>" + item.name + "(" + item.quality + ")</option>";
+                    });
+            upHtml += "</select>";
+            //alert(upHtml);
+            newtddata.innerHTML = upHtml;
+        }else{
+            //显示模板相应属性
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='' />";
+        }
+        i++;
+
+    })
+
+
+}
+
+function addSkill(effid){//提交技能添加列表
+
+    var resultarr = new Array();
+
+    Stage_Skill_Col.forEach(function(item){
+        var itemvalue;
+        var tempvalue;
+
+        if (document.getElementById(item.id).value){
+            tempvalue = document.getElementById(item.id).value;
+        }else{
+            tempvalue = 0;
+        }
+
+        itemvalue = {
+            "id" : item.id,
+            "name":item.name,
+            "value":tempvalue
+
+        }
+        resultarr.push(itemvalue);
+
+    });
+//        alert(document.getElementById("add_Monster").value);
+//        alert(JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id);
+//    resultarr.push({
+//        "id":"Monster_Id",
+//        "name":"怪物编号",
+//        "value":JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id
+//    });
+    var resultStageSkills = JSON.parse(document.getElementById("Stage_Skills").value);
+    //alert(resultStageMonsters);
+    for(var i =0;i< resultStageSkills.StageSkills.length;i++){
+        resultStageSkills.StageSkills[i].forEach(function(item){
+            if(item.id == "Skill_Tag"){
+                if(item.value == effid){
+                    resultStageSkills.StageSkills.splice(i,1,resultarr);
+                }
+            }
+        });
+
+    };
+    //resultStageMonsters.Monsters.push(resultarr);
+    document.getElementById("Stage_Skills").value = JSON.stringify(resultStageSkills);
+    //删除编辑页面
+    var tb = document.getElementById("SkillEdit");
+    var rowNum=tb.rows.length;
+    for (var i=0;i<rowNum;i++)
+    {
+        tb.deleteRow(i);
+        rowNum--;
+        i--;
+    }
+    //增加列表项
+    var listTB = document.getElementById("SkillList")
+    var rowNum=listTB.rows.length;
+    for (var i=1;i<rowNum;i++)
+    {
+        //alert("i:"+i+"  rowNum:"+rowNum);
+        listTB.deleteRow(1);
+
+        //rowNum--;
+        //i--;
+    }
+    var i = 1;
+    resultStageSkills.forEach(function(item){
+        var newtr = listTB.insertRow(1);
+        var newtdtitle = newtr.insertCell(0);
+        var newtdtitle1 = newtr.insertCell(1);
+        var newtddata = newtr.insertCell(2);
+        newtdtitle.setAttribute("class","data");
+        newtddata.setAttribute("class","data");
+        newtdtitle.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[1].value+"</label>";
+        newtdtitle1.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[0].value+"</label>";
+        newtddata.innerHTML = "<label onclick=\"delSkill('"+item[6].value+"')\">删除</label>";
+        i++;
+
+    })
+
+}
+function postSkill(){//提交技能添加列表
+
+    var resultarr = new Array();
+
+    Stage_Skill_Col.forEach(function(item){
+        var itemvalue;
+        var tempvalue;
+//alert(JSON.stringify(item));
+        if (document.getElementById(item.id).value){
+            tempvalue = document.getElementById(item.id).value;
+
+        }else{
+            tempvalue = 0;
+        }
+
+        itemvalue = {
+            "id" : item.id,
+            "name":item.name,
+            "value":tempvalue
+
+        }
+        resultarr.push(itemvalue);
+
+    });
+    //alert(JSON.stringify(resultarr));
+    //alert(JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id);
+//        resultarr.push({
+//            "id":"Monster_Id",
+//            "name":"怪物编号",
+//            "value":document.getElementById("Monster_Id")
+//                    //JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id
+//        });
+    var resultStageSkills = JSON.parse(document.getElementById("Stage_Skills").value);
+    //alert(resultStageMonsters);
+    var effid = document.getElementById("Skill_Id").value
+    for(var i =0;i< resultStageSkills.StageSkills.length;i++){
+        resultStageSkills.StageSkills[i].forEach(function(item){
+            if(item.id == "Skill_Id"){
+                if(item.value == effid){
+                    resultStageSkills.StageSkills.splice(i,1);
+                }
+            }
+        });
+
+    };
+    resultStageSkills.StageSkills.push(resultarr);
+    //alert(JSON.stringify(resultStageMonsters));
+    document.getElementById("Stage_Skills").value = JSON.stringify(resultStageSkills);
+    //删除编辑页面
+    var tb = document.getElementById("SkillEdit");
+    var rowNum=tb.rows.length;
+    for (var i=0;i<rowNum;i++)
+    {
+        tb.deleteRow(i);
+        rowNum--;
+        i--;
+    }
+    //增加列表项
+    var listTB = document.getElementById("SkillList")
+    var rowNum=listTB.rows.length;
+    for (var i=1;i<rowNum;i++)
+    {
+        //alert("i:"+i+"  rowNum:"+rowNum);
+        listTB.deleteRow(1);
+
+        //rowNum--;
+        //i--;
+    }
+    var i = 1;
+    resultStageSkills.StageSkills.forEach(function(item){
+        var newtr = listTB.insertRow(1);
+        var newtdtitle = newtr.insertCell(0);
+        var newtdtitle1 = newtr.insertCell(1);
+        var newtddata = newtr.insertCell(2);
+        newtdtitle.setAttribute("class","data");
+        newtddata.setAttribute("class","data");
+        newtdtitle.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[1].value+"</label>";
+        newtdtitle1.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[0].value+"</label>";
+        newtddata.innerHTML = "<label onclick=\"delSkill('"+item[6].value+"')\">删除</label>";
+        i++;
+
+    })
+
+}
+
+function delSkill(effid){
+    var resultStageSkills = JSON.parse(document.getElementById("Stage_Skills").value);
+    for(var i =0;i< resultStageSkills.StageSkills.length;i++){
+        resultStageSkills.StageSkills[i].forEach(function(item){
+            if(item.id == "Skill_Id"){
+                if(item.value == effid){
+                    resultStageSkills.StageSkills.splice(i,1);
+                }
+            }
+        });
+
+    };
+    document.getElementById("Stage_Skills").value = JSON.stringify(resultStageSkills);
+    var listTB = document.getElementById("SkillList")
+    var rowNum=listTB.rows.length;
+    for (var i=1;i<rowNum;i++)
+    {
+        //alert("i:"+i+"  rowNum:"+rowNum);
+        listTB.deleteRow(1);
+
+        //rowNum--;
+        //i--;
+    }
+    var i = 1;
+    resultStageSkills.forEach(function(item){
+        var newtr = listTB.insertRow(1);
+        var newtdtitle = newtr.insertCell(0);
+        var newtdtitle1 = newtr.insertCell(1);
+        var newtddata = newtr.insertCell(2);
+        newtdtitle.setAttribute("class","data");
+        newtddata.setAttribute("class","data");
+        newtdtitle.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[1].value+"</label>";
+        newtdtitle1.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[0].value+"</label>";
+        newtddata.innerHTML = "<label onclick=\"delSkill('"+item[6].value+"')\">删除</label>";
+        i++;
+
+    });
+}
+function editSkill(effid){
+    var resultStageSkills = JSON.parse(document.getElementById("Stage_Skills").value);
+    //alert(JSON.stringify(resultStageSkills)+' || '+effid);
+    var monsterid;
+    var Skills = [];
+
+    for(var i =0;i< resultStageSkills.StageSkills.length;i++){
+        resultStageSkills.StageSkills[i].forEach(function(item){
+            //alert(item.id);
+            if(item.id == "Skill_Id"){
+                //alert(item.value);
+                if(item.value == effid){
+                    //alert('aaa:'+ resultStageSkills[i]+" || " + resultStageSkills);
+                    Skills = resultStageSkills.StageSkills[i];
+                }
+            }
+        });
+    };
+    var i =1;
+    var tb = document.getElementById("SkillEdit");
+    var rowNum=tb.rows.length;
+    for (i=0;i<rowNum;i++)
+    {
+        tb.deleteRow(i);
+        rowNum=rowNum-1;
+        i=i-1;
+    }
+    var lastrow = tb.insertRow(0);
+    var lastcelltitle = lastrow.insertCell(0);
+    var lastcelldata = lastrow.insertCell(1);
+    lastcelltitle.setAttribute("class","title");
+    lastcelldata.setAttribute("class","data");
+    lastcelltitle.innerHTML = "操作";
+    lastcelldata.innerHTML = "<label onclick=\"postSkill()\">提交</label>";
+    //tb.firstChild.removeChild(true);
+    Skills.forEach(function(item){
+        var newtr = tb.insertRow(i);
+        var newtdtitle = newtr.insertCell(0);
+        var newtddata = newtr.insertCell(1);
+        newtdtitle.setAttribute("class","title");
+        newtddata.setAttribute("class","data");
+        newtdtitle.innerHTML = item.name;
+        newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+item.value+"' />"
+        i++;
+
+    });
+//        lastrow = tb.insertRow(0);
+//        lastcelltitle = lastrow.insertCell(0);
+//        lastcelldata = lastrow.insertCell(1);
+//        lastcelltitle.setAttribute("class","title");
+//        lastcelltitle.setAttribute("colspan","2");
+//        lastcelltitle.innerHTML = effectname;
+}
+
+    function addMonster(effid){//提交怪物添加列表
+
+        var resultarr = new Array();
+
+        Monster_Col.forEach(function(item){
+            var itemvalue;
+            var tempvalue;
+
+            if (document.getElementById(item.id).value){
+                tempvalue = document.getElementById(item.id).value;
+            }else{
+                tempvalue = 0;
+            }
+
+            itemvalue = {
+                "id" : item.id,
+                "name":item.name,
+                "value":tempvalue
+
+            }
+            resultarr.push(itemvalue);
+
+        });
+//        alert(document.getElementById("add_Monster").value);
+//        alert(JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id);
+        resultarr.push({
+            "id":"Monster_Id",
+            "name":"怪物编号",
+            "value":JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id
+        });
+        var resultStageMonsters = JSON.parse(document.getElementById("Stage_Monsters").value);
+        //alert(resultStageMonsters);
+        for(var i =0;i< resultStageMonsters.Monsters.length;i++){
+            resultStageMonsters.Monsters[i].forEach(function(item){
+                if(item.id == "Monster_Tag"){
+                    if(item.value == effid){
+                        resultStageMonsters.Monsters.splice(i,1);
+                    }
+                }
+            });
+
+        };
+        resultStageMonsters.Monsters.push(resultarr);
+        document.getElementById("Stage_Monsters").value = JSON.stringify(resultStageMonsters);
+        //删除编辑页面
+        var tb = document.getElementById("MonsterEdit");
+        var rowNum=tb.rows.length;
+        for (var i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum--;
+            i--;
+        }
+        //增加列表项
+        var listTB = document.getElementById("MonsterList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultStageMonsters.Monsters.forEach(function(item){
+            var newtr = listTB.insertRow(1);
+            var newtdtitle = newtr.insertCell(0);
+            var newtdtitle1 = newtr.insertCell(1);
+            var newtddata = newtr.insertCell(2);
+            newtdtitle.setAttribute("class","data");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[1].value+"</label>";
+            newtdtitle1.innerHTML = "<label onclick=\"editSkill(\'"+item[6].value+"\')\">"+item[0].value+"</label>";
+            newtddata.innerHTML = "<label onclick=\"delMonster('"+item[1].value+"')\">删除</label>";
+            i++;
+
+        })
+
+    }
+
+
+    function postMonster(effid){//提交怪物添加列表
+
+        var resultarr = new Array();
+
+        Monster_Col.forEach(function(item){
+            var itemvalue;
+            var tempvalue;
+//alert(JSON.stringify(item));
+            if (document.getElementById(item.id).value){
+                tempvalue = document.getElementById(item.id).value;
+
+            }else{
+                tempvalue = 0;
+            }
+
+            itemvalue = {
+                "id" : item.id,
+                "name":item.name,
+                "value":tempvalue
+
+            }
+            resultarr.push(itemvalue);
+
+        });
+        //alert(JSON.stringify(resultarr));
+        //alert(JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id);
+//        resultarr.push({
+//            "id":"Monster_Id",
+//            "name":"怪物编号",
+//            "value":document.getElementById("Monster_Id")
+//                    //JSON.parse(document.getElementById("All_Monster").value)[document.getElementById("add_Monster").value].recharge_id
+//        });
+        var resultStageMonsters = JSON.parse(document.getElementById("Stage_Monsters").value);
+        //alert(resultStageMonsters);
+        for(var i =0;i< resultStageMonsters.Monsters.length;i++){
+            resultStageMonsters.Monsters[i].forEach(function(item){
+                if(item.id == "Monster_Tag"){
+                    if(item.value == effid){
+                        resultStageMonsters.Monsters.splice(i,1);
+                    }
+                }
+            });
+
+        };
+        resultStageMonsters.Monsters.push(resultarr);
+        //alert(JSON.stringify(resultStageMonsters));
+        document.getElementById("Stage_Monsters").value = JSON.stringify(resultStageMonsters);
+        //删除编辑页面
+        var tb = document.getElementById("MonsterEdit");
+        var rowNum=tb.rows.length;
+        for (var i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum--;
+            i--;
+        }
+        //增加列表项
+        var listTB = document.getElementById("MonsterList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultStageMonsters.Monsters.forEach(function(item){
+            var newtr = listTB.insertRow(1);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","data");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editMonster(\'"+item[1].value+"\')\">"+item[1].value+"</label>";
+            newtddata.innerHTML = "<label onclick=\"delMonster('"+item[1].value+"')\">删除</label>";
+            i++;
+
+        })
+
+    }
+
+    function delMonster(effid){
+        var resultStageMonsters = JSON.parse(document.getElementById("Stage_Monsters").value);
+        for(var i =0;i< resultStageMonsters.Monsters.length;i++){
+            resultStageMonsters.Monsters[i].forEach(function(item){
+                if(item.id == "Monster_Tag"){
+                    if(item.value == effid){
+                        resultStageMonsters.Monsters.splice(i,1);
+                    }
+                }
+            });
+
+        };
+        document.getElementById("Stage_Monsters").value = JSON.stringify(resultStageMonsters);
+        var listTB = document.getElementById("MonsterList")
+        var rowNum=listTB.rows.length;
+        for (var i=1;i<rowNum;i++)
+        {
+            //alert("i:"+i+"  rowNum:"+rowNum);
+            listTB.deleteRow(1);
+
+            //rowNum--;
+            //i--;
+        }
+        var i = 1;
+        resultStageMonsters.Monsters.forEach(function(item){
+            var newtr = listTB.insertRow(1);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","data");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = "<label onclick=\"editMonster(\'"+item[1].value+"\')\">"+item[1].value+"</label>";
+            newtddata.innerHTML = "<label onclick=\"delMonster('"+item[1].value+"')\">删除</label>";
+            i++;
+
+        });
+    }
+    function editMonster(effid){
+        var resultStageMonsters = JSON.parse(document.getElementById("Stage_Monsters").value);
+        var monsterid;
+        var Monsters;
+
+        for(var i =0;i< resultStageMonsters.Monsters.length;i++){
+            resultStageMonsters.Monsters[i].forEach(function(item){
+                if(item.id == "Monster_Tag"){
+                    if(item.value == effid){
+                        Monsters = resultStageMonsters.Monsters[i];
+                    }
+                }
+            });
+
+        };
+        var i =1;
+        var tb = document.getElementById("MonsterEdit");
+        var rowNum=tb.rows.length;
+        for (i=0;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var lastrow = tb.insertRow(0);
+        var lastcelltitle = lastrow.insertCell(0);
+        var lastcelldata = lastrow.insertCell(1);
+        lastcelltitle.setAttribute("class","title");
+        lastcelldata.setAttribute("class","data");
+        lastcelltitle.innerHTML = "操作";
+        lastcelldata.innerHTML = "<label onclick=\"postMonster('"+effid+"')\">提交</label>";
+        //tb.firstChild.removeChild(true);
+        Monsters.forEach(function(item){
+            var newtr = tb.insertRow(i);
+            var newtdtitle = newtr.insertCell(0);
+            var newtddata = newtr.insertCell(1);
+            newtdtitle.setAttribute("class","title");
+            newtddata.setAttribute("class","data");
+            newtdtitle.innerHTML = item.name;
+            newtddata.innerHTML = "<input type='text' name='"+item.id+"' id='"+item.id+"' value='"+item.value+"' />"
+            i++;
+
+        });
+//        lastrow = tb.insertRow(0);
+//        lastcelltitle = lastrow.insertCell(0);
+//        lastcelldata = lastrow.insertCell(1);
+//        lastcelltitle.setAttribute("class","title");
+//        lastcelltitle.setAttribute("colspan","2");
+//        lastcelltitle.innerHTML = effectname;
+}
+//添加字段必须放在最后
+    var Stage_Skill_Col=[
+        {
+            id:"Skill_Name",
+            name:'技能名称'
+        },{
+            id:"Skill_Tag",
+            name:'技能识别名'
+        },{
+            id:"Skill_Lvl",
+            name:'技能等级'
+        },{
+            id:"x",
+            name:'参数x'
+        },{
+            id:"y",
+            name:'参数y'
+        },{
+            id:"z",
+            name:'目标编号'
+        },{
+            id:"Skill_Id",
+            name:'技能编号'
+        },{
+            id:"Skill_Probability",
+            name:'技能概率'
+        },{
+            id:"q",
+            name:'目标星级'
+        }
+    ]
+    var Monster_Col = [
+        {
+            id:"Monster_Name",
+            name:"怪物名称"
+        },{
+            id:"Monster_Tag",
+            name:"怪物识别名"
+        },
+        {
+            id:"Monster_Lvl",
+            name:"怪物等级"
+        },
+        {
+            id:"Monster_Star",
+            name:"怪物星级"
+        },
+//        {
+//            id:"Monster_Quality",
+//            name:"怪物品质"
+//        },
+        {
+            id:"Monster_Postion",
+            name:"怪物位置"
+        },
+        {
+            id:"Monster_Area",
+            name:"怪物占地尺寸"
+        },
+        {
+            id:"Monster_Layer",
+            name:"怪物所在层"
+        },
+        {
+            id:"Is_Boss",
+            name:"Boss"
+        },
+        {
+            id:"initiative_skill_Lvl",
+            name:"主动技能等级"
+        },
+        {
+            id:"passive_skill_Lvl",
+            name:"被动技能等级"
+        },
+        {
+            id:"characteristic_skill_Lvl",
+            name:"特性技能等级"
+        },
+        {
+            id:"Monster_Id",
+            name:"怪物编号"
+        },
+        {
+            id:"Enable_Stage_Skill",
+            name:"触发关卡技能"
+        },
+        {
+            id:"Stage_Skill_Energy",
+            name:"关卡技能能量"
+        }
+
+    ];
+
+    // 使用var myuuid=new UUID();
+    // On creation of a UUID object, set it's initial value
+    function UUID(){
+        this.id = this.createUUID();
+    }
+
+    // When asked what this Object is, lie and return it's value
+    UUID.prototype.valueOf = function(){ return this.id; };
+    UUID.prototype.toString = function(){ return this.id; };
+
+    //
+    // INSTANCE SPECIFIC METHODS
+    //
+    UUID.prototype.createUUID = function(){
+        //
+        // Loose interpretation of the specification DCE 1.1: Remote Procedure Call
+        // since JavaScript doesn't allow access to internal systems, the last 48 bits
+        // of the node section is made up using a series of random numbers (6 octets long).
+        //
+        var dg = new Date(1582, 10, 15, 0, 0, 0, 0);
+        var dc = new Date();
+        var t = dc.getTime() - dg.getTime();
+        var tl = UUID.getIntegerBits(t,0,31);
+        var tm = UUID.getIntegerBits(t,32,47);
+        var thv = UUID.getIntegerBits(t,48,59) + '1'; // version 1, security version is 2
+        var csar = UUID.getIntegerBits(UUID.rand(4095),0,7);
+        var csl = UUID.getIntegerBits(UUID.rand(4095),0,7);
+        // since detection of anything about the machine/browser is far to buggy,
+        // include some more random numbers here
+        // if NIC or an IP can be obtained reliably, that should be put in
+        // here instead.
+        var n = UUID.getIntegerBits(UUID.rand(8191),0,7) +
+                UUID.getIntegerBits(UUID.rand(8191),8,15) +
+                UUID.getIntegerBits(UUID.rand(8191),0,7) +
+                UUID.getIntegerBits(UUID.rand(8191),8,15) +
+                UUID.getIntegerBits(UUID.rand(8191),0,15); // this last number is two octets long
+        return tl + tm  + thv  + csar + csl + n;
+    };
+
+    //Pull out only certain bits from a very large integer, used to get the time
+    //code information for the first part of a UUID. Will return zero's if there
+    //aren't enough bits to shift where it needs to.
+    UUID.getIntegerBits = function(val,start,end){
+        var base16 = UUID.returnBase(val,16);
+        var quadArray = new Array();
+        var quadString = '';
+        var i = 0;
+        for(i=0;i<base16.length;i++){
+            quadArray.push(base16.substring(i,i+1));
+        }
+        for(i=Math.floor(start/4);i<=Math.floor(end/4);i++){
+            if(!quadArray[i] || quadArray[i] == '') quadString += '0';
+            else quadString += quadArray[i];
+        }
+        return quadString;
+    };
+
+    //Replaced from the original function to leverage the built in methods in
+    //JavaScript. Thanks to Robert Kieffer for pointing this one out
+    UUID.returnBase = function(number, base){
+        return (number).toString(base).toUpperCase();
+    };
+
+    //pick a random number within a range of numbers
+    //int b rand(int a); where 0 <= b <= a
+    UUID.rand = function(max){
+        return Math.floor(Math.random() * (max + 1));
+    };
+
+</script>

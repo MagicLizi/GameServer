@@ -1,0 +1,142 @@
+<div class="pagetitle">
+    <a href="/Item">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="Item" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                物品编号
+            </td>
+            <td class="data">
+                <input type="text" name="Item_Id" id="Skill_Id" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品名称
+            </td>
+            <td class="data">
+                <input type="text" name="Item_Name" id="Item_Name" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品排序
+            </td>
+            <td class="data">
+                <input type="text" name="Item_Order" id="Item_Order" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品类型
+            </td>
+            <td class="data" onchange="checkItemType()">
+                <input type="radio" value="1" name="Item_Type" Id="Item_Type">货币
+                <input type="radio" value="2" name="Item_Type" Id="Item_Type">碎片
+                <input type="radio" value="3" name="Item_Type" Id="Item_Type">卷轴
+                <input type="radio" value="4" name="Item_Type" Id="Item_Type">灵魂石
+                <input type="radio" value="5" name="Item_Type" Id="Item_Type">消耗品
+                <input type="radio" value="6" name="Item_Type" Id="Item_Type">装备
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                直接打开
+            </td>
+            <td class="data">
+                <input type="radio" name="Auto_Open" id="Auto_Open" value="1" />是
+                <input type="radio" name="Auto_Open" id="Auto_Open" value="0" checked="true"/>否
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                数量上限
+            </td>
+            <td class="data">
+                <input type="text" name="Amount_Limit" id="Amount_Limit" value="aa" />
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Description" id="Description" value="" wrap="virtual" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                黄字描述
+            </td>
+            <td class="data">
+                <textarea name="Yellow_Description" id="Yellow_Description" value="" wrap="virtual" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品品质
+            </td>
+            <td class="data">
+                <select name="Item_Quality" id="Item_Quality">
+                    <option value="" ></option>
+                    <option value="0">白</option>
+                    <option value="1">绿</option>
+                    <option value="2">蓝</option>
+                    <option value="3">紫</option>
+                    <option value="4">橙</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                售价
+            </td>
+            <td class="data">
+                <input type="text" name="Price" id="Price" value="" />
+            </td>
+        </tr>
+        <td class="title">
+            图标
+        </td>
+        <td class="data">
+            <input type="text" name="Icon_Url" id="Icon_Url" value="" />
+        </td>
+        </tr>
+        <tr>
+            <td class="title">
+                装备等级
+            </td>
+            <td class="data">
+                <input type="text" name="Equip_Level" id="Equip_Level" value="" />
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+
+<script>
+    var checkItemType = function(){
+        var item_Types = document.getElementsByName('Item_Type');
+        var checkedValue = 0;
+        for(var i =0 ;i<item_Types.length;i++){
+            if(item_Types[i].checked){
+                checkedValue = item_Types[i].value;
+            }
+        }
+
+    }
+</script>

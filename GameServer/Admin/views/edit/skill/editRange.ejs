@@ -1,0 +1,135 @@
+<div class="pagetitle">
+    <a href="/skill/indexRange">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="StageDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                技能范围编号
+            </td>
+            <td class="data">
+                <input type="text" name="Range_Id" id="Range_Id" value="<%-result[0].Range_Id%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能范围名称
+            </td>
+            <td class="data">
+                <input type="text" name="Range_Name" id="Range_Name" value="<%-result[0].Range_Name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能范围描述
+            </td>
+            <td class="data">
+                <input type="text" name="Range_Description" id="Range_Description" value="<%-result[0].Range_Description%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能范围
+            </td>
+            <td class="data">
+                <input type="text" name="Range_Json_in" id="Range_Json_in" value="<%-JSON.stringify(JSON.parse(result[0].Range_Json))%>" />
+                <div id="RangeDiv" name ="RangeDiv" style="float:left;display: inline">
+                    <table border="1px">
+                        <%//读取范围Json
+                                for(var i =0;i<20;i++){%>
+                        <tr>
+                            <%for(var j =0;j<14;j++){%>
+                            <td width="20px" height="20px" onclick="clicked('<%-i%>_<%-j%>','<%-j%>','<%-i%>')" id="<%-i%>_<%-j%>"
+                                name="<%-i%>_<%-j%>" <%
+                            JSON.parse(result[0].Range_Json).Range.forEach(function(item)
+                            {
+                                    if((Number(item.x) == j && Number(item.y) == i) && !(i==10 && j==7)){%>style="background-color: blue"<%}
+                            else if( (Number(item.x) == j && Number(item.y) == i ) && (i==10 && j==7)){%>style="background-color: green"<%}});
+
+                                    if(j==7 && i==10){%>style="background-color: red"<%};%>
+                                    ></td><%}%>
+
+                        </tr>
+                        <%}%>
+                    </table>
+
+
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+
+
+<script>
+    var range_Json = {Range:[]};
+//初始化原有范围内容
+    for(var i = 0 ; i< 20 ;i++){
+        for (var j = 0 ; j<14 ; j++){
+            if(document.getElementById(eval("i+'_'+j")).style.backgroundColor == "blue" ||
+                    document.getElementById(eval("i+'_'+j")).style.backgroundColor == "green"){
+                range_Json.Range.push({
+                    "x":j,
+                    "y":i
+                });
+            }
+        }
+    };
+    //将更新后的JSON记录到文档控件中，用于传送到后台
+    document.getElementById("Range_Json_in").value=JSON.stringify(range_Json) ;
+
+    function clicked(id,x,y){//单击单元格事件
+
+
+        //var range_Json = JSON.parse(document.getElementById("Range_Json")).Range;
+        if(x==7 && y==10) {
+            if (document.getElementById(id).style.backgroundColor == "green") {
+                document.getElementById(id).style.backgroundColor = "red";
+                for (var i = 0; i < range_Json.Range.length; i++) {
+                    if (range_Json.Range[i].x == x && range_Json.Range[i].y == y) {
+                        range_Json.Range.splice(i, 1);
+                    }
+                }
+            } else {
+                document.getElementById(id).style.backgroundColor = "green";
+                range_Json.Range.push({
+                    "x":x,
+                    "y":y
+                });
+
+            }
+        }else{
+            if (document.getElementById(id).style.backgroundColor == "blue") {//如果所单击的单元格为蓝色（即已经选择为范围单元）
+                //将该单元格清除为白色背景（即取消其作为范围单元），将相应地单元从Json中去除
+                document.getElementById(id).style.backgroundColor = "white";
+                for (var i = 0; i < range_Json.Range.length; i++) {
+                    if (range_Json.Range[i].x == x && range_Json.Range[i].y == y) {
+                        range_Json.Range.splice(i, 1);//在JSON中去除该单元
+                    }
+                }
+            } else if (document.getElementById(id).style.backgroundColor != "red") {//其余单元格只要不是红色（中心点），都将其
+                //设置为有效范围单元格
+                document.getElementById(id).style.backgroundColor = "blue";
+                //在JSON中加入该有效单元格坐标
+                range_Json.Range.push({
+                    "x":x,
+                    "y":y
+                });
+
+            }
+
+        }
+        document.getElementById("Range_Json_in").value=JSON.stringify(range_Json) ;
+    }
+</script>

@@ -1,0 +1,123 @@
+<script >
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+    function ccc(index,redeem_code,package_id,begin_date,end_date,type){
+
+            var count = $('#count' + index).val();
+            window.location.href = '/redeemCode/update?redeem_code='+redeem_code+'&package_id='+package_id+'&count='+count+'&begin_date=' + begin_date+'&end_date=' + end_date+'&type=' + type;
+    };
+</script>
+
+<div class="message">
+  <%-message%>
+</div>
+
+  <form id="form1" name="form1" method="post" action="/redeemCode/edit">
+<tr>
+           <td class="data">输入数量:<input type="text" name="redeem_code_count" id="redeem_code_count" /></td>
+           礼包名称:
+           <td class="data"><select name="package_id" id="package_id">
+           <%
+               packages.forEach(function(package, i){
+           %>
+                <option value=<%-package.package_id%>><%-package.name%></option>
+           <%
+           });
+           %>
+           </select></td>
+           可使用次数:<td class="data"><input type="text" name="count" id="count" /></td>
+           开始时间:<td class="data"><input type="text" name="begin_date" id="begin_date" /></td>
+           结束时间:<td class="data"><input type="text" name="end_date" id="end_date" /></td>
+           使用类型
+           <td class="data"><select name="type" id="type">
+                <option value=1>一次性</option>
+                <option value=2>通用</option>
+           </select></td>
+           <td class="data">
+                <input type="submit" name="add" id="add" value="添加">
+           </td>
+    </tr>
+</form>
+<form id="form2" name="form2" method="post" action="/redeemCode/edit">
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">兑换码</td>
+        <td class="title">礼包</td>
+        <td class="title">剩余兑换数量</td>
+        <td class="title">开始时间</td>
+        <td class="title">结束时间</td>
+        <td class="title">类型</td>
+        <td class="title">操作</td>
+        <td class="title">操作</td>
+    </tr>
+<%
+    results.forEach(function(item, i){
+%>
+    <tr>
+        <td class="data" name="redeem_code<%-i%>" id="redeem_code<%-i%>"><%-item.redeem_code%></td>
+        <td class="data"name="package_id<%-i%>" id="package_id<%-i%>" value="<%-item.package_id%>"><%-item.name%></td>
+        <td class="data"><input type="text" name="count<%-i%>" id="count<%-i%>" value="<%-item.count%>"></td>
+        <td class="data" name="begin_date<%-i%>" id="begin_date<%-i%>"><%-item.begin_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+        <td class="data" name="end_date<%-i%>" id="end_date<%-i%>"><%-item.end_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+        <td class="data" name="type<%-i%>" id="type<%-i%>"><%-item.type==1?"一次性":"通用"%></td>
+        <td class="data">
+            <a href="/redeemCode/delete?redeem_code=<%-item.redeem_code%>">删除</a>
+        </td>
+        <td class="data">
+            <a href="javascript:ccc('<%-i%>','<%-item.redeem_code%>','<%-item.package_id%>','<%-item.begin_date%>','<%-item.end_date%>',<%-item.type%>);">修改</a>
+        </td>
+    </tr>
+<%
+});
+%>
+    <td colspan="8" align="center">[
+   <%
+       for(var i=1;i<=count;i++){
+   %>
+       <a href="?page_no=<%-i%>"><%-i%></a>
+   <%
+       }
+   %> ]
+       </td>
+</table>
+</div>
+
+
+
+
+</form>
+
+<form id="form4" name="form4" method="post" action="/redeemCode/excel">
+<td class="data">
+<select name="package_id" id="package_id">
+    <%
+                   packages.forEach(function(package, i){
+               %>
+                    <option value=<%-package.package_id%>><%-package.name%></option>
+               <%
+               });
+               %>
+</select>
+<input type="submit" name="excel" id="excel" value="导出excel">
+
+
+
+</td>
+</form>
+
+<form id="form4" name="form4" method="post" action="/redeemCode/deleteCode">
+<td class="data">
+<select name="package_id" id="package_id">
+    <%
+                   packages.forEach(function(package, i){
+               %>
+                    <option value=<%-package.package_id%>><%-package.name%></option>
+               <%
+               });
+               %>
+</select>
+<input type="submit" name="excel" id="excel" value="删除对应兑换码">
+</td>
+</form>

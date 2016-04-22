@@ -1,0 +1,21 @@
+{
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "3.3.5",
+        "mysql": ">=2.0",
+        "generic-pool": ">=1.0.9",
+        "ejs" : "*",
+        "async": ">=0.2.9",
+        "express-partials": "*",
+        "connect-flash" : "*",
+        "log4js" : ">=0.6.14",
+        "underscore": ">=1.5.2",
+        "excel-export" : "0.3.11",
+        "crypto" : "*"
+    }
+}

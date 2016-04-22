@@ -1,0 +1,193 @@
+<div class="pagetitle">
+    <a href="/FarFight">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+    <table id="FarFightDetail" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+
+        <tr>
+            <td class="title">
+                远征关卡编号
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_Id" id="FarFight_Id" value="<%-results.FarFight.FarFight_Id%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                远征关卡名称
+            </td>
+            <td class="data">
+                <input type="text" name="FarFight_Name" id="FarFight_Name" value="<%-results.FarFight.FarFight_Name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡类型
+            </td>
+            <td class="data">
+                <select name="FarFight_Type" id="FarFight_Type">
+                    <option value="1" <%if(results.FarFight.FarFight_Type == 1){%>selected="selected" <%}%>>小关卡</option>
+                    <option value="2" <%if(results.FarFight.FarFight_Type == 2){%>selected="selected" <%}%>>档次1</option>
+                    <option value="3" <%if(results.FarFight.FarFight_Type == 3){%>selected="selected" <%}%>>档次2</option>
+                    <option value="4" <%if(results.FarFight.FarFight_Type == 4){%>selected="selected" <%}%>>档次3</option>
+                    <option value="5" <%if(results.FarFight.FarFight_Type == 5){%>selected="selected" <%}%>>档次4</option>
+                    <option value="6" <%if(results.FarFight.FarFight_Type == 6){%>selected="selected" <%}%>>档次5</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                等级区间
+            </td>
+            <td class="data">
+                <input type="text" name="Min_Lvl" id="Min_Lvl" value="<%-results.FarFight.Min_Lvl%>" /> -
+                <input type="text" name="Max_Lvl" id="Max_Lvl" value="<%-results.FarFight.Max_Lvl%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                关卡掉落
+            </td>
+            <td>
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="TB_PoolList" name="TB_PoolList">
+                    <tr colspan="2">
+
+                        <td class="data">
+                            <input type="text" name="Pool_Id" id="Pool_Id" value="<%=results.FarFight.Pool_Id%>"  style="visibility: hidden"/>
+                            <input type="text" name="Lottery_Methods" id="Lottery_Methods" value="<%=JSON.stringify(results.lotteryPool)%>"  style="visibility: hidden"/>
+                            <select name="Pool_Id_Add" id="Pool_Id_Add">
+                                <option value=""></option>
+                                <%results.lotteryPool.forEach(function(item){%>
+                                <option value="<%-item.Lottery_Method_Id%>" <%if(item.Lottery_Method_Id == results.FarFight.Pool_Id){%>
+                                        selected="selected" <%}%>><%-item.Method_Tag%></option>
+                                <%})%>
+                            </select>
+                            <label onclick="btn_addMethod()">增加抽取方法</label>
+                        </td>
+                    </tr>
+                    <%
+                    if(results.FarFight.Pool_Id!=null){
+                        var Pool_List = results.FarFight.Pool_Id.split(',');
+                            Pool_List.forEach(function(item){if(item!=null){%>
+                    <tr>
+                        <td class="data">
+                            <label ><%results.lotteryPool.forEach(function(Method){
+                                if(Method.Lottery_Method_Id == item){%><%-Method.Method_Tag%><%}})
+                                %></label>
+                        </td>
+                        <td class="data">
+                            <label onclick="delMethod('<%-item%>')">删除</label>
+                        </td>
+                    </tr>
+                    <%}})}%>
+
+                </table>
+
+            </td>
+
+        </tr>
+    </table>
+
+</form>
+
+
+<script>
+    document.onreadystatechange = function(){
+        if(document.readyState == 'complete'){
+            document.getElementById("add").style.visibility='visible';
+        };
+    }
+
+    function btn_addMethod(){//添加抽取方法
+        var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+        var Pool_Id = document.getElementById("Pool_Id_Add").value;
+        var Pool_Name = '';
+        PoolMethods.forEach(function(Method){
+            if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+                Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+                var tb = document.getElementById("TB_PoolList");
+                var rowNum=tb.rows.length;
+                var firstrow = tb.insertRow(1);
+                var firstcelltitle = firstrow.insertCell(0);
+                var firstcelldata = firstrow.insertCell(1);
+                firstcelltitle.setAttribute("class","data");
+                firstcelldata.setAttribute("class","data");
+                firstcelltitle.innerHTML = Pool_Name;
+                firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+                if(Pool_Id !=null && Pool_Id !='null'){
+                    if(document.getElementById("Pool_Id").value!=''){
+                        document.getElementById("Pool_Id").value =document.getElementById("Pool_Id").value +','+Pool_Id;
+                    }
+                    else
+                    {
+                        document.getElementById("Pool_Id").value = Pool_Id;
+                    }
+                }
+
+            }
+        });
+        createPoolListTable(document.getElementById("Pool_Id").split(','));
+    }
+    function delMethod(Pool_Id){
+        var Pool_Ids = document.getElementById("Pool_Id").value.split(',');
+        var result_Pool_Ids = '';
+        var i = 0;
+        Pool_Ids.forEach(function(Pool_Item){
+            if(Number(Pool_Item)==Number(Pool_Id)){
+                Pool_Ids.splice(i,1);
+            }
+            i++
+        });
+        i = 0;
+        Pool_Ids.forEach(function(Pool_Item){
+            if(i==0){
+                result_Pool_Ids=''+Pool_Item;
+            }
+            else
+            {
+                result_Pool_Ids = result_Pool_Ids +','+Pool_Item;
+            }
+            i++;
+        });
+        document.getElementById("Pool_Id").value = result_Pool_Ids;
+        createPoolListTable(result_Pool_Ids);
+    }
+
+    function createPoolListTable(Pools){
+        var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+        var Pool_Ids = Pools.split(',');
+        var Pool_Name = '';
+        var tb = document.getElementById("TB_PoolList");
+        var rowNum=tb.rows.length;
+        for (i=1;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var i = 1;
+        Pool_Ids.forEach(function(Pool_Id){
+            PoolMethods.forEach(function(Method){
+                if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+                    Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+                    var firstrow = tb.insertRow(i);
+                    var firstcelltitle = firstrow.insertCell(0);
+                    var firstcelldata = firstrow.insertCell(1);
+                    firstcelltitle.setAttribute("class","data");
+                    firstcelldata.setAttribute("class","data");
+                    firstcelltitle.innerHTML = Pool_Name;
+                    firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+                }
+            });
+
+        })
+    }
+
+    </script>

@@ -1,0 +1,30 @@
+<div class="pagetitle">
+     <a href="/config">返回</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr class="title">
+        <td colspan="5">人物初始化</td>
+    </tr>
+    <tr>
+        <td class="data">准备：</td>
+        <td class="data">抢庄</td>
+        <td class="data">选倍</td>
+        <td class="data">选牌</td>
+        <td class="data">提前推送</td>
+    </tr>
+    <tr>
+        <td class="data"><input type="text" name="ready" id="ready" value="<%-result.ready%>" /></td>
+        <td class="data"><input type="text" name="rush" id="rush" value="<%-result.rush%>" /></td>
+        <td class="data"><input type="text" name="multiple" id="multiple" value="<%-result.multiple%>" /></td>
+        <td class="data"><input type="text" name="select" id="select" value="<%-result.select%>" /></td>
+        <td class="data"><input type="text" name="push" id="push" value="<%-result.push%>" /></td>
+    </tr>
+    <tr>
+        <td colspan="5" align="center"><input type="submit" name="submit" id="submit" value="提交" /></td>
+    </tr>
+</table>
+</form>

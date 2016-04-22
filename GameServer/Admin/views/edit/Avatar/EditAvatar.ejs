@@ -1,0 +1,78 @@
+<div class="pagetitle">
+    <a href="/Avatar">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+    <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="4">头像(框)信息配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                名称
+            </td>
+            <td class="data">
+                <input type="text" name="Avatar_Name" id="Avatar_Name" value="<%-result.Avatar_Name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                排序编号
+            </td>
+            <td class="data">
+                <input type="text" name="Avatar_Order" id="Avatar_Order" value="<%-result.Avatar_Order%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                类型
+            </td>
+            <td class="data">
+                <select name="Avatar_Type" id="Avatar_Type">
+                    <option value=""></option>
+                    <option value="1" <%if(result.Avatar_Type == 1){%>selected="selected"<%}%>>头像</option>
+                    <option value="2" <%if(result.Avatar_Type == 2){%>selected="selected"<%}%>>头像框</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                级别
+            </td>
+            <td class="data">
+                <select name="Avatar_Grade" id="Avatar_Grade">
+                    <option value=""></option>
+                    <option value="1" <%if(result.Avatar_Grade == 1){%>selected="selected"<%}%>>普通头像</option>
+                    <option value="2" <%if(result.Avatar_Grade == 2){%>selected="selected"<%}%>>英雄头像</option>
+                    <option value="3" <%if(result.Avatar_Grade == 3){%>selected="selected"<%}%>>觉醒头像</option>
+                    <option value="4" <%if(result.Avatar_Grade == 4){%>selected="selected"<%}%>>普通头像框</option>
+                    <option value="5" <%if(result.Avatar_Grade == 5){%>selected="selected"<%}%>>vip头像框</option>
+                    <option value="6" <%if(result.Avatar_Grade == 6){%>selected="selected"<%}%>>竞技巅峰头像框</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                资源位置
+            </td>
+            <td class="data">
+                <input type="text" name="Avatar_Icon_Url" id="Avatar_Icon_Url" value="<%-result.Avatar_Icon_Url%>" />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Avatar_Description" id="Avatar_Description" cols="45" rows="5"><%-result.Avatar_Description%></textarea>
+            </td>
+        </tr>
+    </table>
+
+</form>

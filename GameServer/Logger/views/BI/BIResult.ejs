@@ -1,0 +1,23 @@
+<div class="pagetitle">
+    <a href="/LoggerBI/add">添加BI</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <%
+         results.titles.forEach(function(title){%>
+        <td class="title">title</td>
+         <%})
+          %>
+    </tr>
+    <%
+    results.BIData.forEach(function(item){
+    %>
+    <tr>
+        <%results.titles.forEach(function(t){%>
+        <td class="data"><%-eval('item.'+t)%></td>
+        <%})%>
+    </tr>
+    <%
+    });
+    %>
+</table>

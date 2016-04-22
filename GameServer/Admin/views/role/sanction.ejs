@@ -1,0 +1,75 @@
+<div class="pagetitle">
+  <a href="/role">返回</a>
+</div>
+
+<div class="message">
+  <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+ <table width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+         <td class="title1">ID</td>
+         <td class="data1">
+             <%-id%>
+         </td>
+     </tr>
+     <tr>
+          <td class="title1">制裁值</td>
+          <td class="data1">
+              <input type="text" name="value" id="value" value="" />
+          </td>
+      </tr>
+     <tr>
+         <td class="title1">制裁项</td>
+         <td class="data1">
+              金贝量<input type="radio" name="type" value="1" checked="checked" />
+              通宝卡量<input type="radio" name="type" value="2" />
+              胜利局数<input type="radio" name="type" value="3" />
+         </td>
+     </tr>
+     <tr>
+         <td class="title1">缘由</td>
+         <td class="data1">
+              <textarea name="reason" id="reason"></textarea>
+         </td>
+     </tr>
+     <tr>
+         <td class="title1"></td>
+         <td class="data1">
+             <input type="submit" name="submit" id="submit" value="提交" />
+         </td>
+     </tr>
+ </table>
+</form>
+<hr />
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">制裁项</td>
+        <td class="title">制裁值</td>
+        <td class="title">操作人员</td>
+        <td class="title">缘由</td>
+        <td class="title">操作时间</td>
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.type==1?'<span class="red">金贝</span>':(item.type==2?'<span class="blue">通宝卡</span>':'<span class="green">胜利</span>')%></td>
+    <td class="data"><%-item.value%></td>
+    <td class="data"><%-item.name%></td>
+    <td class="data"><%-item.reason%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+</tr>
+<%
+});
+%>
+    <td colspan="5" align="center">[
+<%
+    for(var i=1;i<=count;i++){
+%>
+    <a href="?id=<%-id%>&page_no=<%-i%>"><%-i%></a>
+<%
+    }
+%> ]
+    </td>
+</table>

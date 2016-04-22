@@ -1,0 +1,36 @@
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="save" id="save" value="提交">
+    </td>
+
+    <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="2">技能等级配置</td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                技能等级
+            </td>
+            <td class="title">
+                金币消耗
+            </td>
+        </tr>
+
+        <%
+        for(var i = 0;i<result.skilllvl.length;i++){%>
+        <tr>
+            <td class="data">
+                <%-i%>
+            </td>
+            <td class="data">
+                <input type="text" name="lvl<%-i%>" id="lvl<%-i%>" value="<%-result.skilllvl[i]%>" />
+            </td>
+
+        </tr>
+        <%}%>
+    </table>
+</form>

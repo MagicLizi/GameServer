@@ -1,0 +1,54 @@
+<script>
+    function edit(page_id, level){
+        var watch = $('#watch' + page_id).attr('checked');
+        var alter = $('#alter' + page_id).attr('checked');
+        window.location.href = '/authority/edit?page_id='+page_id+'&watch='+watch+'&alter='+alter + '&level=' + level;
+    }
+
+</script>
+
+<div class="message">
+  <%-message%>
+</div>
+
+<form id="form1" name="form1" method="get" action="/authority">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="30">账号等级</td>
+    <td><input type="text" name="level" id="level" value="<%-level%>"></td>
+  </tr>
+  <tr>
+    <td height="30"><input name="search" type="hidden" id="search" value="1" /></td>
+    <td><input type="submit" name="submit" id="submit" value="搜索" /></td>
+    </tr>
+</table>
+</form>
+<form id="form2" name="form2" method="post">
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">页面</td>
+        <td class="title">查看</td>
+        <td class="title">编辑</td>
+        <td class="title">操作</td>
+    </tr>
+<%
+    results.forEach(function(item, i){
+%>
+    <tr>
+    <td class="data"><%-item.page_name%></td>
+        <td class="data">
+        <input type="checkbox" name="watch<%-item.page_id%>" id="watch<%-item.page_id%>" <%if(item.watch){%>checked="checked"<%}%> value=<%-item.watch%>>
+        </td>
+        <td class="data">
+        <input type="checkbox" name="alter<%-item.page_id%>" id="alter<%-item.page_id%>" <%if(item.alter){%>checked="checked"<%}%> value=<%-item.alter%>>
+        </td>
+        <td class="data">
+            <a href="javascript:edit(<%-item.page_id%>,<%-level%>);">修改</a>
+        </td>
+    </tr>
+<%
+});
+%>
+</table>
+</div>
+</form>

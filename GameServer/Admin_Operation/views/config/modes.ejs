@@ -1,0 +1,79 @@
+<style type="text/css">
+    input{width:40px;}
+</style>
+<div class="pagetitle">
+     <a href="/config">返回</a>
+</div>
+<div>
+说明：目前只支持三种模式（ID=1 抢庄模式；ID=2 押金模式；ID=3 比赛模式）
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <!--<td class="title">倍率</td>-->
+        <td class="title">五小牛</td>
+        <td class="title">五花牛</td>
+        <td class="title">炸弹</td>
+        <td class="title">牛牛</td>
+        <td class="title">牛九</td>
+        <td class="title">牛八</td>
+        <td class="title">牛七</td>
+        <td class="title">牛六</td>
+        <td class="title">牛五</td>
+        <td class="title">牛四</td>
+        <td class="title">牛三</td>
+        <td class="title">牛二</td>
+        <td class="title">牛丁</td>
+        <td class="title">无牛</td>
+        <td class="title">编辑</td>
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.mode_id%></td>
+     <!--<td class="data"><%-item.rate%></td> -->
+    <td class="data"><%-item.multiples.tiny%></td>
+    <td class="data"><%-item.multiples.streaky_bull%></td>
+    <td class="data"><%-item.multiples.boom%></td>
+    <td class="data"><%-item.multiples.bull10%></td>
+    <td class="data"><%-item.multiples.bull9%></td>
+    <td class="data"><%-item.multiples.bull8%></td>
+    <td class="data"><%-item.multiples.bull7%></td>
+    <td class="data"><%-item.multiples.bull6%></td>
+    <td class="data"><%-item.multiples.bull5%></td>
+    <td class="data"><%-item.multiples.bull4%></td>
+    <td class="data"><%-item.multiples.bull3%></td>
+    <td class="data"><%-item.multiples.bull2%></td>
+    <td class="data"><%-item.multiples.bull1%></td>
+    <td class="data"><%-item.multiples.bull0%></td>
+    <td class="data"><a href="?id=<%-item.mode_id%>">删除</a></td>
+</tr>
+<%
+});
+%>
+<tr>
+    <td class="data"><input type="text" name="mode_id" id="mode_id" /></td>
+    <!--<td class="data"><input type="text" name="rate" id="rate" value="0" /></td>-->
+    <td class="data"><input type="text" name="tiny" id="tiny" /></td>
+    <td class="data"><input type="text" name="streaky_bull" id="streaky_bull" /></td>
+    <td class="data"><input type="text" name="boom" id="boom" /></td>
+    <td class="data"><input type="text" name="bull10" id="bull10" /></td>
+    <td class="data"><input type="text" name="bull9" id="bull9" /></td>
+    <td class="data"><input type="text" name="bull8" id="bull8" /></td>
+    <td class="data"><input type="text" name="bull7" id="bull7" /></td>
+    <td class="data"><input type="text" name="bull6" id="bull6" /></td>
+    <td class="data"><input type="text" name="bull5" id="bull5" /></td>
+    <td class="data"><input type="text" name="bull4" id="bull4" /></td>
+    <td class="data"><input type="text" name="bull3" id="bull3" /></td>
+    <td class="data"><input type="text" name="bull2" id="bull2" /></td>
+    <td class="data"><input type="text" name="bull1" id="bull1" /></td>
+    <td class="data"><input type="text" name="bull0" id="bull0" /></td>
+    <td class="data"><input type="submit" name="submit" id="submit" value="提交" /></td>
+</tr>
+</table>
+</form>

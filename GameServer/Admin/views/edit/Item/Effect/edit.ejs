@@ -1,0 +1,80 @@
+<div class="pagetitle">
+    <a href="/Item/Effect/index?id=<%-results.Item.Item_Id%>">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <input type="submit" name="submit" id="submit" value="提交" />
+    <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="2">物品效果配置</td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品名称
+            </td>
+            <td class="data">
+
+
+                <%
+                results.resultItem.forEach(function(item){
+                        if(item.Item_Id == results.Item.Item_Id){%>
+
+                <label name="Item_Name" id="Item_Name"><%-item.Item_Name%></label>
+                <input name="Item_Id" id="Item_Id" value="<%-item.Item_Id%>" style="visibility: hidden" />
+                <%}
+                });
+                %>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                物品效果
+            </td>
+            <td class="data">
+                <select name="Effect_Type" id="Effect_Type" onchange="changeItem()">
+                    <%results.Effects.forEach(function(item){%>
+                    <option value="<%-item.value%>" <%if (item.value==results.Item.Effect_Type){%> selected="selected"<%}%>><%-item.name%></option>
+                    <%});%>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                效果数值
+            </td>
+            <td class="data" id="effect_Html">
+                <input type='text' name='Effect_Value' id='Effect_Value' value='<%-results.Item.Effect_Value%>' />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Effect_Description" id="Effect_Description" value="" wrap="virtual" rows="5"><%-results.Item.Effect_Description%></textarea>
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function changeItem(){
+        if(document.getElementById("Effect_Type").value != 6){
+            document.getElementById("effect_Html").innerHTML =
+                    "<input type='text' name='Effect_Value' id='Effect_Value' value='<%-results.Item.Effect_Value%>' />"
+
+        }else
+        {
+            document.getElementById("effect_Html").innerHTML =
+                    "<select name='Effect_Value' id='Effect_Value'>" +
+                    "<%results.resultHero.forEach(function(item){%><option value='<%-item.recharge_id%>' "+
+            "<%if (item.recharge_id==results.Item.Effect_Value){%> selected='selected'<%}%>><%-item.name%>(<%-item.quality%>)</option> <%});%></select>";
+
+
+        }
+    }
+</script>

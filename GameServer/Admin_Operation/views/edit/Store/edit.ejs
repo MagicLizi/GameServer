@@ -1,0 +1,214 @@
+<div class="pagetitle">
+    <a href="/Store">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+
+    <input type="submit" name="submit" id="submit" value="提交" />
+
+    <table id="Store" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title">
+                商店名称
+            </td>
+            <td class="data">
+                <input type="text" name="Store_Name" id="Store_Name" value="<%-result.resultsStore.Store_Name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                货币
+            </td>
+            <td class="data" >
+                <select name="Currency_Id" id="Currency_Id">
+                    <option value="" ></option>
+                    <%result.resultsCurrency.forEach(function(item){%>
+                    <option value="<%-item.Item_Id%>" <%if(item.Item_Id == result.resultsStore.Currency_Id){%>
+                            selected="selected"<%}%>><%-item.Item_Order%>     <%-item.Item_Name%></option>
+                    <%});%>
+                </select>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="title">
+                生效
+            </td>
+            <td class="data">
+                <input type="radio" name="Enable" id="Enable" value="1" <%if(result.resultsStore.Enable){%>checked="true"<%}%>/>是
+                <input type="radio" name="Enable" id="Enable" value="0" <%if(!result.resultsStore.Enable){%>checked="true"<%}%>/>否
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Description" id="Description" value="" wrap="virtual" rows="5"><%-result.resultsStore.Description%></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                抽奖方法列表
+            </td>
+            <td class="data">
+                <table width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" id="TB_PoolList" name="TB_PoolList">
+                    <tr colspan="2">
+
+                        <td class="data">
+                            <input type="text" name="Pool_Id" id="Pool_Id" value="<%=result.resultsStore.Pool_Id%>"  style="visibility: hidden"/>
+                            <input type="text" name="Lottery_Methods" id="Lottery_Methods" value="<%=JSON.stringify(result.lotteryMethods)%>"  style="visibility: hidden"/>
+                            <select name="Pool_Id_Add" id="Pool_Id_Add">
+                                <option value=""></option>
+                                <%result.lotteryMethods.forEach(function(item){%>
+                                <option value="<%-item.Lottery_Method_Id%>" <%if(item.Lottery_Method_Id == result.resultsStore.Pool_Id){%>
+                                        selected="selected" <%}%>><%-item.Method_Name%>(<%-item.Pool_Name%>)</option>
+                                <%})%>
+                            </select>
+                            <label onclick="btn_addMethod()">增加抽取方法</label>
+                        </td>
+                    </tr>
+                    <%
+                    if(result.resultsStore.Pool_Id!=null){
+                        var Pool_List = result.resultsStore.Pool_Id.split(',');
+                            Pool_List.forEach(function(item){if(item!=null){%>
+                    <tr>
+                        <td class="data">
+                            <label ><%result.lotteryMethods.forEach(function(Method){
+                                if(Method.Lottery_Method_Id == item){%><%-Method.Method_Name+'('+
+                                Method.Pool_Name+')'%><%}})
+                                %></label>
+                        </td>
+                        <td class="data">
+                            <label onclick="delMethod('<%-item%>')">删除</label>
+                        </td>
+                    </tr>
+                    <%}})}%>
+
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                刷新时间
+            </td>
+            <td class="data">
+                <input type="text" name="Refresh_Time" id="Refresh_Time" value="<%-result.resultsStore.Refresh_Time%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                刷新消耗
+            </td>
+            <td class="data">
+                <input type="text" name="Refresh_Expend" id="Refresh_Expend" value="<%-result.resultsStore.Refresh_Expend%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                出现概率
+            </td>
+            <td class="data">
+                <input type="text" name="Appear_Pre" id="Appear_Pre" value="<%-result.resultsStore.Appear_Pre%>" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+
+<script>
+    document.onreadystatechange = function(){
+        if(document.readyState == 'complete'){
+            document.getElementById("add").style.visibility='visible';
+        };
+    }
+
+    function btn_addMethod(){//添加抽取方法
+        var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+        var Pool_Id = document.getElementById("Pool_Id_Add").value;
+        var Pool_Name = '';
+        PoolMethods.forEach(function(Method){
+            if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+                Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+                var tb = document.getElementById("TB_PoolList");
+                var rowNum=tb.rows.length;
+                var firstrow = tb.insertRow(1);
+                var firstcelltitle = firstrow.insertCell(0);
+                var firstcelldata = firstrow.insertCell(1);
+                firstcelltitle.setAttribute("class","data");
+                firstcelldata.setAttribute("class","data");
+                firstcelltitle.innerHTML = Pool_Name;
+                firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+                if(Pool_Id !=null && Pool_Id !='null'){
+                    if(document.getElementById("Pool_Id").value!=''){
+                        document.getElementById("Pool_Id").value =document.getElementById("Pool_Id").value +','+Pool_Id;
+                    }
+                    else
+                    {
+                        document.getElementById("Pool_Id").value = Pool_Id;
+                    }
+                }
+
+            }
+        });
+        createPoolListTable(document.getElementById("Pool_Id").split(','));
+    }
+    function delMethod(Pool_Id){
+        var Pool_Ids = document.getElementById("Pool_Id").value.split(',');
+        var result_Pool_Ids = '';
+        var i = 0;
+        Pool_Ids.forEach(function(Pool_Item){
+            if(Number(Pool_Item)==Number(Pool_Id)){
+                Pool_Ids.splice(i,1);
+            }
+            i++
+        });
+        i = 0;
+        Pool_Ids.forEach(function(Pool_Item){
+            if(i==0){
+                result_Pool_Ids=''+Pool_Item;
+            }
+            else
+            {
+                result_Pool_Ids = result_Pool_Ids +','+Pool_Item;
+            }
+            i++;
+        });
+        document.getElementById("Pool_Id").value = result_Pool_Ids;
+        createPoolListTable(result_Pool_Ids);
+    }
+
+    function createPoolListTable(Pools){
+        var PoolMethods = JSON.parse(document.getElementById("Lottery_Methods").value);
+        var Pool_Ids = Pools.split(',');
+        var Pool_Name = '';
+        var tb = document.getElementById("TB_PoolList");
+        var rowNum=tb.rows.length;
+        for (i=1;i<rowNum;i++)
+        {
+            tb.deleteRow(i);
+            rowNum=rowNum-1;
+            i=i-1;
+        }
+        var i = 1;
+        Pool_Ids.forEach(function(Pool_Id){
+            PoolMethods.forEach(function(Method){
+                if(Number(Method.Lottery_Method_Id)==Number(Pool_Id)){
+                    Pool_Name = Method.Method_Name+'('+Method.Pool_Name+')';
+                    var firstrow = tb.insertRow(i);
+                    var firstcelltitle = firstrow.insertCell(0);
+                    var firstcelldata = firstrow.insertCell(1);
+                    firstcelltitle.setAttribute("class","data");
+                    firstcelldata.setAttribute("class","data");
+                    firstcelltitle.innerHTML = Pool_Name;
+                    firstcelldata.innerHTML = "<label onclick=delMethod('"+Pool_Id+"')>删除</label>";
+                }
+            });
+
+        })
+    }
+</script>

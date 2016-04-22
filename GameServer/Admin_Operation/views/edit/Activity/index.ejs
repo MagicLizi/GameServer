@@ -1,0 +1,49 @@
+<div class="pagetitle">
+    <a href="/Activity/add">添加活动奖励</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">编号</td>
+        <td class="title">排序</td>
+        <td class="title">道具</td>
+        <td class="title">数量</td>
+        <td class="title">类型</td>
+        <td class="title">创建日期</td>
+        <td class="title">状态</td>
+    </tr>
+    <%
+    //if(results){
+    results.Activity.forEach(function(activity){
+    %>
+    <tr>
+        <td class="data"><a href="/Activity/edit?id=<%-activity.Activity_Id%>"><input type="submit" name="submit" id="submit" value="编辑" /></a></td>
+        <td class="data"><%-activity.Activity_Id%></td>
+        <td class="data"><%-activity.Reward_Order%></td>
+        <td class="data">
+            <%results.items.forEach(function(item){%>
+            <%if(item.Item_Id==activity.Reward_Item_Id){%>
+                    (<%-item.Item_Order%>)<%-item.Item_Name%> <%}%>
+            <%})%>
+        </td>
+        <td class="data"><%-activity.Reward_Item_Amount%></td>
+        <td class="data"><%
+            switch (Number(activity.Activity_Type)){
+            case 1:
+            %>每日奖励(单月)<%
+                break;
+            case 2:
+            %>每日奖励(双月)<%
+                break;
+                case 3:
+            %>七日奖励<%
+            }%></td>
+        <td class="data"><%-activity.Create_Date.format('yyyy-MM-dd hh:mm:ss')%></td>
+        <td class="data"><%if(activity.Enable == 1){%>有效<%}%>
+            <%if(activity.Enable == 0){%>无效<%}%></td>
+    </tr>
+    <%
+    });
+    //}
+    %>
+</table>

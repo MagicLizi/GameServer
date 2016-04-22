@@ -1,0 +1,128 @@
+<div class="pagetitle">
+    <a href="/VIP">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+
+    <table id="Store" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title">
+                VIP名称
+            </td>
+            <td class="data">
+                <input type="text" name="VIP_Name" id="VIP_Name" value="<%-results.VIP_Name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                VIP等级
+            </td>
+            <td class="data">
+                <input type="text" name="VIP_Lvl" id="VIP_Lvl" value="<%-results.VIP_Lvl%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                累计充值
+            </td>
+            <td class="data">
+                <input type="text" name="Total_Recharge" id="Total_Recharge" value="<%-results.Total_Recharge%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                购买体力次数
+            </td>
+            <td class="data">
+                <input type="text" name="BuyStaminaTimes" id="BuyStaminaTimes" value="<%-results.BuyStaminaTimes%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                购买金币次数
+            </td>
+            <td class="data">
+                <input type="text" name="BuyCoinTimes" id="BuyCoinTimes" value="<%-results.BuyCoinTimes%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                购买精英副本次数
+            </td>
+            <td class="data">
+                <input type="text" name="BuyPVETimes" id="BuyPVETimes" value="<%-results.BuyPVETimes%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                购买PVP次数
+            </td>
+            <td class="data">
+                <input type="text" name="BuyPVPTimes" id="BuyPVPTimes" value="<%-results.BuyPVPTimes%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                远征重置次数
+            </td>
+            <td class="data">
+                <input type="text" name="ResetFarFightTimes" id="ResetFarFightTimes" value="<%-results.ResetFarFightTimes%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                远征额外奖励
+            </td>
+            <td class="data">
+                <input type="text" name="FarFightRewardsAdd" id="FarFightRewardsAdd" value="<%-results.FarFightRewardsAdd%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                十连扫
+            </td>
+            <td class="data">
+                <input type="text" name="TenRaid" id="TenRaid" value="<%-results.TenRaid%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                技能点上限
+            </td>
+            <td class="data">
+                <input type="text" name="SkillPointLimit" id="SkillPointLimit" value="<%-results.SkillPointLimit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                永久地精商店
+            </td>
+            <td class="data">
+                <input type="text" name="ForeverGoblinStore" id="ForeverGoblinStore" value="<%-results.ForeverGoblinStore%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                允许购买技能点
+            </td>
+            <td class="data">
+                <input type="text" name="BuySkillPoint" id="BuySkillPoint" value="<%-results.BuySkillPoint%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title">
+                描述
+            </td>
+            <td class="data">
+                <textarea name="Description" id="Description" value="" wrap="virtual" rows="5"><%-results.Description%></textarea>
+            </td>
+        </tr>
+    </table>
+
+</form>
+

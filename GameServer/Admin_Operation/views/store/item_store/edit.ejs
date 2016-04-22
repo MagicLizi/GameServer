@@ -1,0 +1,144 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/item_store">返回列表</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <table width="80%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr>
+            <td class="title1">
+                道具ID
+            </td>
+            <td class="data1">
+                <%-result.item_id%>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                道具名称
+            </td>
+            <td class="data1">
+                <input type="text" name="name" id="name" value="<%-result.name%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                排序编号
+            </td>
+            <td class="data1">
+                <input type="text" name="sort_num" id="sort_num" value="<%-result.sort_num%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                性别限制
+            </td>
+            <td class="data1">
+                <select name="sex" id="sex">
+                    <option value="0"<%if(result.sex==0){%>selected="selected"<%}%>>无</option>
+                    <option value="1"<%if(result.sex==1){%>selected="selected"<%}%>>男</option>
+                    <option value="2"<%if(result.sex==1){%>selected="selected"<%}%>>女</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                图片ID
+            </td>
+            <td class="data1">
+                <input type="text" name="pic_id" id="pic_id" value="<%-result.pic_id%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                佩戴位置
+            </td>
+            <td class="data1">
+                <select name="pos" id="pos">
+                    <option value="0"<%if(result.pos==0){%>selected="selected"<%}%>>手形</option>
+                    <option value="1"<%if(result.pos==1){%>selected="selected"<%}%>>麻将桌</option>
+                    <option value="2"<%if(result.pos==2){%>selected="selected"<%}%>>指甲</option>
+                    <option value="3"<%if(result.pos==3){%>selected="selected"<%}%>>食指</option>
+                    <option value="4"<%if(result.pos==4){%>selected="selected"<%}%>>中指</option>
+                    <option value="5"<%if(result.pos==5){%>selected="selected"<%}%>>无名指</option>
+                    <option value="6"<%if(result.pos==6){%>selected="selected"<%}%>>手腕</option>
+                    <option value="7"<%if(result.pos==7){%>selected="selected"<%}%>>纹身</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                购买货币类型
+            </td>
+            <td class="data1">
+                <select name="currency_type" id="currency_type">
+                    <option value="0">金贝</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                价格
+            </td>
+            <td class="data1">
+                <input type="text" name="price" id="price" value="<%-result.price%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                等级限制
+            </td>
+            <td class="data1">
+                <input type="text" name="lvl_limit" id="lvl_limit" value="<%-result.lvl_limit%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                道具描述
+            </td>
+            <td class="data1">
+                <textarea name="description" id="description" cols="45" rows="5" ><%-result.description%></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                上架时间
+            </td>
+            <td class="data1">
+                <input type="text" name="begin_date" id="begin_date" value="<%-result.begin_date%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                下架时间
+            </td>
+            <td class="data1">
+                <input type="text" name="end_date" id="end_date" value="<%-result.end_date%>" />
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+                是否上架
+            </td>
+            <td class="data1">
+                无效<input type="radio" name="is_valid" id="is_valid1" value="0" <%if(result.is_valid==0){%>checked="checked"<%}%>/>
+                有效<input type="radio" name="is_valid" id="is_valid2" value="1" <%if(result.is_valid==1){%>checked="checked"<%}%>/>
+            </td>
+        </tr>
+        <tr>
+            <td class="title1">
+
+            </td>
+            <td class="data1">
+                <input type="submit" name="submit" id="submit" value="提交" />
+            </td>
+        </tr>
+    </table>
+</form>

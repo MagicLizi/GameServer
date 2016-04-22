@@ -1,0 +1,76 @@
+[
+    {
+        "title": "DT",
+        "url": "/",
+        "get": [
+            {
+                "route": "/",
+                "method": "index"
+            },
+            {
+                "route": "/left",
+                "method": "left"
+            }
+        ]
+    },
+  {
+    "title": "用户登录",
+    "url": "/membership/login",
+    "get": [
+      {
+        "route": "/login",
+        "method": "index"
+      },
+      {
+        "route": "/logout",
+        "method": "logout"
+      }
+    ],
+    "post": [
+      {
+        "route": "/login",
+        "method": "login"
+      }
+    ]
+  },
+    {
+        "title": "BI",
+        "url": "/BI/LoggerBI",
+        "get": [
+            {
+                "route": "/LoggerBI",
+                "method": "index"
+            },
+          {
+            "route": "/LoggerBI/add",
+            "method": "add"
+          },
+          {
+            "route": "/LoggerBI/edit",
+            "method": "edit"
+          },
+          {
+            "route": "/LoggerBI/run",
+            "method": "run"
+          },
+          {
+            "route": "/LoggerBI/subParam",
+            "method": "subParam"
+          }
+        ],
+        "post": [
+          {
+            "route": "/LoggerBI/add",
+            "method": "add"
+          },
+          {
+            "route": "/LoggerBI/edit",
+            "method": "edit"
+          },
+          {
+            "route": "/LoggerBI/run",
+            "method": "run"
+          }
+        ]
+    }
+]

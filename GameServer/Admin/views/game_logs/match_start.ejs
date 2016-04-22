@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    $(function () {
+        $('#begin_date').datetimepicker();
+        $('#end_date').datetimepicker();
+    });
+    function goSearch(code){
+        window.location.href = '/game_logs/search?action='+code;
+    }
+</script>
+<div class="message">
+    <%-message%>
+</div>
+
+<form id="form1" name="form1" method="get">
+<div class="pagetitle">
+    请选择要查询的日志类型：<select name="action" id="type" onchange="goSearch(this.value);">
+    <option value="-1">---请选择---</option>
+    <%
+        codes.forEach(function(code){
+    %>
+    <option value="<%-code.code%>"<%if(action==code.code){%> selected="selected"<%}%>><%-code.name%></option>
+    <%
+        });
+    %>
+    </select>
+</div>
+<div class="pagetitle">
+    开始日期：<input type="text" name="begin_date" id="begin_date" value="<%if(opts.begin_date){%><%-opts.begin_date.format('yyyy-MM-dd hh:mm:ss')%><%}%>" /> 结束日期：<input type="text" name="end_date" id="end_date" value="<%if(opts.end_date){%><%-opts.end_date.format('yyyy-MM-dd hh:mm:ss')%><%}%>" />
+</div>
+<div class="pagetitle">
+    轮次ID：<input type="text" name="loop_id" id="loop_id" value="<%-opts.loop_id%>" />
+    局次ID：<input type="text" name="round_id" id="round_id" value="<%-opts.round_id%>" />
+</div>
+<div class="pagetitle">
+    <select name="type" id="type">
+        <option value="1" <%if(opts.type==1){%> selected="selected"<%}%>>帐号</option>
+        <option value="2" <%if(opts.type==2){%> selected="selected"<%}%>>角色ID</option>
+        <option value="3" <%if(opts.type==3){%> selected="selected"<%}%>>昵称</option>
+    </select> <input type="text" name="key" id="key" value="<%-opts.key%>" />
+
+    <select name="match_type" id="match_type">
+        <option value="11" <%if(opts.match_type==11){%> selected="selected"<%}%>>场次名</option>
+        <option value="12" <%if(opts.match_type==12){%> selected="selected"<%}%>>场次ID</option>
+    </select> <input type="text" name="match_key" id="match_key" value="<%-opts.match_key%>" /> <input type="submit" name="submit" id="submit" value="提交" />
+</div>
+</form>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编号</td>
+        <td class="title">动作</td>
+        <td class="title">帐号</td>
+        <td class="title">昵称</td>
+        <td class="title">场次名</td>
+        <td class="title">场次ID</td>
+        <td class="title">轮次ID</td>
+        <td class="title">桌号</td>
+        <td class="title">局次ID</td>
+        <td class="title">比赛分</td>
+        <td class="title">本场名次</td>
+        <td class="title">日期</td>
+    </tr>
+<%
+    results.forEach(function(item, i){
+%>
+<tr>
+    <td class="data"><%-(index+i)%></td>
+    <td class="data"><%-item.action_id%></td>
+    <td class="data"><%-item.account%></td>
+    <td class="data"><%-item.nickname%></td>
+    <td class="data"><%-item.region_name%></td>
+    <td class="data"><%-item.region_id%></td>
+    <td class="data"><%-item.loop_id%></td>
+    <td class="data"><%-item.table_id%></td>
+    <td class="data"><%-item.round_id%></td>
+    <td class="data"><%-item.point%></td>
+    <td class="data"><%-item.rank%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+</tr>
+<%
+});
+%>
+</table>
+<div class="message">
+    <%-url%>
+</div>

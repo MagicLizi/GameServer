@@ -1,0 +1,44 @@
+<style type="text/css">
+    input{width:60px;}
+</style>
+<div class="pagetitle">
+     <a href="/config/regions/index">返回</a> | <a href="/config/regions/deposit/add">添加</a>
+</div>
+<div class="message">
+    <%-message%>
+</div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">删除</td>
+        <td class="title">ID</td>
+        <td class="title">名称</td>
+        <td class="title">准入分</td>
+        <td class="title">准入等级</td>
+        <td class="title">底注</td>
+        <td class="title">服务费</td>
+        <td class="title">开启时间</td>
+        <td class="title">关闭时间</td>
+        <td class="title">是否开启</td>
+
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"> <a href="deposit/edit?id=<%-item.region_id%>"><span class="red">编辑</a></td>
+    <td class="data"><a href="?id=<%-item.region_id%>"><span class="red">删除</a></td>
+    <td class="data"><%-item.region_id%></td>
+     <td class="data"><%-item.name%></td>
+     <td class="data"><%-item.score_limit%></td>
+     <td class="data"><%-item.lvl_limit%></td>
+     <td class="data"><%-item.base_score%></td>
+    <td class="data"><%-item.server_score%></td>
+    <td class="data"><%-item.begin_date%></td>
+    <td class="data"><%-item.end_date%></td>
+    <td class="data"><%-item.is_valid==1?'是':'否'%></td>
+</tr>
+<%
+});
+%>
+</table>

@@ -1,0 +1,64 @@
+<script type="text/javascript" src="js/tree.js"></script>
+<script type="text/javascript">
+    // 导航栏配置文件
+    var outlookbar = new outlook();
+    var t1 = outlookbar.addtitle('编辑器', '系统', 1);
+    <%
+      menus.edit.forEach(function(item){
+    %>
+        <%- "outlookbar.additem('" + item.title + "', t1, '" + item.url + "');"%>
+    <%
+      });
+    %>
+
+    var t2 = outlookbar.addtitle('管理工具', '系统', 2);
+    <%
+      menus.manage_Tools.forEach(function(item){
+    %>
+        <%- "outlookbar.additem('" + item.title + "', t2, '" + item.url + "');"%>
+    <%
+      });
+    %>
+
+    var t3 = outlookbar.addtitle('配置表', '系统', 3);
+    <%
+      menus.config.forEach(function(item){
+    %>
+        <%- "outlookbar.additem('" + item.title + "', t3, '" + item.url + "');"%>
+    <%
+      });
+    %>
+
+    var t4 = outlookbar.addtitle('游戏管理', '系统', 5);
+    <%
+      menus.game.forEach(function(item){
+    %>
+        <%- "outlookbar.additem('" + item.title + "', t4, '" + item.url + "');"%>
+    <%
+      });
+    %>
+
+    var t5 = outlookbar.addtitle('QA工具', '系统', 5);
+    <%
+      menus.qa_tool.forEach(function(item){
+    %>
+    <%- "outlookbar.additem('" + item.title + "', t5, '" + item.url + "');"%>
+    <%
+      });
+    %>
+
+    $(document).ready(function(){
+       initinav('系统')
+    });
+</script>
+<div id="left_content">
+    <div id="user_info">
+        [<a href="/logout" target='_parent'>退出</a>] <strong><%-user.name%></strong><br />版本:V1.0<br />
+    </div>
+    <div id="main_nav">
+        <div id="left_main_nav" >
+        </div>
+        <div id="right_main_nav">
+        </div>
+    </div>
+</div>

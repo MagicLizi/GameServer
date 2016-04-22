@@ -1,0 +1,47 @@
+<div class="pagetitle">
+    <a href="/task/add">添加任务</a>
+</div>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">编辑</td>
+        <td class="title">任务ID</td>
+        <td class="title">排序ID</td>
+        <td class="title">前置任务ID</td>
+        <td class="title">名称</td>
+        <td class="title">任务类型</td>
+        <td class="title">创建日期</td>
+
+    </tr>
+    <%
+    results.forEach(function(item){
+    %>
+    <tr>
+        <td class="data"><a href="/task/edit?id=<%-item.Task_Id%>"><input type="submit" name="submit" id="submit" value="编辑" /></a></td>
+        <td class="data"><%-item.Task_Id%></td>
+        <td class="data"><%-item.Order_Id%></td>
+        <td class="data"><%-item.Pre_Task_Id == 0?'无':item.Pre_Task_Id%></td>
+        <td class="data"><%-item.Name%></td>
+        <td class="data"><%
+            switch (Number(item.Type)){
+            case 1:
+            %><span class="red">循环任务</span><%
+                break;
+            case 2:
+            %><span class="red">主线任务</span><%
+                break;
+                case 3:
+            %><span class="red">月卡任务</span><%
+                break;
+                case 4:
+            %><span class="red"> Vip特权任务</span><%
+                break;
+            }%></td>
+
+
+        <td class="data"><%-item.Create_Date.format('yyyy-MM-dd hh:mm:ss')%></td>
+
+    </tr>
+    <%
+    });
+    %>
+</table>

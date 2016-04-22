@@ -1,0 +1,44 @@
+{"Internal": {
+  "Admin": 5000,
+  "Game": 5001,
+  "Login":5002,
+  "Logger":5003
+},
+  "txInternal": {
+"Admin": 7000,
+"Game": 7001,
+"Login":7002,
+"Logger":7003
+},
+  "QA":{
+    "Admin": 4000,
+    "Game": 4001,
+    "Login":4002,
+    "Logger":4003
+  },
+  "DEV":{
+    "Admin": 8000,
+    "Game": 8001,
+    "Login":8002,
+    "Logger":8003,
+    "ThirdSDK":8010
+  },
+  "DEV1":{
+    "Admin": 9000,
+    "Game": 9001,
+    "Login":9002,
+    "Logger":9003
+  },
+  "OutSide": {
+    "Admin": 3000,
+    "Game": 3001,
+    "Login":3002,
+    "Logger":3003
+  },
+  "DEMO":{
+    "Admin": 10000,
+    "Game": 10001,
+    "Login":10002,
+    "Logger":10003
+  }
+}

@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    $(function () {
+        $('#sd').datetimepicker();
+        $('#ed').datetimepicker();
+    });
+</script>
+<div class="pagetitle">
+    <a href="/log/account">帐号制裁日志</a> | <a href="/log/role">角色制裁日志</a>  | <a href="/log/robot">机器人日志</a> |<a href="/log/item">道具管理日志</a>
+</div>
+<div class="pagetitle">
+<form id="form1" name="form1" method="get">
+     开始日期：<input type="text" name="sd" id="sd" value="<%-begin_date%>" />
+     结束日期：<input type="text" name="ed" id="ed" value="<%-end_date%>" />
+     <input type="submit" name="submit" id="submit" value="提交" />
+</form>
+</div>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+    <tr>
+        <td class="title">ID</td>
+        <td class="title">用户id</td>
+        <td class="title">道具id</td>
+        <td class="title">道具名称</td>
+        <td class="title">道具数量</td>
+        <td class="title">操作人员</td>
+        <td class="title">操作时间</td>
+        <td class="title">操作原因</td>
+    </tr>
+<%
+    results.forEach(function(item){
+%>
+<tr>
+    <td class="data"><%-item.item_sanction_id%></td>
+    <td class="data"><%-item.user_id%></td>
+    <td class="data"><%-item.item_id%></td>
+    <td class="data"><%-item.item_name%></td>
+    <td class="data"><%-item.item_count%></td>
+    <td class="data"><%-item.admin%></td>
+    <td class="data"><%-item.create_date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    <td class="data"><%-item.description%></td>
+</tr>
+<%
+});
+%>
+
+    </td>
+</table>

@@ -1,0 +1,110 @@
+{
+    "regions":[
+        {
+            "region_id": 1,
+            "antes": 10,
+            "min": 1000,
+            "max": 100000
+        },
+        {
+            "region_id": 2,
+            "antes": 100,
+            "min": 100001,
+            "max": 150000
+        }
+    ],
+    "game_modes":[
+        {
+            "mode_id":1,
+            "rate":5,
+            "multiples":{
+                "tiny":40,
+                "streaky_bull":30,
+                "boom":20,
+                "bull0":1,
+                "bull1":1,
+                "bull2":2,
+                "bull3":3,
+                "bull4":4,
+                "bull5":5,
+                "bull6":6,
+                "bull7":7,
+                "bull8":8,
+                "bull9":9,
+                "bull10":10
+            }
+        }
+    ],
+    "exchange" : [
+        {
+            "type" : 1,
+            "is_open" : true,
+            "count" : 10000
+        },
+        {
+            "type" : 2,
+            "is_open" : true,
+            "count" : 20000
+        }
+    ],
+    "change_nickname" : [
+        {
+            "type" : 1,
+            "id" : 10001,
+            "count" : 10
+        }
+    ],
+    "rank_count" : 50,
+    "reset_time" : 1,
+    "Commoditys":[
+        {
+            "id":1,
+            "price":20,
+            "type":2,
+            "des":"狂拽酷炫吊1号",
+            "name":"1号礼包",
+            "comm":100,
+            "dia":100
+        },
+        {
+            "id":999,
+            "price":30,
+            "des":"狂拽酷炫吊2号",
+            "name":"2号礼包",
+            "type":3,
+            "comm":200,
+            "dia":200
+        },
+        {
+            "id":3,
+            "price":30,
+            "des":"狂拽酷炫吊3号",
+            "name":"3号礼包",
+            "type":2,
+            "comm":200,
+            "dia":200
+        },
+        {
+            "id":4,
+            "price":30,
+            "des":"狂拽酷炫吊4号",
+            "name":"4号礼包",
+            "comm":200,
+            "type":1,
+            "dia":200
+        },
+        {
+            "id":5,
+            "price":30,
+            "des":"狂拽酷炫吊5号",
+            "name":"5号礼包",
+            "comm":200,
+            "type":1,
+            "dia":200
+        }
+    ],
+    "CommodityConfig":{
+        "AppStore":[1,999,5,3,4],
+        "Ali":[1,999]
+    }
+}

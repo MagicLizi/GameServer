@@ -1,0 +1,56 @@
+<div class="pagetitle">
+</div>
+<form id="form1" name="form1" method="post">
+
+
+    <table id="BI" width="99%" border="0" cellpadding="0" cellspacing="1" bgcolor="#c0de98" visiable="false">
+        <tr>
+            <td class="title" colspan="2">
+                <%-results.BIList.BI_Name%>
+            </td>
+        </tr>
+        <%
+        results.BIList.BI_ParamList.split(',').forEach(function(item){
+        if(item!=''){%>
+        <tr>
+            <td class="title">
+                <%-item%>
+            </td>
+            <td class="data">
+                <input type="text" name="<%-item%>" id="<%-item%>" value="" />
+            </td>
+        </tr>
+        <%}})%>
+        <tr hidden="hidden">
+            <td >
+                <input type="text" name="BI_Id" id="BI_Id" value="<%-results.BIList.BI_Id%>" >
+                <input type="text" name="BI_Script" id="BI_Script" value="<%-results.BIList.BI_Script%>" >
+            </td><td></td>
+        </tr>
+    </table>
+    <td class="data">
+        <input type="submit" name="add" id="add" value="提交">
+    </td>
+<%if(results.BIData!=null){%>
+    <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr>
+            <%
+            results.BItitles.forEach(function(title){%>
+            <td class="title"><%-title%></td>
+            <%})
+            %>
+        </tr>
+        <%
+        results.BIData.forEach(function(item){
+        %>
+        <tr>
+            <%results.BItitles.forEach(function(t){%>
+            <td class="data"><%-eval('item.'+t)%></td>
+            <%})%>
+        </tr>
+        <%
+        });
+        %>
+    </table>
+    <%}%>
+</form>

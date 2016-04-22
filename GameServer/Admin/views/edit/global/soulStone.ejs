@@ -1,0 +1,48 @@
+<div class="message">
+    <%-message%>
+</div>
+<form id="form1" name="form1" method="post">
+    <td class="data">
+        <input type="submit" name="save" id="save" value="提交">
+    </td>
+
+    <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+        <tr class="title">
+            <td colspan="4">灵魂石配置</td>
+        </tr>
+
+        <tr>
+            <td class="title">
+                英雄星级
+            </td>
+            <td class="title">
+                召唤消耗
+            </td>
+            <td class="title">
+                升星消耗
+            </td>
+            <td class="title">
+                分解获取
+            </td>
+        </tr>
+
+        <%
+        for(var i = 0;i<result.soulStone.length;i++){%>
+        <tr>
+            <td class="data">
+                <%-i%>
+            </td>
+            <td class="data">
+                <input type="text" name="summon<%-i%>" id="summon<%-i%>" value="<%-result.soulStone[i].Summon_Expend%>" />
+            </td>
+            <td class="data">
+                <input type="text" name="upgrade<%-i%>" id="upgrade<%-i%>" value="<%-result.soulStone[i].Upgrade_Expend%>" />
+            </td>
+            <td class="data">
+                <input type="text" name="decompose<%-i%>" id="decompose<%-i%>" value="<%-result.soulStone[i].Decompose%>" />
+            </td>
+        </tr>
+        <%}%>
+
+    </table>
+    </form>

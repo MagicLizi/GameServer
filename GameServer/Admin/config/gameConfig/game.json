@@ -1,0 +1,311 @@
+{"regions": [
+    {
+        "region_id": 2,
+        "mode_id": 2,
+        "name": "押金一区",
+        "description": "进行押金比赛",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1000,
+        "max": 100000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [
+            {
+                "element_id": 10001,
+                "count": 256
+            }
+        ],
+        "deposit": {
+            "chips": 1000,
+            "rate": 2,
+            "free_id": 2,
+            "game_prizes": [
+                {
+                    "times": "1-10",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 1000
+                        }
+                    ],
+                    "description": "1-10"
+                }
+            ],
+            "streak_prizes": {
+                "limit": 80,
+                "config": [
+                    {
+                        "times": "1-10",
+                        "elements": [
+                            {
+                                "element_id": 10001,
+                                "count": 2000
+                            }
+                        ],
+                        "description": "1-10"
+                    }
+                ]
+            }
+        },
+        "detail_description": "游戏场详细描述",
+        "reward_description": ""
+    },
+    {
+        "region_id": 1,
+        "mode_id": 1,
+        "name": "抢庄一场",
+        "description": "抢庄一场",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1,
+        "max": 1000000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [],
+        "detail_description": "游戏场详细描述",
+        "reward_description": "奖励描述"
+    },
+    {
+        "region_id": 11,
+        "mode_id": 3,
+        "name": "比赛模式",
+        "description": "比赛模式",
+        "scene_id": 11,
+        "antes": 20,
+        "min": 1,
+        "max": 10000,
+        "trusteeship": true,
+        "select_help": true,
+        "consume": [
+            {
+                "element_id": 10001,
+                "count": 1002
+            }
+        ],
+        "match": {
+            "begin_date": "2014-05-31T16:00:00.000Z",
+            "end_date": "2014-06-28T16:00:00.000Z",
+            "loop_cycle": 720,
+            "base_chips": 100,
+            "out_chips": 200,
+            "round_count": [10, 20],
+            "min": 10,
+            "max": 200,
+            "out_chips_additions": [
+                [6, 8, 9, 10],
+                [21, 36]
+            ],
+            "antes_additions": [
+                [50, 60],
+                [80]
+            ],
+            "round_promotions": [12, 80],
+            "rewards": [
+                {
+                    "no": "1-10",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 456
+                        }
+                    ]
+                }
+            ],
+            "sign_up_consume": [
+                {
+                    "element_id": 10001,
+                    "count": 500
+                }
+            ]
+        },
+        "detail_description": "游戏场详细描述",
+        "reward_description": "奖励描述"
+    },
+    {
+        "region_id": 5,
+        "mode_id": 2,
+        "name": "押金二区",
+        "description": "押金二区",
+        "detail_description": "押金二区",
+        "scene_id": 1,
+        "antes": 20,
+        "min": 1,
+        "max": 1000000,
+        "trusteeship": true,
+        "select_help": true,
+        "reward_description": "押金二区",
+        "consume": [],
+        "deposit": {
+            "chips": 1000,
+            "rate": 4,
+            "free_id": 2,
+            "game_prizes": [
+                {
+                    "times": "1",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 1000
+                        }
+                    ],
+                    "description": ""
+                },
+                {
+                    "times": "5",
+                    "elements": [
+                        {
+                            "element_id": 10001,
+                            "count": 2000
+                        }
+                    ],
+                    "description": ""
+                }
+            ],
+            "streak_prizes": {
+                "limit": 20,
+                "config": [
+                    {
+                        "times": "2",
+                        "elements": [
+                            {
+                                "element_id": 10001,
+                                "count": 5000
+                            }
+                        ],
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    }
+], "game_modes": [
+    {
+        "mode_id": 1,
+        "rate": 5,
+        "multiples": {
+            "tiny": 40,
+            "streaky_bull": 30,
+            "boom": 20,
+            "bull0": 1,
+            "bull1": 1,
+            "bull2": 2,
+            "bull3": 3,
+            "bull4": 4,
+            "bull5": 5,
+            "bull6": 6,
+            "bull7": 7,
+            "bull8": 8,
+            "bull9": 9,
+            "bull10": 10
+        }
+    },
+    {
+        "mode_id": 2,
+        "rate": 8,
+        "multiples": {
+            "tiny": 40,
+            "streaky_bull": 30,
+            "boom": 20,
+            "bull0": 1,
+            "bull1": 1,
+            "bull2": 2,
+            "bull3": 3,
+            "bull4": 4,
+            "bull5": 5,
+            "bull6": 6,
+            "bull7": 7,
+            "bull8": 8,
+            "bull9": 9,
+            "bull10": 10
+        }
+    },
+    {
+        "mode_id": 3,
+        "rate": 5,
+        "multiples": {
+            "tiny": 40,
+            "streaky_bull": 30,
+            "boom": 20,
+            "bull0": 1,
+            "bull1": 1,
+            "bull2": 2,
+            "bull3": 3,
+            "bull4": 4,
+            "bull5": 5,
+            "bull6": 6,
+            "bull7": 7,
+            "bull8": 8,
+            "bull9": 9,
+            "bull10": 10
+        }
+    }
+], "exchange": [
+    {
+        "type": 1,
+        "is_open": true,
+        "count": 2
+    },
+    {
+        "type": 2,
+        "is_open": false,
+        "count": 2000
+    }
+], "change_nickname": [
+    {
+        "type": 1,
+        "id": 10001,
+        "count": 20
+    }
+], "Commoditys": [
+    {
+        "id": 1,
+        "price": 23,
+        "type": 2,
+        "des": "test1",
+        "name": "名称",
+        "comm": 1,
+        "dia": 1,
+        "sort": 1,
+        "begin_date": "2014-05-21T00:00:00.000Z",
+        "end_date": "2014-05-07T00:00:00.000Z",
+        "is_valid": 0
+    },
+    {
+        "id": 2,
+        "price": 1,
+        "type": 0,
+        "des": "21212",
+        "name": "name",
+        "comm": 1,
+        "dia": 1,
+        "sort": 1,
+        "begin_date": "2014-06-04T16:00:00.000Z",
+        "end_date": "2014-06-28T16:00:00.000Z",
+        "is_valid": 1
+    },
+    {
+        "id": 3,
+        "price": 1,
+        "type": 0,
+        "des": "111",
+        "name": "name",
+        "comm": 1,
+        "dia": 1,
+        "sort": 1,
+        "begin_date": "2014-05-31T16:00:00.000Z",
+        "end_date": "2014-06-28T16:00:00.000Z",
+        "is_valid": 1
+    }
+], "CommodityConfig": {
+    "AppStore": [2, 3],
+    "Ali": [1]
+}, "reset_time": 2, "lose_limit": 50, "win_limit": 60, "player": {
+    "chips": 10000,
+    "diamond": 23
+}, "rank_count": 50, "wait": {
+    "ready": 20,
+    "rush": 1000,
+    "multiple": 100000,
+    "select": 100
+}}

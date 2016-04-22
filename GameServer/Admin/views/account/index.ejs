@@ -1,0 +1,51 @@
+<div class="message">
+  <%-message%>
+</div>
+
+<form id="form1" name="form1" method="post" action="">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td><input type="text" name="name" id="name" /></td>
+        <td><input type="radio" name="type" id="radio" value="1" checked="checked" />
+          帐号
+          <input type="radio" name="type" id="radio3" value="2" />
+          ID
+        </td>
+        <td><input type="submit" name="search" id="search" value="提交" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    <tr>
+      <td>帐号：<%-result.Account%></td>
+      <td>用户ID：<%-result.membership_id%></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>手机号码：<%-result.mobile_phone%></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>注册时间：<%-!result.CreateDateUTC?'':result.CreateDateUTC.format('yyyy-MM-dd hh:mm:ss')%></td>
+      <td>最近登录：</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    <tr>
+      <td><a href="/pay">付费查询</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    <tr>
+      <td><a href="account/sanction?id=<%-result.membership_id%>">帐号制裁</a></td>
+      <td></td>
+      <td></td>
+    </tr>
+</table>
+</form>

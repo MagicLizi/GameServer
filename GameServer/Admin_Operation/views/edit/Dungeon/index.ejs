@@ -1,0 +1,39 @@
+<div class="pagetitle">
+    <a href="/Dungeon/addDungeon">添加章节</a>
+</div>
+<form id="form1" name="form1" method="post">
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#c0de98">
+<tr>
+    <td class="data">
+        <input type="submit" name="submit" id="submit" value="提交章节次序" />
+    </td>
+    <td class="data" colspan = "6">
+    </td>
+</tr>
+
+    <tr>
+        <td class="title">编辑章节</td>
+        <td class="title">章节编号</td>
+        <td class="title">章节次序</td>
+        <td class="title">章节名称</td>
+        <td class="title">章节类型</td>
+        <td class="title">章节开放时间</td>
+        <td class="title">创建日期</td>
+    </tr>
+    <%var i=1;
+    results.forEach(function(item){
+    %>
+    <tr>
+        <td class="data"><a href="/Dungeon/edit?id=<%-item.Dungeon_Id%>">编辑</a></td>
+        <td class="data" ><input name="Dungeon_Id<%-i%>" id="Dungeon_Id<%-i%>" value = "<%-item.Dungeon_Id%>" readonly = "readonly"/></td>
+        <td class="data"><input type="text" name="Dungeon_Order<%-i%>" id="Dungeon_Order<%-i%>" value="<%-item.Dungeon_Order%>" /></td>
+        <td class="data"><%-item.Dungeon_Name%></td>
+        <td class="data"><%if(item.Dungeon_Type == 1){%>PVE<%}else if(item.Dungeon_Type == 3){%>地精宝库<%}%></td>
+        <td class="data"><%-item.Open_Day%></td>
+        <td class="data"><%-item.Create_Date.format('yyyy-MM-dd hh:mm:ss')%></td>
+    </tr>
+    <%
+    i++});
+    %>
+</table>
+    </form>
